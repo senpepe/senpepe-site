@@ -4,7 +4,7 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>SENPEPE — Meme Coin Revolution</title>
-<meta name="description" content="SENPEPE launches Oct 10 @ 7pm on Solana. Join the movement for memes, community, and utility." />
+<meta name="description" content="SENPEPE launches Oct 17 @ 7pm on Solana. Join the movement for memes, community, and utility." />
 
 <!-- Canonical / Theme / Icons -->
 <link rel="canonical" href="https://yourdomain/" />
@@ -20,7 +20,7 @@
 
 <!-- Open Graph / Twitter -->
 <meta property="og:title" content="SENPEPE — Meme Coin Revolution">
-<meta property="og:description" content="Launching Oct 10 @ 7pm on Solana. Join the movement.">
+<meta property="og:description" content="Launching Oct 17 @ 7pm on Solana. Join the movement.">
 <meta property="og:image" content="https://yourdomain/assets/senpepe-main.png">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://yourdomain/">
@@ -32,7 +32,7 @@
   "@context":"https://schema.org",
   "@type":"Event",
   "name":"SENPEPE Launch",
-  "startDate":"2025-10-10T19:00:00",
+  "startDate":"2025-10-17T19:00:00",
   "eventAttendanceMode":"https://schema.org/OnlineEventAttendanceMode",
   "eventStatus":"https://schema.org/EventScheduled",
   "url":"https://yourdomain/",
@@ -670,6 +670,81 @@
       flex-direction: column;
       gap: 15px;
     }
+    
+    /* Additional mobile fixes for better spacing */
+    section {
+      padding: 60px 16px;
+    }
+    
+    .hero {
+      padding: 40px 16px 80px;
+    }
+    
+    .cta {
+      flex-direction: column;
+      align-items: center;
+    }
+    
+    .btn {
+      width: 100%;
+      max-width: 280px;
+      text-align: center;
+    }
+    
+    .countdown {
+      gap: 8px;
+    }
+    
+    .countdown-item {
+      min-width: 60px;
+      padding: 10px;
+    }
+    
+    .countdown-value {
+      font-size: 1.5rem;
+    }
+    
+    .info-stats {
+      grid-template-columns: 1fr;
+      gap: 10px;
+    }
+    
+    .safety {
+      grid-template-columns: 1fr;
+      gap: 10px;
+    }
+    
+    .chip {
+      justify-content: flex-start;
+      padding: 8px 12px;
+    }
+    
+    .how-panel {
+      padding: 20px;
+    }
+    
+    .how-steps li {
+      padding-left: 36px;
+      margin: 10px 0;
+    }
+    
+    .how-steps li::before {
+      width: 26px;
+      height: 26px;
+    }
+    
+    .mission-section {
+      padding: 30px 20px;
+      margin: 30px 16px;
+    }
+    
+    .overlay-swap {
+      width: 90vw;
+    }
+    
+    .rocket-wrap {
+      width: min(40vw, 200px);
+    }
   }
 </style>
 </head>
@@ -877,7 +952,7 @@
       <a class="btn join" href="https://t.me/+CMMZqpTja4U0ZjYx" target="_blank" rel="noopener noreferrer" aria-label="Join our Telegram team">Join Our Team</a>
       <!-- Add-to-Calendar -->
       <a class="btn" download="senpepe_launch.ics" aria-label="Add SENPEPE launch to your calendar"
-         href='data:text/calendar;charset=utf-8,BEGIN:VCALENDAR%0AVERSION:2.0%0ABEGIN:VEVENT%0ADTSTART:20251010T190000%0ADTEND:20251010T200000%0ASUMMARY:SENPEPE%20Launch%0ADESCRIPTION:Join%20the%20SENPEPE%20launch%20on%20Solana%0AEND:VEVENT%0AEND:VCALENDAR'>🗓 Add to Calendar</a>
+         href='data:text/calendar;charset=utf-8,BEGIN:VCALENDAR%0AVERSION:2.0%0ABEGIN:VEVENT%0ADTSTART:20251017T190000%0ADTEND:20251017T200000%0ASUMMARY:SENPEPE%20Launch%0ADESCRIPTION:Join%20the%20SENPEPE%20launch%20on%20Solana%0AEND:VEVENT%0AEND:VCALENDAR'>🗓 Add to Calendar</a>
 
       <!-- Share & Referral -->
       <button class="btn neutral" id="shareBtn">📣 Share on X</button>
@@ -926,7 +1001,7 @@
           <div class="stat" role="listitem">
             <div class="ico">🚀</div>
             <div class="kpi">
-              <div class="kpi-number" id="infoLaunch">Oct 10 · 7:00 PM</div>
+              <div class="kpi-number" id="infoLaunch">Oct 17 · 7:00 PM</div>
               <div class="kpi-label">Launch Status</div>
             </div>
           </div>
@@ -1226,8 +1301,8 @@
       });
   });
 
-  // Fixed launch date: October 10, 2025 at 7:00 PM (local time)
-  const launchDate = new Date('2025-10-10T19:00:00');
+  // Fixed launch date: October 17, 2025 at 7:00 PM (local time)
+  const launchDate = new Date('2025-10-17T19:00:00');
   let priceUpdateInterval = null;
   
   function updateCountdown() {
@@ -1270,7 +1345,7 @@
     const _old=updateCountdown;
     window.updateCountdown=function(){
       _old();
-      const d = new Date('2025-10-10T19:00:00') - Date.now();
+      const d = new Date('2025-10-17T19:00:00') - Date.now();
       dot.style.display = d<=0 ? 'block':'none';
     };
   })();
@@ -1627,7 +1702,7 @@
 
   // Share on X
   document.getElementById('shareBtn')?.addEventListener('click', ()=>{
-    const text = encodeURIComponent("SENPEPE launches Oct 10 @ 7pm on Solana. Join the movement. #SENPEPE");
+    const text = encodeURIComponent("SENPEPE launches Oct 17 @ 7pm on Solana. Join the movement. #SENPEPE");
     const url  = encodeURIComponent(location.href);
     const u = `https://twitter.com/intent/tweet?text=${text}&url=${url}`;
     window.open(u, '_blank', 'noopener,noreferrer');
