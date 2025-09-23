@@ -302,19 +302,24 @@
     #exchanges .wrap{ padding:40px 16px; padding-right:16px; }
     #exchanges .fix-center{ left:0; }
     #exchanges .ex-art{ 
-      position:static; 
+      position: static; 
       right:auto; 
       top:auto; 
       bottom:auto; 
-      margin-top:20px; 
+      margin: 20px auto 0;
+      width: 100%;
+      display: flex;
+      justify-content: center;
       /* Reset transform on mobile */
       transform: none;
     }
     #exchanges .ex-photo{ 
-      width:2in; 
-      height:auto; 
+      width: 2in; 
+      height: auto; 
+      max-width: 300px;
       /* Reset scale on mobile */
       transform: none;
+      transform-origin: center;
     }
   }
 
