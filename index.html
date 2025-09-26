@@ -6,72 +6,9 @@
 <title>SENPEPE — Meme Coin Revolution</title>
 <meta name="description" content="SENPEPE launches Oct 17 @ 7pm on Solana. Join the movement for memes, community, and utility." />
 
-<!-- Canonical / Theme / Icons -->
-<link rel="canonical" href="https://yourdomain/" />
-<meta name="theme-color" content="#ff8c00" />
-<link rel="icon" href="assets/favicon-32.png" sizes="32x32" />
-<link rel="icon" href="assets/favicon-192.png" sizes="192x192" />
-<link rel="apple-touch-icon" href="assets/apple-touch-icon.png" />
-<link rel="manifest" href="/manifest.webmanifest" />
-
 <!-- Performance Hints -->
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preload" as="image" href="assets/senpepe-main.png" imagesrcset="assets/senpepe-main.png 1x" />
-
-<!-- Open Graph / Twitter -->
-<meta property="og:title" content="SENPEPE — Meme Coin Revolution">
-<meta property="og:description" content="Launching Oct 17 @ 7pm on Solana. Join the movement.">
-<meta property="og:image" content="https://yourdomain/assets/senpepe-main.png">
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://yourdomain/">
-<meta name="twitter:card" content="summary_large_image">
-
-<!-- JSON-LD: Launch Event -->
-<script type="application/ld+json">
-{
-  "@context":"https://schema.org",
-  "@type":"Event",
-  "name":"SENPEPE Launch",
-  "startDate":"2025-10-17T19:00:00",
-  "eventAttendanceMode":"https://schema.org/OnlineEventAttendanceMode",
-  "eventStatus":"https://schema.org/EventScheduled",
-  "url":"https://yourdomain/",
-  "organizer":{"@type":"Organization","name":"SENPEPE","url":"https://yourdomain/"}
-}
-</script>
-
-<!-- JSON-LD: Organization -->
-<script type="application/ld+json">
-{
-  "@context":"https://schema.org",
-  "@type":"Organization",
-  "name":"SENPEPE",
-  "url":"https://yourdomain/",
-  "logo":"https://yourdomain/assets/senpepe-main.png",
-  "sameAs":[
-    "https://t.me/+CMMZqpTja4U0ZjYx",
-    "https://www.instagram.com/senpepe.official",
-    "https://www.tiktok.com/@senpepe.official",
-    "https://www.facebook.com/senpepe",
-    "https://discord.gg/s5WUHrQY7h"
-  ]
-}
-</script>
-
-<!-- JSON-LD: WebSite -->
-<script type="application/ld+json">
-{
-  "@context":"https://schema.org",
-  "@type":"WebSite",
-  "url":"https://yourdomain/",
-  "name":"SENPEPE",
-  "potentialAction":{
-    "@type":"SearchAction",
-    "target":"https://yourdomain/?q={search_term_string}",
-    "query-input":"required name=search_term_string"
-  }
-}
-</script>
 
 <style>
   :root{
@@ -1397,6 +1334,208 @@
     color: var(--warm-2);
   }
 
+  /* ===== VERIFICATION MODAL STYLES ===== */
+  .verification-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.9);
+    z-index: 1004;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+  }
+
+  .verification-modal.active {
+    display: flex;
+  }
+
+  .verification-content {
+    background: var(--card);
+    border-radius: 16px;
+    padding: 30px;
+    max-width: 500px;
+    width: 90%;
+    text-align: center;
+    border: 1px solid rgba(255,140,0,0.3);
+    position: relative;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+  }
+
+  .verification-content::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--warm-1), var(--warm-2), var(--warm-3));
+    border-radius: 16px 16px 0 0;
+  }
+
+  .verification-title {
+    background: linear-gradient(90deg, var(--warm-1), var(--warm-2));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 15px;
+    font-size: 1.4rem;
+  }
+
+  .verification-input {
+    width: 100%;
+    padding: 12px 16px;
+    border-radius: 8px;
+    border: 1px solid rgba(255,140,0,0.5);
+    background: rgba(255,255,255,0.1);
+    color: white;
+    font-size: 16px;
+    margin: 15px 0;
+    transition: all 0.3s;
+  }
+
+  .verification-input:focus {
+    outline: none;
+    border-color: var(--warm-1);
+    box-shadow: 0 0 10px rgba(255, 140, 0, 0.5);
+  }
+
+  .verification-hint {
+    font-size: 0.85rem;
+    color: var(--muted);
+    margin-bottom: 15px;
+    text-align: left;
+  }
+
+  .verification-btn {
+    background: linear-gradient(135deg, var(--warm-1), var(--warm-2));
+    color: #2a0c00;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s;
+    width: 100%;
+    margin-top: 10px;
+  }
+
+  .verification-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(255, 140, 0, 0.4);
+  }
+
+  .verification-btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+  }
+
+  .verification-status {
+    margin-top: 15px;
+    padding: 10px;
+    border-radius: 8px;
+    display: none;
+  }
+
+  .verification-status.success {
+    background: rgba(46, 204, 113, 0.2);
+    border: 1px solid rgba(46, 204, 113, 0.5);
+    color: #2ecc71;
+    display: block;
+  }
+
+  .verification-status.error {
+    background: rgba(231, 76, 60, 0.2);
+    border: 1px solid rgba(231, 76, 60, 0.5);
+    color: #e74c3c;
+    display: block;
+  }
+
+  .verification-status.pending {
+    background: rgba(241, 196, 15, 0.2);
+    border: 1px solid rgba(241, 196, 15, 0.5);
+    color: #f1c40f;
+    display: block;
+  }
+
+  .task-verified {
+    position: relative;
+  }
+
+  .task-verified::after {
+    content: '✓ Verified';
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    background: linear-gradient(135deg, var(--warm-1), var(--warm-2));
+    color: #2a0c00;
+    padding: 4px 8px;
+    border-radius: 12px;
+    font-size: 0.7rem;
+    font-weight: bold;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+  }
+
+  .verification-steps {
+    text-align: left;
+    margin: 15px 0;
+    padding-left: 20px;
+  }
+
+  .verification-steps li {
+    margin-bottom: 8px;
+    color: var(--muted);
+  }
+
+  /* Help Community Explanation Styles */
+  .help-explanation {
+    background: rgba(255,255,255,0.05);
+    border-radius: 12px;
+    padding: 20px;
+    margin: 20px 0;
+    border: 1px solid rgba(255,140,0,0.2);
+  }
+
+  .help-options {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 15px;
+    margin: 15px 0;
+  }
+
+  .help-option {
+    background: rgba(255,255,255,0.03);
+    border-radius: 10px;
+    padding: 15px;
+    border: 1px solid rgba(255,140,0,0.1);
+    transition: all 0.3s;
+  }
+
+  .help-option:hover {
+    background: rgba(255,255,255,0.07);
+    transform: translateY(-2px);
+  }
+
+  .help-option h4 {
+    color: var(--warm-2);
+    margin-bottom: 8px;
+  }
+
+  .help-points {
+    display: inline-block;
+    background: rgba(255,255,255,0.1);
+    border-radius: 12px;
+    padding: 3px 8px;
+    font-size: 0.8rem;
+    font-weight: bold;
+    margin-top: 5px;
+  }
+
   /* Mobile-specific fixes */
   @media (max-width:900px){ 
     .how-grid{grid-template-columns:1fr} 
@@ -1833,6 +1972,132 @@
     </div>
   </div>
 
+  <!-- ===== VERIFICATION MODALS ===== -->
+  
+  <!-- Twitter Post Verification Modal -->
+  <div id="twitterVerificationModal" class="verification-modal">
+    <div class="verification-content">
+      <h3 class="verification-title">Verify Twitter Post</h3>
+      <p>Paste the link to your Twitter post to verify and earn points.</p>
+      
+      <div class="verification-hint">
+        <strong>How to get your tweet link:</strong>
+        <ol class="verification-steps">
+          <li>Post about SENPEPE on Twitter</li>
+          <li>Click on the timestamp of your tweet</li>
+          <li>Copy the URL from your browser</li>
+          <li>Paste it here</li>
+        </ol>
+      </div>
+      
+      <input type="url" id="twitterPostUrl" class="verification-input" placeholder="https://twitter.com/yourusername/status/123456789" pattern="https://twitter.com/.*/status/.*">
+      <div id="twitterVerificationStatus" class="verification-status"></div>
+      <button id="verifyTwitterBtn" class="verification-btn">Verify Tweet</button>
+      <button class="verification-btn" onclick="closeVerificationModal('twitterVerificationModal')" style="background: rgba(255,255,255,0.1); color: white; margin-top: 10px;">Cancel</button>
+    </div>
+  </div>
+
+  <!-- Friend Invite Verification Modal -->
+  <div id="inviteVerificationModal" class="verification-modal">
+    <div class="verification-content">
+      <h3 class="verification-title">Verify Friend Invite</h3>
+      <p>Enter your friend's username or wallet address to verify the invitation.</p>
+      
+      <div class="verification-hint">
+        <strong>Requirements for verification:</strong>
+        <ul class="verification-steps">
+          <li>Your friend must join our Telegram/Discord using your referral link</li>
+          <li>They must complete at least one activity (check-in, etc.)</li>
+          <li>Points are awarded once they reach Level 2</li>
+        </ul>
+      </div>
+      
+      <input type="text" id="friendUsername" class="verification-input" placeholder="Friend's username or wallet address">
+      <div id="inviteVerificationStatus" class="verification-status"></div>
+      <button id="verifyInviteBtn" class="verification-btn">Verify Invitation</button>
+      <button class="verification-btn" onclick="closeVerificationModal('inviteVerificationModal')" style="background: rgba(255,255,255,0.1); color: white; margin-top: 10px;">Cancel</button>
+    </div>
+  </div>
+
+  <!-- Create Memories Verification Modal -->
+  <div id="memoryVerificationModal" class="verification-modal">
+    <div class="verification-content">
+      <h3 class="verification-title">Verify Memory Creation</h3>
+      <p>Share the link to your created memory (meme, artwork, story, etc.).</p>
+      
+      <div class="verification-hint">
+        <strong>Accepted memory types:</strong>
+        <ul class="verification-steps">
+          <li>Memes (upload to Imgur, Twitter, etc.)</li>
+          <li>Artwork (DeviantArt, Instagram, etc.)</li>
+          <li>Stories (Medium, personal blog, etc.)</li>
+          <li>Videos (YouTube, TikTok, etc.)</li>
+        </ul>
+        <p>Make sure your content is related to SENPEPE and follows community guidelines.</p>
+      </div>
+      
+      <input type="url" id="memoryUrl" class="verification-input" placeholder="https://example.com/your-memory">
+      <textarea id="memoryDescription" class="verification-input" placeholder="Brief description of your memory" style="height: 80px; resize: vertical;"></textarea>
+      <div id="memoryVerificationStatus" class="verification-status"></div>
+      <button id="verifyMemoryBtn" class="verification-btn">Verify Memory</button>
+      <button class="verification-btn" onclick="closeVerificationModal('memoryVerificationModal')" style="background: rgba(255,255,255,0.1); color: white; margin-top: 10px;">Cancel</button>
+    </div>
+  </div>
+
+  <!-- Help Community Explanation Modal -->
+  <div id="helpCommunityModal" class="verification-modal">
+    <div class="verification-content">
+      <h3 class="verification-title">Help the Community</h3>
+      <p>Earn points by helping other SENPEPE community members!</p>
+      
+      <div class="help-explanation">
+        <h4>What is "Help Community"?</h4>
+        <p>This feature rewards you for contributing to the growth and support of the SENPEPE community. You can help in various ways:</p>
+        
+        <div class="help-options">
+          <div class="help-option">
+            <h4>🤝 Welcome New Members</h4>
+            <p>Greet newcomers in Telegram/Discord and help them get started.</p>
+            <span class="help-points">+5 points per verified welcome</span>
+          </div>
+          
+          <div class="help-option">
+            <h4>💬 Answer Questions</h4>
+            <p>Help others by answering their questions about SENPEPE.</p>
+            <span class="help-points">+10 points per helpful answer</span>
+          </div>
+          
+          <div class="help-option">
+            <h4>🐛 Report Issues</h4>
+            <p>Identify and report bugs or issues with the platform.</p>
+            <span class="help-points">+15 points per valid report</span>
+          </div>
+          
+          <div class="help-option">
+            <h4>💡 Suggest Improvements</h4>
+            <p>Share ideas to improve the SENPEPE ecosystem.</p>
+            <span class="help-points">+20 points for implemented suggestions</span>
+          </div>
+        </div>
+        
+        <p><strong>Verification Process:</strong> Community moderators will verify your helpful actions and award points accordingly.</p>
+      </div>
+      
+      <div class="verification-hint">
+        <strong>How to get started:</strong>
+        <ol class="verification-steps">
+          <li>Join our Telegram/Discord community</li>
+          <li>Start helping other members</li>
+          <li>Moderators will track your contributions</li>
+          <li>Points are awarded daily based on your activity</li>
+        </ol>
+      </div>
+      
+      <button class="verification-btn" onclick="openCommunityChat()">Join Community Chat</button>
+      <button class="verification-btn" onclick="closeVerificationModal('helpCommunityModal')" style="background: rgba(255,255,255,0.1); color: white; margin-top: 10px;">Close</button>
+    </div>
+  </div>
+
   <!-- Accessibility: Skip to content -->
   <a href="#main" style="position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden">Skip to content</a>
 
@@ -1868,7 +2133,7 @@
       <a class="btn join" href="https://t.me/+CMMZqpTja4U0ZjYx" target="_blank" rel="noopener noreferrer" aria-label="Join our Telegram team">Join Our Team</a>
       <!-- Add-to-Calendar -->
       <a class="btn" download="senpepe_launch.ics" aria-label="Add SENPEPE launch to your calendar"
-         href='data:text/calendar;charset=utf-8,BEGIN:VCALENDAR%0AVERSION:2.0%0ABEGIN:VEVENT%0ADTSTART:20251017T190000%0ADTEND:20251017T200000%0ASUMMARY:SENPEPE%20Launch%0ADESCRIPTION:Join%20the%20SENPEPE%20launch%20on%20Solana%0AEND:VEVENT%0AEND:VCALENDAR'>🗓 Add to Calendar</a>
+         href='data:text/calendar;charset=utf-8,BEGIN:VCALENDAR%0AVERSION:2.0%0ABEGIN:VEVENT%0ADTSTART:20241017T190000%0ADTEND:20241017T200000%0ASUMMARY:SENPEPE%20Launch%0ADESCRIPTION:Join%20the%20SENPEPE%20launch%20on%20Solana%0AEND:VEVENT%0AEND:VCALENDAR'>🗓 Add to Calendar</a>
 
       <!-- Share & Referral -->
       <button class="btn neutral" id="shareBtn">📣 Share on X</button>
@@ -2118,10 +2383,9 @@
           <div class="card contract" id="contractCard" aria-live="polite">
             <div>
               <h3 style="margin-bottom:8px">Contract</h3>
-              <div id="ca" class="ca">SENPEPE_CONTRACT_ADDRESS_HERE</div>
+              <div id="ca" class="ca">Contract will be announced at launch</div>
               <div class="actions" style="margin-top:10px">
                 <button class="pill" type="button" id="copyCA">Copy</button>
-                <button class="pill disabled" type="button" id="addWalletBtn" aria-disabled="true">Add to Wallet (Soon)</button>
                 <button class="pill" type="button" id="copyInfo">Copy Info Summary</button>
               </div>
               <div class="note">The verified contract will drop here at launch — always check official links.</div>
@@ -2358,9 +2622,6 @@
   function enableWalletFeatures() {
       // Enable your wallet integration and other features here
       console.log('Terms accepted - enabling features');
-      
-      // Enable "Add to Wallet" button after launch
-      setupWalletIntegration();
   }
   
   // Check if user already accepted terms
@@ -2390,8 +2651,8 @@
       });
   });
 
-  // Fixed launch date: October 17, 2025 at 7:00 PM (local time)
-  const launchDate = new Date('2025-10-17T19:00:00');
+  // Fixed launch date: October 17, 2024 at 7:00 PM (local time) - Fixed to 2024
+  const launchDate = new Date('2024-10-17T19:00:00');
   let priceUpdateInterval = null;
   
   function updateCountdown() {
@@ -2409,11 +2670,6 @@
       
       // Show buy banner
       showBuyBanner();
-      
-      // Enable "Add to Wallet" button with contract (if terms accepted)
-      if (localStorage.getItem('termsAccepted')) {
-          enableAddToWallet();
-      }
       
       return;
     }
@@ -2434,7 +2690,7 @@
     const _old=updateCountdown;
     window.updateCountdown=function(){
       _old();
-      const d = new Date('2025-10-17T19:00:00') - Date.now();
+      const d = new Date('2024-10-17T19:00:00') - Date.now();
       dot.style.display = d<=0 ? 'block':'none';
     };
   })();
@@ -2502,72 +2758,10 @@
     }, 120000);
   }
 
-  // Enable "Add to Wallet" button with contract
-  function enableAddToWallet() {
-    const addWalletBtn = document.getElementById('addWalletBtn');
-    const caElement = document.getElementById('ca');
-    const qrNote = document.getElementById('qrNote');
-    
-    // Set the contract address (replace with actual contract)
-    const contractAddress = 'SENPEPE_CONTRACT_ADDRESS_HERE'; // Replace with actual contract
-    caElement.textContent = contractAddress;
-    
-    // Enable the button
-    addWalletBtn.classList.remove('disabled');
-    addWalletBtn.textContent = 'Add to Wallet';
-    addWalletBtn.setAttribute('aria-disabled', 'false');
-    
-    // Update QR code note
-    qrNote.textContent = 'Scan to add to wallet';
-  }
-
-  // Enhanced wallet integration with simple confirmation
-  function setupWalletIntegration() {
-    const addWalletBtn = document.getElementById('addWalletBtn');
-    if (addWalletBtn) {
-        addWalletBtn.addEventListener('click', function() {
-            // Simple confirmation instead of multiple scary warnings
-            if (confirm('Always verify contract addresses from official sources before adding to your wallet. Continue?')) {
-                // Your wallet integration code here
-                if (window.solana && window.solana.isPhantom) {
-                    // Phantom wallet integration
-                    window.solana.connect().then(() => {
-                        // Add token logic
-                        const contractAddress = document.getElementById('ca').textContent;
-                        window.solana.request({
-                            method: 'addToken',
-                            params: {
-                                tokenAddress: contractAddress,
-                                tokenSymbol: 'SENPEPE',
-                                tokenDecimals: 9,
-                                tokenImage: 'https://yourdomain/assets/senpepe-main.png'
-                            }
-                        }).then(() => {
-                            toast('SENPEPE added to your wallet!');
-                        });
-                    });
-                } else {
-                    // Fallback
-                    const contractAddress = document.getElementById('ca').textContent;
-                    navigator.clipboard.writeText(contractAddress).then(() => {
-                        toast('Contract address copied. Please verify before using.');
-                    });
-                }
-            }
-        });
-    }
-  }
-
   // Auto-population function for launch data
   async function populateLaunchData(contractAddress, tokenData = {}) {
       // Update contract address
       document.getElementById('ca').textContent = contractAddress;
-      
-      // Enable wallet functionality
-      const addWalletBtn = document.getElementById('addWalletBtn');
-      addWalletBtn.classList.remove('disabled');
-      addWalletBtn.setAttribute('aria-disabled', 'false');
-      addWalletBtn.textContent = 'Add to Wallet';
       
       // Generate QR code for contract
       const qrNote = document.querySelector('.qr small');
@@ -2624,19 +2818,283 @@
       console.log('Launch data populated successfully!');
   }
 
-  // ===== AUTO-ENGAGEMENT SYSTEM =====
+  // ===== TASK VERIFICATION SYSTEM =====
   
-  // User identification (in a real app, this would be from authentication)
-  const generateUserId = () => {
-      if (!localStorage.getItem('senpepeUserId')) {
-          localStorage.setItem('senpepeUserId', 'user_' + Math.random().toString(36).substr(2, 9));
+  // Open verification modal functions
+  function openTwitterVerification() {
+    document.getElementById('twitterVerificationModal').classList.add('active');
+  }
+  
+  function openInviteVerification() {
+    document.getElementById('inviteVerificationModal').classList.add('active');
+  }
+  
+  function openMemoryVerification() {
+    document.getElementById('memoryVerificationModal').classList.add('active');
+  }
+  
+  function openHelpCommunity() {
+    document.getElementById('helpCommunityModal').classList.add('active');
+  }
+  
+  function closeVerificationModal(modalId) {
+    document.getElementById(modalId).classList.remove('active');
+    // Reset status messages
+    const statusElements = document.querySelectorAll('.verification-status');
+    statusElements.forEach(el => {
+      el.className = 'verification-status';
+      el.textContent = '';
+    });
+  }
+  
+  function openCommunityChat() {
+    window.open('https://t.me/+CMMZqpTja4U0ZjYx', '_blank');
+    closeVerificationModal('helpCommunityModal');
+  }
+  
+  // Twitter Post Verification
+  document.getElementById('verifyTwitterBtn').addEventListener('click', async function() {
+    const url = document.getElementById('twitterPostUrl').value;
+    const statusElement = document.getElementById('twitterVerificationStatus');
+    
+    // Basic validation
+    if (!url || !url.match(/https:\/\/twitter\.com\/.*\/status\/.*/)) {
+      statusElement.textContent = 'Please enter a valid Twitter URL';
+      statusElement.className = 'verification-status error';
+      return;
+    }
+    
+    // Show pending status
+    statusElement.textContent = 'Verifying your tweet...';
+    statusElement.className = 'verification-status pending';
+    this.disabled = true;
+    
+    try {
+      // Simulate API call to verify tweet
+      const verificationResult = await verifyTwitterPost(url);
+      
+      if (verificationResult.success) {
+        statusElement.textContent = 'Tweet verified successfully! +25 points awarded.';
+        statusElement.className = 'verification-status success';
+        
+        // Award points
+        awardPoints(25, 'Twitter Post');
+        
+        // Mark task as completed
+        markTaskAsVerified('shareSocial');
+        
+        // Close modal after 2 seconds
+        setTimeout(() => {
+          closeVerificationModal('twitterVerificationModal');
+        }, 2000);
+      } else {
+        statusElement.textContent = verificationResult.message || 'Could not verify tweet. Please make sure it is public and contains #SENPEPE.';
+        statusElement.className = 'verification-status error';
       }
-      return localStorage.getItem('senpepeUserId');
-  };
+    } catch (error) {
+      statusElement.textContent = 'Verification failed. Please try again later.';
+      statusElement.className = 'verification-status error';
+    }
+    
+    this.disabled = false;
+  });
   
-  const userId = generateUserId();
+  // Friend Invite Verification
+  document.getElementById('verifyInviteBtn').addEventListener('click', async function() {
+    const friendId = document.getElementById('friendUsername').value;
+    const statusElement = document.getElementById('inviteVerificationStatus');
+    
+    if (!friendId) {
+      statusElement.textContent = 'Please enter your friend\'s username or wallet address';
+      statusElement.className = 'verification-status error';
+      return;
+    }
+    
+    statusElement.textContent = 'Verifying invitation...';
+    statusElement.className = 'verification-status pending';
+    this.disabled = true;
+    
+    try {
+      const verificationResult = await verifyFriendInvite(friendId);
+      
+      if (verificationResult.success) {
+        statusElement.textContent = 'Invitation verified! +50 points awarded.';
+        statusElement.className = 'verification-status success';
+        
+        awardPoints(50, 'Friend Invite');
+        markTaskAsVerified('inviteFriend');
+        
+        setTimeout(() => {
+          closeVerificationModal('inviteVerificationModal');
+        }, 2000);
+      } else {
+        statusElement.textContent = verificationResult.message || 'Could not verify invitation. Your friend may need to complete more activities.';
+        statusElement.className = 'verification-status error';
+      }
+    } catch (error) {
+      statusElement.textContent = 'Verification failed. Please try again later.';
+      statusElement.className = 'verification-status error';
+    }
+    
+    this.disabled = false;
+  });
   
-  // Engagement Data Structure
+  // Memory Creation Verification
+  document.getElementById('verifyMemoryBtn').addEventListener('click', async function() {
+    const url = document.getElementById('memoryUrl').value;
+    const description = document.getElementById('memoryDescription').value;
+    const statusElement = document.getElementById('memoryVerificationStatus');
+    
+    if (!url || !description) {
+      statusElement.textContent = 'Please provide both a URL and description';
+      statusElement.className = 'verification-status error';
+      return;
+    }
+    
+    statusElement.textContent = 'Verifying your memory...';
+    statusElement.className = 'verification-status pending';
+    this.disabled = true;
+    
+    try {
+      const verificationResult = await verifyMemoryCreation(url, description);
+      
+      if (verificationResult.success) {
+        statusElement.textContent = 'Memory verified! +30 points awarded.';
+        statusElement.className = 'verification-status success';
+        
+        awardPoints(30, 'Memory Creation');
+        markTaskAsVerified('createMeme');
+        
+        setTimeout(() => {
+          closeVerificationModal('memoryVerificationModal');
+        }, 2000);
+      } else {
+        statusElement.textContent = verificationResult.message || 'Could not verify memory. Please make sure it is publicly accessible.';
+        statusElement.className = 'verification-status error';
+      }
+    } catch (error) {
+      statusElement.textContent = 'Verification failed. Please try again later.';
+      statusElement.className = 'verification-status error';
+    }
+    
+    this.disabled = false;
+  });
+  
+  // Verification API Functions (Simulated)
+  async function verifyTwitterPost(url) {
+    // In a real implementation, this would call your backend API
+    // For now, we'll simulate API call with random success
+    return new Promise(resolve => {
+      setTimeout(() => {
+        // Simulate 80% success rate
+        const success = Math.random() > 0.2;
+        
+        if (success) {
+          resolve({
+            success: true,
+            message: 'Tweet verified successfully'
+          });
+        } else {
+          resolve({
+            success: false,
+            message: 'Tweet not found or does not meet requirements'
+          });
+        }
+      }, 1500);
+    });
+  }
+  
+  async function verifyFriendInvite(friendId) {
+    return new Promise(resolve => {
+      setTimeout(() => {
+        // Check if friend exists and has sufficient activity
+        const friendData = engagementData.users[friendId] || null;
+        const success = friendData && friendData.level >= 2;
+        
+        if (success) {
+          resolve({
+            success: true,
+            message: 'Friend invitation verified'
+          });
+        } else {
+          resolve({
+            success: false,
+            message: 'Friend not found or has insufficient activity'
+          });
+        }
+      }, 1500);
+    });
+  }
+  
+  async function verifyMemoryCreation(url, description) {
+    return new Promise(resolve => {
+      setTimeout(() => {
+        // Basic URL validation
+        const isValidUrl = url.startsWith('http') && 
+                          (url.includes('imgur') || 
+                           url.includes('twitter') || 
+                           url.includes('instagram') || 
+                           url.includes('youtube') || 
+                           url.includes('tiktok') ||
+                           url.includes('deviantart') ||
+                           url.includes('medium'));
+        
+        const success = isValidUrl && description.length >= 10;
+        
+        if (success) {
+          resolve({
+            success: true,
+            message: 'Memory verified successfully'
+          });
+        } else {
+          resolve({
+            success: false,
+            message: 'Invalid URL or description too short'
+          });
+        }
+      }, 1500);
+    });
+  }
+  
+  // Points Awarding Function
+  function awardPoints(points, reason) {
+    const userData = getUserData();
+    userData.points += points;
+    
+    // Update UI
+    document.getElementById('userPoints').textContent = userData.points;
+    
+    // Check for level up
+    checkLevelUp(userData);
+    
+    // Save data
+    saveEngagementData();
+    
+    // Show notification
+    showNotification(`+${points} points for ${reason}!`, 'success');
+    
+    // Log activity
+    logActivity(`Earned ${points} points for ${reason}`);
+  }
+  
+  // Mark Task as Verified
+  function markTaskAsVerified(taskId) {
+    const button = document.getElementById(taskId);
+    button.classList.add('task-verified');
+    button.disabled = true;
+    
+    // Update task completion in user data
+    const userData = getUserData();
+    if (!userData.completedTasks) userData.completedTasks = [];
+    if (!userData.completedTasks.includes(taskId)) {
+      userData.completedTasks.push(taskId);
+      saveEngagementData();
+    }
+  }
+  
+  // ===== AUTO-ENGAGEMENT SYSTEM (Updated with Task Verification) =====
+  
+  // Engagement Data Structure (Local fallback)
   let engagementData = {
       users: {},
       community: {
@@ -2666,7 +3124,10 @@
       }
   };
   
-  // Initialize user data if not exists
+  // User ID for local storage
+  let userId = 'user_' + Math.random().toString(36).substr(2, 9);
+  
+  // Initialize user data if not exists (local fallback)
   if (!localStorage.getItem('senpepeEngagementData')) {
       const initialUserData = {
           points: 0,
@@ -2686,1262 +3147,151 @@
               points: 0,
               lastTweet: null
           },
-          completedChallenges: [],
-          memeSubmissions: []
+          completedTasks: []
       };
       
       engagementData.users[userId] = initialUserData;
       saveEngagementData();
   } else {
       engagementData = JSON.parse(localStorage.getItem('senpepeEngagementData'));
-      
-      // Initialize user if doesn't exist (new session)
-      if (!engagementData.users[userId]) {
-          engagementData.users[userId] = {
-              points: 0,
-              level: 1,
-              badges: [],
-              dailyCheckins: 0,
-              invites: 0,
-              memesCreated: 0,
-              helpsGiven: 0,
-              lastCheckin: null,
-              joinDate: new Date().toISOString(),
-              username: null,
-              twitterStats: {
-                  tweets: 0,
-                  retweets: 0,
-                  likes: 0,
-                  points: 0,
-                  lastTweet: null
-              },
-              completedChallenges: [],
-              memeSubmissions: []
-          };
-      }
   }
   
-  // Badge Definitions
-  const badgeDefinitions = [
-      { id: 'first-checkin', name: 'First Timer', icon: '🚀', points: 10, condition: (user) => user.dailyCheckins >= 1 },
-      { id: 'consistent-5', name: '5-Day Streak', icon: '🔥', points: 25, condition: (user) => user.dailyCheckins >= 5 },
-      { id: 'consistent-30', name: 'Month Veteran', icon: '📅', points: 100, condition: (user) => user.dailyCheckins >= 30 },
-      { id: 'social-butterfly', name: 'Social Butterfly', icon: '📢', points: 50, condition: (user) => user.shares >= 10 },
-      { id: 'meme-master', name: 'Meme Master', icon: '🎨', points: 75, condition: (user) => user.memesCreated >= 5 },
-      { id: 'community-builder', name: 'Community Builder', icon: '👥', points: 100, condition: (user) => user.invites >= 3 },
-      { id: 'helper', name: 'Community Helper', icon: '💝', points: 50, condition: (user) => user.helpsGiven >= 5 },
-      { id: 'level-5', name: 'Level 5 Achiever', icon: '⭐', points: 0, condition: (user) => user.level >= 5 },
-      { id: 'level-10', name: 'Level 10 Legend', icon: '🏆', points: 0, condition: (user) => user.level >= 10 },
-      { id: 'twitter-warrior', name: 'Twitter Warrior', icon: '🐦', points: 50, condition: (user) => user.twitterStats.tweets >= 10 },
-      { id: 'meme-contest-winner', name: 'Meme Contest Winner', icon: '🏆', points: 100, condition: (user) => user.memeSubmissions.some(s => s.rank <= 3) }
-  ];
-  
-  // Activity Types with Point Values
-  const activityPoints = {
-      dailyCheckin: 10,
-      shareSocial: 5,
-      createMeme: 15,
-      inviteFriend: 25,
-      helpCommunity: 20,
-      badgeEarned: 0, // Special case - points awarded separately
-      challengeCompleted: 30,
-      tweetAbout: 25,
-      retweet: 10,
-      likeTweet: 5,
-      memeSubmitted: 20
-  };
-  
-  // Daily Challenges Definitions
-  const dailyChallenges = [
-      {
-          id: 'daily-checkin',
-          title: 'Daily Check-in',
-          description: 'Visit the site and check in for the day',
-          reward: 10,
-          icon: '✅',
-          action: 'checkin'
-      },
-      {
-          id: 'share-twitter',
-          title: 'Share on Twitter',
-          description: 'Tweet about SENPEPE using our template',
-          reward: 25,
-          icon: '🐦',
-          action: 'shareTwitter'
-      },
-      {
-          id: 'invite-friend',
-          title: 'Invite a Friend',
-          description: 'Share your referral link with a friend',
-          reward: 30,
-          icon: '👥',
-          action: 'inviteFriend'
-      },
-      {
-          id: 'create-meme',
-          title: 'Create a Meme',
-          description: 'Design and submit a SENPEPE meme',
-          reward: 20,
-          icon: '🎨',
-          action: 'createMeme'
-      },
-      {
-          id: 'join-telegram',
-          title: 'Join Telegram',
-          description: 'Join our official Telegram community',
-          reward: 15,
-          icon: '✈️',
-          action: 'joinTelegram'
-      }
-  ];
-  
-  // ===== DAILY CHALLENGES SYSTEM =====
-  function initializeDailyChallenges() {
-      updateDailyChallenges();
-      
-      // Set up challenge actions
-      document.getElementById('challengesContainer').addEventListener('click', function(e) {
-          if (e.target.classList.contains('challenge-action')) {
-              const challengeId = e.target.dataset.challengeId;
-              completeChallenge(challengeId);
-          }
+  // Update Engagement System Initialization
+  function initializeEngagementSystem() {
+    // Load user data
+    const userData = getUserData();
+    
+    // Update UI with user data
+    document.getElementById('userPoints').textContent = userData.points || 0;
+    document.getElementById('userLevel').textContent = userData.level || 1;
+    
+    // Calculate level progress
+    const pointsToNextLevel = (userData.level || 1) * 100;
+    const currentLevelPoints = (userData.points || 0) % 100;
+    const progressPercent = (currentLevelPoints / pointsToNextLevel) * 100;
+    
+    document.getElementById('levelProgress').style.width = `${progressPercent}%`;
+    document.getElementById('levelText').textContent = 
+      `Level ${userData.level || 1}: ${currentLevelPoints}/${pointsToNextLevel} points to next level`;
+    
+    // Mark completed tasks as verified
+    if (userData.completedTasks) {
+      userData.completedTasks.forEach(taskId => {
+        const button = document.getElementById(taskId);
+        if (button) {
+          button.classList.add('task-verified');
+          button.disabled = true;
+        }
       });
-  }
-  
-  function updateDailyChallenges() {
-      const challengesContainer = document.getElementById('challengesContainer');
-      const user = engagementData.users[userId];
+    }
+    
+    // Add event listeners for verification modals
+    document.getElementById('shareSocial').addEventListener('click', openTwitterVerification);
+    document.getElementById('inviteFriend').addEventListener('click', openInviteVerification);
+    document.getElementById('createMeme').addEventListener('click', openMemoryVerification);
+    document.getElementById('helpCommunity').addEventListener('click', openHelpCommunity);
+    
+    // Daily check-in (no verification needed)
+    document.getElementById('dailyCheckin').addEventListener('click', function() {
       const today = new Date().toDateString();
+      const userData = getUserData();
       
-      // Reset challenges if it's a new day
-      if (user.lastChallengeReset !== today) {
-          user.completedChallenges = [];
-          user.lastChallengeReset = today;
-          saveEngagementData();
+      if (userData.lastCheckin === today) {
+        showNotification('You have already checked in today!', 'info');
+        return;
       }
       
-      challengesContainer.innerHTML = '';
-      
-      dailyChallenges.forEach(challenge => {
-          const isCompleted = user.completedChallenges.includes(challenge.id);
-          const challengeElement = document.createElement('div');
-          challengeElement.className = `challenge-card ${isCompleted ? 'completed' : ''}`;
-          
-          challengeElement.innerHTML = `
-              <div class="challenge-title">
-                  <span>${challenge.icon}</span>
-                  <span>${challenge.title}</span>
-                  <span class="challenge-reward">+${challenge.reward} pts</span>
-              </div>
-              <p>${challenge.description}</p>
-              <div class="challenge-progress">
-                  <div class="challenge-progress-fill" style="width: ${isCompleted ? '100%' : '0%'}"></div>
-              </div>
-              <button class="challenge-action ${isCompleted ? 'completed' : ''}" data-challenge-id="${challenge.id}">
-                  ${isCompleted ? 'Completed' : 'Start Challenge'}
-              </button>
-          `;
-          
-          challengesContainer.appendChild(challengeElement);
-      });
-  }
-  
-  function completeChallenge(challengeId) {
-      const user = engagementData.users[userId];
-      const challenge = dailyChallenges.find(c => c.id === challengeId);
-      
-      if (!challenge || user.completedChallenges.includes(challengeId)) {
-          return;
-      }
-      
-      // Mark challenge as completed
-      user.completedChallenges.push(challengeId);
-      
-      // Award points
-      awardPoints(challenge.reward, 'challengeCompleted');
-      
-      // Add activity
-      addActivity('challengeCompleted', `Completed challenge: ${challenge.title}`);
-      
-      // Show notification
-      showNotification(`🎯 Challenge completed! +${challenge.reward} points`);
-      
-      // Update UI
-      updateDailyChallenges();
-      saveEngagementData();
-  }
-  
-  // ===== MEME CONTEST SYSTEM =====
-  function initializeMemeContest() {
-      // Set up meme contest if not active
-      if (!engagementData.memeContest.active) {
-          // Start a new contest that ends in 7 days
-          const endDate = new Date();
-          endDate.setDate(endDate.getDate() + 7);
-          
-          engagementData.memeContest = {
-              active: true,
-              submissions: [],
-              endDate: endDate.toISOString()
-          };
-          saveEngagementData();
-      }
-      
-      updateMemeContestTimer();
-      updateMemeSubmissions();
-      
-      // Set up submission form
-      document.getElementById('submitMeme').addEventListener('click', submitMeme);
-  }
-  
-  function updateMemeContestTimer() {
-      const timerElement = document.getElementById('contestTimer');
-      const endDate = new Date(engagementData.memeContest.endDate);
-      const now = new Date();
-      const diff = endDate - now;
-      
-      if (diff <= 0) {
-          timerElement.textContent = 'Contest ended! Winners announced soon.';
-          engagementData.memeContest.active = false;
-          saveEngagementData();
-          return;
-      }
-      
-      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-      const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-      
-      timerElement.textContent = `Contest ends in: ${days} days, ${hours} hours`;
-  }
-  
-  function updateMemeSubmissions() {
-      const gallery = document.getElementById('submissionGallery');
-      const submissions = engagementData.memeContest.submissions;
-      
-      gallery.innerHTML = '';
-      
-      if (submissions.length === 0) {
-          gallery.innerHTML = '<div style="text-align: center; padding: 20px; color: var(--muted);">No submissions yet. Be the first to submit a meme!</div>';
-          return;
-      }
-      
-      // Sort by votes (descending)
-      submissions.sort((a, b) => b.votes - a.votes);
-      
-      submissions.forEach((submission, index) => {
-          const submissionElement = document.createElement('div');
-          submissionElement.className = 'submission-item';
-          
-          submissionElement.innerHTML = `
-              <img src="${submission.imageUrl}" alt="Meme submission" class="submission-image" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTIwIiBoZWlnaHQ9IjEyMCIgdmlld0JveD0iMCAwIDEyMCAxMjAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHJlY3Qgd2lkdGg9IjEyMCIgaGVpZ2h0PSIxMjAiIGZpbGw9IiMzMzMiLz48dGV4dCB4PSI2MCIgeT0iNjAiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxNCIgZmlsbD0iI2ZmZiIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZG9taW5hbnQtYmFzZWxpbmU9Im1pZGRsZSI+TUVNRQ=='">
-              <div class="submission-info">
-                  <div class="submission-author">${submission.author}</div>
-                  <div class="submission-votes">
-                      <button class="vote-btn" data-submission-id="${submission.id}">👍</button>
-                      <span>${submission.votes} votes</span>
-                  </div>
-              </div>
-          `;
-          
-          gallery.appendChild(submissionElement);
-      });
-      
-      // Set up vote buttons
-      document.querySelectorAll('.vote-btn').forEach(btn => {
-          btn.addEventListener('click', function() {
-              const submissionId = this.dataset.submissionId;
-              voteForMeme(submissionId);
-          });
-      });
-  }
-  
-  function submitMeme() {
-      const titleInput = document.getElementById('memeTitle');
-      const urlInput = document.getElementById('memeUrl');
-      const title = titleInput.value.trim();
-      const url = urlInput.value.trim();
-      
-      if (!title || !url) {
-          showNotification('Please provide both a title and image URL');
-          return;
-      }
-      
-      const user = engagementData.users[userId];
-      const submission = {
-          id: 'meme_' + Date.now(),
-          title: title,
-          imageUrl: url,
-          author: user.username || 'Anonymous',
-          votes: 0,
-          timestamp: new Date().toISOString()
-      };
-      
-      engagementData.memeContest.submissions.push(submission);
-      user.memeSubmissions.push(submission.id);
-      
-      // Award points for submission
-      awardPoints(activityPoints.memeSubmitted, 'memeSubmitted');
-      addActivity('memeSubmitted', 'Submitted a meme to contest');
-      
-      // Clear form
-      titleInput.value = '';
-      urlInput.value = '';
-      
-      // Update UI
-      updateMemeSubmissions();
-      saveEngagementData();
-      
-      showNotification('🎨 Meme submitted! +20 points');
-  }
-  
-  function voteForMeme(submissionId) {
-      const submission = engagementData.memeContest.submissions.find(s => s.id === submissionId);
-      
-      if (!submission) {
-          return;
-      }
-      
-      submission.votes += 1;
-      updateMemeSubmissions();
-      saveEngagementData();
-      
-      showNotification('👍 Vote counted!');
-  }
-  
-  // ===== TWITTER SHILLING LEADERBOARD SYSTEM =====
-  function initializeTwitterShilling() {
-      updateTwitterLeaderboard();
-      updateTwitterStats();
-      
-      // Set up Twitter actions
-      document.getElementById('tweetNow').addEventListener('click', tweetAboutSENPEPE);
-      document.getElementById('copyTweet').addEventListener('click', copyTweetTemplate);
-      document.getElementById('verifyTweet').addEventListener('click', verifyTweet);
-  }
-  
-  function updateTwitterLeaderboard() {
-      const leaderboardContainer = document.getElementById('shillingLeaderboard');
-      const users = Object.values(engagementData.users);
-      
-      // Sort users by Twitter points (descending)
-      const sortedUsers = users
-          .filter(user => user.twitterStats && user.twitterStats.points > 0)
-          .sort((a, b) => b.twitterStats.points - a.twitterStats.points)
-          .slice(0, 10); // Top 10 only
-      
-      leaderboardContainer.innerHTML = '';
-      
-      if (sortedUsers.length === 0) {
-          leaderboardContainer.innerHTML = '<div style="text-align: center; padding: 20px; color: var(--muted);">No Twitter shilling activity yet. Be the first to tweet!</div>';
-          return;
-      }
-      
-      sortedUsers.forEach((user, index) => {
-          const leaderboardItem = document.createElement('div');
-          leaderboardItem.className = 'shilling-item';
-          
-          leaderboardItem.innerHTML = `
-              <div class="shilling-rank">#${index + 1}</div>
-              <div class="shilling-user">
-                  <div class="shilling-avatar">${user.username ? user.username.charAt(0).toUpperCase() : 'U'}</div>
-                  <div class="shilling-details">
-                      <div class="shilling-name">${user.username || 'Anonymous'}</div>
-                      <div class="shilling-stats">
-                          <span>Tweets: ${user.twitterStats.tweets}</span>
-                          <span>Likes: ${user.twitterStats.likes}</span>
-                          <span>Retweets: ${user.twitterStats.retweets}</span>
-                      </div>
-                  </div>
-              </div>
-              <div class="shilling-score">${user.twitterStats.points} pts</div>
-          `;
-          
-          leaderboardContainer.appendChild(leaderboardItem);
-      });
-  }
-  
-  function updateTwitterStats() {
-      const user = engagementData.users[userId];
-      const twitterStats = user.twitterStats || { tweets: 0, retweets: 0, likes: 0, points: 0 };
-      
-      document.getElementById('tweetsCount').textContent = twitterStats.tweets;
-      document.getElementById('retweetsCount').textContent = twitterStats.retweets;
-      document.getElementById('likesCount').textContent = twitterStats.likes;
-      document.getElementById('shillingPoints').textContent = twitterStats.points;
-  }
-  
-  function tweetAboutSENPEPE() {
-      const templates = engagementData.twitterShilling.tweetTemplates;
-      const randomTemplate = templates[Math.floor(Math.random() * templates.length)];
-      const tweetUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(randomTemplate)}&url=${encodeURIComponent(window.location.href)}&hashtags=SENPEPE,Solana,MemeCoin`;
-      
-      window.open(tweetUrl, '_blank', 'width=600,height=400');
-      
-      // Simulate tweet submission (in real app, this would be verified via API)
-      setTimeout(() => {
-          const user = engagementData.users[userId];
-          user.twitterStats.tweets += 1;
-          user.twitterStats.points += activityPoints.tweetAbout;
-          user.twitterStats.lastTweet = new Date().toISOString();
-          
-          saveEngagementData();
-          updateTwitterLeaderboard();
-          updateTwitterStats();
-          awardPoints(activityPoints.tweetAbout, 'tweetAbout');
-          showNotification('🐦 Tweet posted! +25 points');
-          addActivity('tweetPosted', 'Posted about SENPEPE on Twitter');
-      }, 2000);
-  }
-  
-  function copyTweetTemplate() {
-      const templates = engagementData.twitterShilling.tweetTemplates;
-      const randomTemplate = templates[Math.floor(Math.random() * templates.length)];
-      
-      navigator.clipboard.writeText(randomTemplate).then(() => {
-          showNotification('📋 Tweet template copied to clipboard!');
-      });
-  }
-  
-  function verifyTweet() {
-      // In a real app, this would verify via Twitter API
-      // For demo purposes, we'll simulate verification
-      const user = engagementData.users[userId];
-      
-      // Simulate finding a recent tweet
-      const foundTweet = Math.random() > 0.3; // 70% chance of "finding" a tweet
-      
-      if (foundTweet) {
-          user.twitterStats.retweets += Math.floor(Math.random() * 3) + 1;
-          user.twitterStats.likes += Math.floor(Math.random() * 10) + 5;
-          user.twitterStats.points += activityPoints.retweet + activityPoints.likeTweet;
-          
-          saveEngagementData();
-          updateTwitterLeaderboard();
-          updateTwitterStats();
-          awardPoints(activityPoints.retweet + activityPoints.likeTweet, 'verifyTweet');
-          showNotification('✅ Tweet verified! Found engagement on your tweet');
-      } else {
-          showNotification('❌ No recent SENPEPE tweets found. Try posting one!');
-      }
-  }
-
-  // ===== USERNAME SYSTEM =====
-  function setupUsernameSystem() {
-      const user = engagementData.users[userId];
-      
-      if (!user.username) {
-          // Show username modal after a short delay
-          setTimeout(() => {
-              document.getElementById('usernameModal').style.display = 'flex';
-              generateUsernameSuggestion();
-          }, 1500);
-      }
-  }
-  
-  function generateUsernameSuggestion() {
-      const suggestions = [
-          "SENPEPE_Warrior", "PepeLegend", "CryptoSenpai", "MemeMaster",
-          "SolanaStar", "MoonHunter", "DiamondHands", "AlphaTrader",
-          "DegenKing", "NFTCollector", "Web3Warrior", "BlockchainBuddy"
-      ];
-      const suggestion = suggestions[Math.floor(Math.random() * suggestions.length)];
-      document.getElementById('usernameSuggestion').textContent = suggestion;
-      return suggestion;
-  }
-  
-  function useSuggestion() {
-      const suggestion = document.getElementById('usernameSuggestion').textContent;
-      document.getElementById('usernameInput').value = suggestion;
-  }
-  
-  function saveUsername() {
-      const input = document.getElementById('usernameInput');
-      const error = document.getElementById('usernameError');
-      const username = input.value.trim();
-      
-      // Validation
-      if (username.length < 3) {
-          error.textContent = "Username too short (min 3 characters)";
-          error.style.display = 'block';
-          return;
-      }
-      
-      if (username.length > 15) {
-          error.textContent = "Username too long (max 15 characters)";
-          error.style.display = 'block';
-          return;
-      }
-      
-      if (!/^[a-zA-Z0-9_]+$/.test(username)) {
-          error.textContent = "Only letters, numbers, and underscores allowed";
-          error.style.display = 'block';
-          return;
-      }
-      
-      // Save username
-      engagementData.users[userId].username = username;
-      saveEngagementData();
-      
-      // Hide modal and show welcome
-      document.getElementById('usernameModal').style.display = 'none';
-      showNotification(`👋 Welcome to the community, ${username}!`);
-      
-      // Update display
-      updateUsernameDisplay();
-  }
-  
-  function updateUsernameDisplay() {
-      // This will be handled in the leaderboard update to show actual username
-  }
-  
-  // ===== CORE FUNCTIONS =====
-  
-  function saveEngagementData() {
-      localStorage.setItem('senpepeEngagementData', JSON.stringify(engagementData));
-  }
-  
-  function addActivity(type, details) {
-      const activity = {
-          type,
-          details,
-          timestamp: new Date().toISOString(),
-          userId: userId
-      };
-      
-      engagementData.activities.unshift(activity);
-      
-      // Keep only last 50 activities for performance
-      if (engagementData.activities.length > 50) {
-          engagementData.activities = engagementData.activities.slice(0, 50);
-      }
-      
-      saveEngagementData();
-      updateActivityFeed();
-  }
-  
-  function awardPoints(points, activityType) {
-      const user = engagementData.users[userId];
-      user.points += points;
-      
-      // Check for level up
-      const newLevel = calculateLevel(user.points);
-      if (newLevel > user.level) {
-          user.level = newLevel;
-          showNotification(`🎉 Level Up! You're now Level ${newLevel}`);
-          addActivity('levelUp', `Reached level ${newLevel}`);
-      }
-      
-      // Check for new badges
-      checkForNewBadges();
-      
-      saveEngagementData();
-      updateUI();
-  }
-  
-  function calculateLevel(points) {
-      return Math.floor(Math.sqrt(points / 10)) + 1;
-  }
-  
-  function pointsToNextLevel(points, level) {
-      const pointsForNextLevel = Math.pow(level, 2) * 10;
-      return pointsForNextLevel - points;
-  }
-  
-  function checkForNewBadges() {
-      const user = engagementData.users[userId];
-      const earnedBadges = user.badges || [];
-      
-      badgeDefinitions.forEach(badge => {
-          if (!earnedBadges.includes(badge.id) && badge.condition(user)) {
-              earnedBadges.push(badge.id);
-              if (badge.points > 0) {
-                  awardPoints(badge.points, 'badgeEarned');
-              }
-              showNotification(`🏆 Badge Unlocked: ${badge.name}`);
-              addActivity('badgeEarned', `Unlocked badge: ${badge.name}`);
-          }
-      });
-      
-      user.badges = earnedBadges;
-      saveEngagementData();
-      updateBadges();
-  }
-  
-  function showNotification(message) {
-      const notification = document.getElementById('notification');
-      const notificationText = document.getElementById('notificationText');
-      
-      notificationText.textContent = message;
-      notification.classList.add('show');
-      
-      setTimeout(() => {
-          notification.classList.remove('show');
-      }, 3000);
-  }
-  
-  // ===== AUTOMATED ENGAGEMENT TRIGGERS =====
-  
-  function automatedEngagementTriggers() {
-      const user = engagementData.users[userId];
-      
-      // Daily check-in bonus (automated if user visits the site)
-      const today = new Date().toDateString();
-      if (user.lastCheckin !== today) {
-          // This would be called on page load, simulating an automatic check-in
-          user.dailyCheckins = (user.dailyCheckins || 0) + 1;
-          user.lastCheckin = today;
-          
-          awardPoints(activityPoints.dailyCheckin, 'dailyCheckin');
-          addActivity('dailyCheckin', 'Automatic daily check-in');
-          
-          // Special bonus for consecutive days
-          if (user.dailyCheckins % 7 === 0) {
-              awardPoints(50, 'weeklyBonus');
-              showNotification('🎊 7-day streak bonus! +50 points');
-          }
-      }
-      
-      // Simulate community growth (in a real app, this would come from your backend)
-      engagementData.community.totalMembers += Math.floor(Math.random() * 5);
-      engagementData.community.totalPoints += Math.floor(Math.random() * 100);
-      
-      saveEngagementData();
-  }
-  
-  // ===== UI UPDATE FUNCTIONS =====
-  
-  function updateUI() {
-      const user = engagementData.users[userId];
-      
-      // Update stats
-      document.getElementById('userPoints').textContent = user.points;
-      document.getElementById('userLevel').textContent = user.level;
-      document.getElementById('userRank').textContent = `#${calculateUserRank()}`;
-      
-      // Calculate days active
-      const joinDate = new Date(user.joinDate);
-      const today = new Date();
-      const daysActive = Math.floor((today - joinDate) / (1000 * 60 * 60 * 24)) + 1;
-      document.getElementById('daysActive').textContent = daysActive;
-      
-      // Update level progress
-      const pointsToNext = pointsToNextLevel(user.points, user.level);
-      const pointsForCurrentLevel = Math.pow(user.level - 1, 2) * 10;
-      const pointsInLevel = user.points - pointsForCurrentLevel;
-      const levelPointsNeeded = Math.pow(user.level, 2) * 10 - pointsForCurrentLevel;
-      const progressPercent = (pointsInLevel / levelPointsNeeded) * 100;
-      
-      document.getElementById('levelProgress').style.width = `${progressPercent}%`;
-      document.getElementById('levelText').textContent = 
-          `Level ${user.level}: ${pointsInLevel}/${levelPointsNeeded} points to next level`;
-  }
-  
-  function calculateUserRank() {
-      // In a real app, this would calculate against all users
-      // For demo, we'll simulate a rank based on points
-      const user = engagementData.users[userId];
-      return Math.max(1, Math.floor(engagementData.community.totalMembers * (1 - user.points / engagementData.community.totalPoints)));
-  }
-  
-  function updateBadges() {
-      const badgeContainer = document.getElementById('badgeContainer');
-      const user = engagementData.users[userId];
-      const earnedBadges = user.badges || [];
-      
-      badgeContainer.innerHTML = '';
-      
-      badgeDefinitions.forEach(badge => {
-          const isUnlocked = earnedBadges.includes(badge.id);
-          const badgeElement = document.createElement('div');
-          badgeElement.className = `badge ${isUnlocked ? 'unlocked' : ''}`;
-          badgeElement.innerHTML = `
-              <div class="badge-icon">${badge.icon}</div>
-              <div>${badge.name}</div>
-              ${isUnlocked ? '<small>Unlocked!</small>' : '<small>Locked</small>'}
-          `;
-          badgeContainer.appendChild(badgeElement);
-      });
-  }
-  
-  function updateLeaderboard() {
-      const leaderboardContainer = document.getElementById('leaderboardContainer');
-      const user = engagementData.users[userId];
-      const currentUsername = user.username || "SENPEPE_Fan";
-      
-      // In a real app, this would fetch from a server
-      // For demo, we'll create simulated users
-      const simulatedUsers = [
-          { name: 'CryptoMaster', points: 1250 },
-          { name: 'MemeQueen', points: 980 },
-          { name: 'DegenTrader', points: 875 },
-          { name: 'SenpaiFan', points: 760 },
-          { name: 'BlockchainBuddy', points: 650 },
-          { name: currentUsername, points: user.points }, // Use actual username
-          { name: 'NFTCollector', points: 520 },
-          { name: 'MoonMission', points: 480 },
-          { name: 'DiamondHands', points: 420 },
-          { name: 'AlphaHunter', points: 390 }
-      ];
-      
-      // Sort by points (descending)
-      simulatedUsers.sort((a, b) => b.points - a.points);
-      
-      leaderboardContainer.innerHTML = '';
-      
-      simulatedUsers.forEach((user, index) => {
-          const isCurrentUser = user.name === currentUsername;
-          const rankElement = document.createElement('div');
-          rankElement.className = 'leaderboard-item';
-          rankElement.innerHTML = `
-              <div>
-                  <span class="leaderboard-rank">#${index + 1}</span>
-                  ${isCurrentUser ? '<strong>' + user.name + '</strong>' : user.name}
-              </div>
-              <div>${user.points} pts</div>
-          `;
-          
-          if (isCurrentUser) {
-              rankElement.style.background = 'rgba(255, 140, 0, 0.2)';
-          }
-          
-          leaderboardContainer.appendChild(rankElement);
-      });
-  }
-  
-  function updateMilestones() {
-      const milestoneContainer = document.getElementById('milestoneContainer');
-      const communityPoints = engagementData.community.totalPoints;
-      
-      milestoneContainer.innerHTML = '';
-      
-      engagementData.community.milestones.forEach(milestone => {
-          const isReached = communityPoints >= milestone.goal;
-          const milestoneElement = document.createElement('div');
-          milestoneElement.className = `milestone ${isReached ? 'reached' : ''}`;
-          milestoneElement.innerHTML = `
-              <div style="font-size: 1.5rem;">${isReached ? '✅' : '🎯'}</div>
-              <div><strong>${milestone.goal.toLocaleString()} Points</strong></div>
-              <div>${milestone.reward}</div>
-              <div><small>${isReached ? 'Reached!' : `${(communityPoints / milestone.goal * 100).toFixed(1)}% complete`}</small></div>
-          `;
-          milestoneContainer.appendChild(milestoneElement);
-      });
-  }
-  
-  function updateSpotlight() {
-      const spotlightContainer = document.getElementById('spotlightContainer');
-      
-      // In a real app, this would rotate between top contributors
-      // For demo, we'll feature a simulated user
-      const featuredUsers = [
-          { name: 'CryptoMaster', role: 'Top Contributor', achievement: '1,250 points earned' },
-          { name: 'MemeQueen', role: 'Content Creator', achievement: 'Created 45 memes' },
-          { name: 'CommunityBuilder', role: 'Community Helper', achievement: 'Helped 22 new members' }
-      ];
-      
-      // Rotate featured user daily
-      const dayOfYear = Math.floor((new Date() - new Date(new Date().getFullYear(), 0, 0)) / (1000 * 60 * 60 * 24));
-      const featuredUser = featuredUsers[dayOfYear % featuredUsers.length];
-      
-      spotlightContainer.innerHTML = `
-          <div class="spotlight-avatar">${featuredUser.name.charAt(0)}</div>
-          <h3>${featuredUser.name}</h3>
-          <p><strong>${featuredUser.role}</strong></p>
-          <p>${featuredUser.achievement}</p>
-          <p><small>Featured Community Member</small></p>
-      `;
-  }
-  
-  function updateActivityFeed() {
-      const activityFeed = document.getElementById('activityFeed');
-      const activities = engagementData.activities.slice(0, 10); // Show last 10 activities
-      
-      activityFeed.innerHTML = '';
-      
-      if (activities.length === 0) {
-          activityFeed.innerHTML = '<div class="activity-item">No recent activity</div>';
-          return;
-      }
-      
-      activities.forEach(activity => {
-          const activityElement = document.createElement('div');
-          activityElement.className = 'activity-item';
-          
-          let activityText = '';
-          switch(activity.type) {
-              case 'dailyCheckin':
-                  activityText = '✅ Completed daily check-in';
-                  break;
-              case 'shareSocial':
-                  activityText = '📢 Shared on social media';
-                  break;
-              case 'createMeme':
-                  activityText = '🎨 Created a new meme';
-                  break;
-              case 'inviteFriend':
-                  activityText = '👥 Invited a friend to join';
-                  break;
-              case 'helpCommunity':
-                  activityText = '💝 Helped a community member';
-                  break;
-              case 'badgeEarned':
-                  activityText = `🏆 Earned badge: ${activity.details}`;
-                  break;
-              case 'levelUp':
-                  activityText = `⭐ ${activity.details}`;
-                  break;
-              case 'challengeCompleted':
-                  activityText = `🎯 ${activity.details}`;
-                  break;
-              case 'memeSubmitted':
-                  activityText = '🎨 Submitted a meme to contest';
-                  break;
-              case 'tweetPosted':
-                  activityText = '🐦 Posted about SENPEPE on Twitter';
-                  break;
-              default:
-                  activityText = `Activity: ${activity.type}`;
-          }
-          
-          const timeAgo = getTimeAgo(activity.timestamp);
-          
-          activityElement.innerHTML = `
-              <div>${activityText}</div>
-              <div class="timestamp">${timeAgo}</div>
-          `;
-          
-          activityFeed.appendChild(activityElement);
-      });
-  }
-  
-  function getTimeAgo(timestamp) {
-      const now = new Date();
-      const activityTime = new Date(timestamp);
-      const diffMs = now - activityTime;
-      const diffMins = Math.floor(diffMs / (1000 * 60));
-      const diffHours = Math.floor(diffMs / (1000 * 60 * 60));
-      const diffDays = Math.floor(diffMs / (1000 * 60 * 60 * 24));
-      
-      if (diffMins < 1) return 'Just now';
-      if (diffMins < 60) return `${diffMins} min ago`;
-      if (diffHours < 24) return `${diffHours} hr ago`;
-      return `${diffDays} day${diffDays > 1 ? 's' : ''} ago`;
-  }
-  
-  // ===== EVENT LISTENERS =====
-  
-  document.getElementById('dailyCheckin').addEventListener('click', function() {
-      const user = engagementData.users[userId];
-      const today = new Date().toDateString();
-      
-      if (user.lastCheckin === today) {
-          showNotification('You already checked in today!');
-          return;
-      }
-      
-      user.dailyCheckins = (user.dailyCheckins || 0) + 1;
-      user.lastCheckin = today;
-      
-      awardPoints(activityPoints.dailyCheckin, 'dailyCheckin');
-      addActivity('dailyCheckin', 'Manual daily check-in');
+      userData.lastCheckin = today;
+      userData.dailyCheckins = (userData.dailyCheckins || 0) + 1;
+      
+      awardPoints(10, 'Daily Check-in');
+      markTaskAsVerified('dailyCheckin');
       
       // Special bonus for consecutive days
-      if (user.dailyCheckins % 7 === 0) {
-          awardPoints(50, 'weeklyBonus');
-          showNotification('🎊 7-day streak bonus! +50 points');
+      if (userData.dailyCheckins % 7 === 0) {
+        awardPoints(25, '7-Day Streak Bonus');
+        showNotification('7-day streak bonus! +25 points!', 'success');
       }
-  });
-  
-  document.getElementById('shareSocial').addEventListener('click', function() {
-      awardPoints(activityPoints.shareSocial, 'shareSocial');
-      addActivity('shareSocial', 'Shared SENPEPE on social media');
-      
-      // Simulate opening share dialog
-      const shareUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent("Check out SENPEPE - the hottest meme coin on Solana! #SENPEPE")}`;
-      window.open(shareUrl, '_blank', 'width=600,height=400');
-  });
-  
-  document.getElementById('createMeme').addEventListener('click', function() {
-      awardPoints(activityPoints.createMeme, 'createMeme');
-      addActivity('createMeme', 'Created a SENPEPE meme');
-      
-      const user = engagementData.users[userId];
-      user.memesCreated = (user.memesCreated || 0) + 1;
-      
-      showNotification('🎨 Meme created! +15 points');
-  });
-  
-  document.getElementById('inviteFriend').addEventListener('click', function() {
-      awardPoints(activityPoints.inviteFriend, 'inviteFriend');
-      addActivity('inviteFriend', 'Invited a friend to join');
-      
-      const user = engagementData.users[userId];
-      user.invites = (user.invites || 0) + 1;
-      
-      // Generate referral link
-      const refLink = `${window.location.origin}?ref=${userId}`;
-      navigator.clipboard.writeText(refLink).then(() => {
-          showNotification('👥 Referral link copied! +25 points');
-      });
-  });
-  
-  document.getElementById('helpCommunity').addEventListener('click', function() {
-      awardPoints(activityPoints.helpCommunity, 'helpCommunity');
-      addActivity('helpCommunity', 'Helped a community member');
-      
-      const user = engagementData.users[userId];
-      user.helpsGiven = (user.helpsGiven || 0) + 1;
-      
-      showNotification('💝 Community help rewarded! +20 points');
-  });
-  
-  // ===== INITIALIZATION =====
-  
-  function initializeEngagementSystem() {
-      // Setup username system first
-      setupUsernameSystem();
-      
-      // Run automated triggers
-      automatedEngagementTriggers();
-      
-      // Initialize new systems
-      initializeDailyChallenges();
-      initializeMemeContest();
-      initializeTwitterShilling();
-      
-      // Update all UI components
-      updateUI();
-      updateBadges();
-      updateLeaderboard();
-      updateMilestones();
-      updateSpotlight();
-      updateActivityFeed();
-      updateDailyChallenges();
-      updateTwitterStats();
-      
-      // Set up periodic updates
-      setInterval(automatedEngagementTriggers, 30000); // Update every 30 seconds
-      setInterval(updateSpotlight, 3600000); // Rotate spotlight hourly
-      setInterval(updateMemeContestTimer, 60000); // Update contest timer every minute
-      
-      console.log('SENPEPE Auto-Engagement System initialized');
+    });
   }
   
-  // Start the system when page loads
-  window.addEventListener('DOMContentLoaded', initializeEngagementSystem);
-
-  // Helper: check if local asset exists (tries png/jpg/jpeg/webp)
-  function imgExists(url){return new Promise(r=>{const i=new Image();i.onload=()=>r(true);i.onerror=()=>r(false);i.src=url;});}
-  async function resolveLocal(base){const exts=['.png','.jpg','.jpeg','.webp'];for(const ext of exts){const u=`assets/${base}${ext}`;if(await imgExists(u))return u;}return null;}
-
-  /* HERO stars + streaks */
-  (function(){
-    const warp = document.getElementById('warp');
-    for(let i=0;i<120;i++){
-      const s=document.createElement('div'); s.className='star';
-      s.style.top=(Math.random()*100)+'%'; s.style.left=(Math.random()*100)+'%';
-      s.style.animationDelay=(Math.random()*0.9)+'s'; warp.appendChild(s);
+  // Helper function to get user data
+  function getUserData() {
+    if (!engagementData.users[userId]) {
+      engagementData.users[userId] = {
+        points: 0,
+        level: 1,
+        badges: [],
+        dailyCheckins: 0,
+        invites: 0,
+        memesCreated: 0,
+        helpsGiven: 0,
+        lastCheckin: null,
+        joinDate: new Date().toISOString(),
+        username: null,
+        completedTasks: []
+      };
     }
-    const N=48; for(let i=0;i<N;i++){ const d=document.createElement('div'); d.className='streak';
-      d.style.setProperty('--top',(Math.random()*100)+'%');
-      d.style.setProperty('--left',(Math.random()*120+20)+'vw');
-      d.style.setProperty('--len',(80+Math.random()*120)+'px');
-      d.style.setProperty('--angle',(-10-Math.random()*8)+'deg');
-      d.style.setProperty('--dur',(8+Math.random()*8).toFixed(2)+'s');
-      d.style.setProperty('--delay',(Math.random()*8).toFixed(2)+'s');
-      d.style.setProperty('--op',(0.4+Math.random()*0.5).toFixed(2));
-      warp.appendChild(d);
-    }
-  })();
-
-  /* ===== PLANET BELT ===== */
-  (async function(){
-    const field = document.getElementById('planetField'); if(!field) return;
-
-    const order = [
-      {key:'jupiter', w:240, pos:'bottom', y:'12%'},
-      {key:'mars',    w:170, pos:'top',    y:'22%'},
-      {key:'earth',   w:200, pos:'bottom', y:'18%'},
-      {key:'moon',    w:150, pos:'top',    y:'9%'},
-      {key:'pluto',   w:140, pos:'bottom', y:'26%'},
-      // Saturn removed from here
-      {key:'sun',     w:260, pos:'bottom', y:'6%',  sun:true}
-    ];
-
-    const urls={}; for(const p of order){ urls[p.key]=await resolveLocal(p.key); }
-    const xs=['3%','19%','31%','46%','68%','95%']; // Removed one position
-
-    const track=document.createElement('div'); track.className='belt-track'; track.style.setProperty('--beltDur','26s');
-    const g1=document.createElement('div'); g1.className='belt-group g1';
-    const g2=document.createElement('div'); g2.className='belt-group g2';
-
-    function fill(group){
-      order.forEach((p,idx)=>{
-        const u=urls[p.key]; if(!u) return;
-        const el=document.createElement('div');
-        el.className='planet-img'+(p.ringed?' ringed':'')+(p.sun?' sun':'');
-        el.style.setProperty('--w', p.w+'px');
-        el.style.left = xs[idx];
-        if(p.pos==='top'){ el.style.top=p.y; } else { el.style.bottom=p.y; }
-        el.style.backgroundImage=`url('${u}')`;
-        group.appendChild(el);
-      });
-    }
-    fill(g1); fill(g2);
-    track.appendChild(g1); track.appendChild(g2);
-    field.innerHTML=''; field.appendChild(track);
-  })();
-
-  /* HOW stars */
-  (function(){
-    const sky=document.getElementById('howSky');
-    for(let i=0;i<110;i++){
-      const s=document.createElement('div'); s.className='how-star';
-      s.style.top=(Math.random()*100)+'%'; s.style.left=(Math.random()*100)+'%';
-      s.style.animationDelay=(Math.random()*1)+'s'; sky.appendChild(s);
-    }
-  })();
-
-  /* CTA stars */
-  (function(){
-    const sky=document.getElementById('ctaSky');
-    for(let i=0;i<120;i++){
-      const s=document.createElement('div'); s.className='cta-star';
-      s.style.top=(Math.random()*100)+'%'; s.style.left=(Math.random()*100)+'%';
-      s.style.animationDelay=(Math.random()*1)+'s'; sky.appendChild(s);
-    }
-  })();
-
-  /* Rocket embers — always on */
-  (function(){
-    const wrap = document.getElementById('rocketWrap'); if(!wrap) return;
-    function addEmber(){
-      const e=document.createElement('span'); e.className='ember';
-      const sizes=[12,14,16,18,20,22,24]; const s=sizes[Math.floor(Math.random()*sizes.length)];
-      e.style.setProperty('--w',s+'px'); e.style.setProperty('--h',s+'px');
-      e.style.setProperty('--ey',(Math.floor(Math.random()*40)-20)+'px');
-      e.style.setProperty('--s',(0.7+Math.random()*0.6).toFixed(2));
-      e.style.setProperty('--t',(2.2+Math.random()*2.2).toFixed(2)+'s');
-      e.style.setProperty('--d',(Math.random()*1.8).toFixed(2)+'s');
-      wrap.appendChild(e); setTimeout(()=>{e.remove()},6000);
-    }
-    for(let i=0;i<16;i++) addEmber(); setInterval(addEmber,220);
-  })();
-
-  /* Money/bags rails in HOW — always on */
-  (async function(){
-    const bag  = await resolveLocal('moneybag1') || 'https://img.icons8.com/3d-fluency/188/money-bag.png';
-    const cash = await resolveLocal('cash1')      || 'https://img.icons8.com/3d-fluency/188/stack-of-money.png';
-
-    const how = document.getElementById('how');
-    const railL = document.getElementById('howRailL');
-    const railR = document.getElementById('howRailR');
-
-    const items=[];
-    function make(rail, src){
-      const d=document.createElement('div');
-      d.className='sideItem';
-      d.style.setProperty('--w', (110 + Math.floor(Math.random()*120)) + 'px');
-      d.dataset.offset = (Math.random()*120 - 60).toFixed(0);
-      d.dataset.speed  = (0.85 + Math.random()*0.5).toFixed(2);
-      const img=document.createElement('img'); img.src=src; img.alt='';
-      d.appendChild(img); rail.appendChild(d); items.push(d);
-    }
-    for(let i=0;i<5;i++){ make(railL, cash); make(railR, bag); }
-
-    function clamp(n,min,max){return Math.max(min, Math.min(max,n));}
-    function updatePositions(){
-      const rect = how.getBoundingClientRect();
-      const vh = window.innerHeight;
-      const inView = rect.top < vh*0.9 && rect.bottom > vh*0.1;
-      const span = rect.height + vh*0.8;
-      const t = clamp((vh*0.9 - rect.top) / span, 0, 1);
-      for(const el of items){
-        el.style.opacity = inView ? .95 : 0;
-        const off = parseFloat(el.dataset.offset);
-        const spd = parseFloat(el.dataset.speed);
-        const y   = -120 + t * (span*0.85) * spd + off;
-        el.style.transform = `translate(-50%, ${y}px)`;
-      }
-    }
-    const io = new IntersectionObserver(()=>updatePositions(), {threshold:[0,0.1,0.5,0.9,1]});
-    io.observe(how);
-    window.addEventListener('scroll', ()=>requestAnimationFrame(updatePositions), {passive:true});
-    window.addEventListener('resize', updatePositions);
-    updatePositions();
-  })();
-
-  /* Meme overlay click-cycler — auto-rotates */
-  (async function(){
-    const stage=document.getElementById('meme-stage');
-    const overlay=document.getElementById('overlaySwap');
-    const keys=['sen1','sen2','sen3','sen4','sen5','sen6','sen7','sen8','sen9','sen10'];
-    const urls=[]; for(const k of keys){ const u=await resolveLocal(k); if(u) urls.push(u); }
-    const bg=await resolveLocal('sen6'); if(bg) stage.style.backgroundImage=`url('${bg}')`;
-    let idx=0, timer=null;
-    function setImg(i){ if(!urls.length) return; idx=(i+urls.length)%urls.length; overlay.src=urls[idx]; }
-    function startAuto(){ stopAuto(); timer=setInterval(()=>setImg(idx+1), 4500); }
-    function stopAuto(){ if(timer){ clearInterval(timer); timer=null; } }
-    overlay.addEventListener('click',()=>{ setImg(idx+1); startAuto(); });
-    stage.addEventListener('mouseenter', stopAuto);
-    stage.addEventListener('mouseleave', startAuto);
-    setImg(0); startAuto();
-  })();
-
-  // Toast helper
-  function toast(msg){
-    const t=document.getElementById('toast');
-    t.textContent=msg; t.classList.add('show');
-    setTimeout(()=>t.classList.remove('show'), 2200);
+    return engagementData.users[userId];
   }
-
-  // Share on X
-  document.getElementById('shareBtn')?.addEventListener('click', ()=>{
-    const text = encodeURIComponent("SENPEPE launches Oct 17 @ 7pm on Solana. Join the movement. #SENPEPE");
-    const url  = encodeURIComponent(location.href);
-    const u = `https://twitter.com/intent/tweet?text=${text}&url=${url}`;
-    window.open(u, '_blank', 'noopener,noreferrer');
-  });
-
-  // Referral link: add ?ref=<random-7>
-  document.getElementById('refBtn')?.addEventListener('click', ()=>{
-    const id = Math.random().toString(36).slice(2,9);
-    const base = location.origin + location.pathname;
-    const ref = `${base}?ref=${id}`;
-    navigator.clipboard.writeText(ref).then(()=>toast("Referral link copied"));
-  });
-
-  // Append ref to outbound links if present
-  (function(){
-    const params = new URLSearchParams(location.search);
-    const ref = params.get('ref');
-    if(!ref) return;
-    document.querySelectorAll('[data-append-ref]').forEach(a=>{
-      try{
-        const u=new URL(a.href);
-        u.searchParams.set('ref', ref);
-        a.href=u.toString();
-      }catch{}
-    });
-  })();
-
-  // Email validation (front-end only)
-  document.getElementById('mailForm')?.addEventListener('submit', (e)=>{
-    e.preventDefault();
-    const input = document.getElementById('mailInput');
-    const err = document.getElementById('errorMessage');
-    const val = input.value.trim();
-    const ok = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(val);
-    if(!ok){
-      input.classList.add('error'); err.classList.add('show'); return;
+  
+  // Save engagement data to localStorage
+  function saveEngagementData() {
+    localStorage.setItem('senpepeEngagementData', JSON.stringify(engagementData));
+  }
+  
+  // Check for level up
+  function checkLevelUp(userData) {
+    const pointsNeeded = userData.level * 100;
+    if (userData.points >= pointsNeeded) {
+      userData.level += 1;
+      document.getElementById('userLevel').textContent = userData.level;
+      
+      showNotification(`Level Up! You are now Level ${userData.level}`, 'success');
+      
+      // Award level up bonus
+      awardPoints(50, 'Level Up Bonus');
     }
-    input.classList.remove('error'); err.classList.remove('show');
-    toast("You're on the list!");
-    // TODO: hook to your backend or service (e.g., Formspree, Brevo, Mailchimp)
-    input.value='';
-  });
-
-  // Copy Contract + Info
-  document.getElementById('copyCA')?.addEventListener('click', ()=>{
-    const ca = document.getElementById('ca')?.textContent?.trim() || '';
-    navigator.clipboard.writeText(ca).then(()=>toast("Contract copied"));
-  });
-  document.getElementById('copyInfo')?.addEventListener('click', ()=>{
-    const lines = [
-      "Ticker: SENPEPE",
-      "Network: Solana",
-      `Launch: ${document.getElementById('infoLaunch')?.textContent || 'TBA'}`,
-      `Contract: ${document.getElementById('ca')?.textContent || 'TBA'}`,
-      `Price (USD): ${document.getElementById('priceUsd')?.textContent || 'TBA'}`,
-      `Price (SOL): ${document.getElementById('priceSol')?.textContent || 'TBA'}`,
-      `Market Cap: ${document.getElementById('mcap')?.textContent || 'TBA'}`,
-      `Liquidity: ${document.getElementById('liq')?.textContent || 'TBA'}`,
-      `Total Supply: ${document.getElementById('supply')?.textContent || 'TBA'}`,
-      `Tax: ${document.getElementById('tax')?.textContent || 'TBA'}`
-    ];
-    navigator.clipboard.writeText(lines.join("\n")).then(()=>toast("Info summary copied"));
-  });
-
-  // Corner flip assets (optional if present)
-  (async function(){
-    const L = document.getElementById('solLeft');
-    const R = document.getElementById('solRight');
-    const u = await resolveLocal('sol1');
-    if(u){ L.src = u; R.src = u; } else { L.remove(); R.remove(); }
-  })();
-
-  // Diamond shower that forms SENPEPE on click of How to Buy
-  (async function(){
-    const buy = document.getElementById('buyBtn'); if(!buy) return;
-    const diamondURL = await resolveLocal('diamond') || 'https://img.icons8.com/emoji/96/gem-stone.png';
-
-    function makeLayer(){
-      let layer = document.querySelector('.diamond-layer');
-      if(!layer){ layer = document.createElement('div'); layer.className='diamond-layer'; document.body.appendChild(layer); }
-      layer.innerHTML=''; return layer;
+  }
+  
+  // Show notification
+  function showNotification(message, type = 'info') {
+    const notification = document.getElementById('notification');
+    const notificationText = document.getElementById('notificationText');
+    
+    notificationText.textContent = message;
+    notification.className = `notification ${type}`;
+    notification.classList.add('show');
+    
+    setTimeout(() => {
+      notification.classList.remove('show');
+    }, 3000);
+  }
+  
+  // Log activity
+  function logActivity(activity) {
+    const activityFeed = document.getElementById('activityFeed');
+    const timestamp = new Date().toLocaleTimeString();
+    
+    const activityItem = document.createElement('div');
+    activityItem.className = 'activity-item';
+    activityItem.innerHTML = `
+      <div>${activity}</div>
+      <div class="timestamp">${timestamp}</div>
+    `;
+    
+    activityFeed.insertBefore(activityItem, activityFeed.firstChild);
+    
+    // Keep only last 10 activities
+    if (activityFeed.children.length > 10) {
+      activityFeed.removeChild(activityFeed.lastChild);
     }
-
-    function samplePoints(text){
-      const w = window.innerWidth, h = Math.max(180, Math.min(360, Math.floor(window.innerHeight*0.35)));
-      const cvs=document.createElement('canvas'); cvs.width=w; cvs.height=h; const ctx=cvs.getContext('2d');
-      const fontSize = Math.min(260, Math.max(110, Math.floor(w*0.18)));
-      ctx.clearRect(0,0,w,h); ctx.fillStyle='#fff'; ctx.textBaseline='middle'; ctx.textAlign='center';
-      ctx.font = `900 ${fontSize}px system-ui,Segoe UI,Arial`;
-      ctx.fillText(text, w/2, h/2);
-      const img=ctx.getImageData(0,0,w,h).data;
-      const step = Math.max(8, Math.floor(fontSize/18));
-      const pts=[];
-      for(let y=0;y<h;y+=step){ for(let x=0;x<w;x+=step){ const i=((y*w)+x)*4+3; if(img[i]>160) pts.push({x,y}); }}
-      return {pts,w,h};
-    }
-
-    function showerAndForm(text){
-      const layer = makeLayer();
-      const {pts,w,h} = samplePoints(text);
-      const needed = Math.min(pts.length, 260);
-      const pick = []; for(let i=0;i<needed;i++){ pick.push(pts[Math.floor(i*(pts.length/needed))]); }
-
-      const diamonds=[];
-      for(let i=0;i<needed;i++){
-        const d=document.createElement('img'); d.src=diamondURL; d.className='diamond';
-        const size = 22 + Math.random()*18; d.style.setProperty('--w', size+'px'); d.style.setProperty('--s', (0.85+Math.random()*0.4).toFixed(2));
-        const sx = Math.random()*window.innerWidth; const sy = -40 - Math.random()*120;
-        d.style.setProperty('--x', sx+'px'); d.style.setProperty('--y', sy+'px');
-        layer.appendChild(d); diamonds.push(d);
-      }
-
-      requestAnimationFrame(()=>{ diamonds.forEach((d)=>{ const fy = window.innerHeight*0.2 + Math.random()*window.innerHeight*0.6; d.style.opacity=1; d.style.setProperty('--y', fy+'px');}); });
-      setTimeout(()=>{
-        const topOffset = Math.round(window.innerHeight*0.25);
-        diamonds.forEach((d,idx)=>{
-          const p = pick[idx % pick.length];
-          const tx = p.x; const ty = topOffset + p.y - h/2;
-          d.style.setProperty('--x', tx+'px');
-          d.style.setProperty('--y', Math.max(40, ty)+'px');
-        });
-      }, 1200);
-      setTimeout(()=>{ diamonds.forEach(d=>d.style.opacity=0); }, 2800);
-      setTimeout(()=>{ const layer=document.querySelector('.diamond-layer'); if(layer && layer.parentNode) layer.remove(); }, 3600);
-    }
-
-    buy.addEventListener('click', (e)=>{
-      // let the link still work, but flex the effect
-      showerAndForm('SENPEPE');
-    });
-  })();
-
-  // When you're ready to launch, call this function with your contract address:
-  // populateLaunchData('YOUR_ACTUAL_CONTRACT_ADDRESS', {
-  //     priceUsd: '$0.0000123',
-  //     priceSol: '0.00000045 SOL',
-  //     mcap: '$1.23M',
-  //     liq: '$250K',
-  //     supply: '1B',
-  //     tax: '0%',
-  //     decimals: '9',
-  //     lpLock: '90 days',
-  //     audit: 'Pending',
-  //     ownership: 'Renounced'
-  // });
+  }
+  
+  // Initialize the engagement system when the page loads
+  document.addEventListener('DOMContentLoaded', function() {
+    initializeEngagementSystem();
+  });
 </script>
 </body>
 </html>
