@@ -1397,6 +1397,104 @@
     color: var(--warm-2);
   }
 
+  /* Verification Modal Styles */
+  .verification-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.9);
+    z-index: 1004;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+  }
+
+  .verification-content {
+    background: var(--card);
+    border-radius: 16px;
+    padding: 30px;
+    max-width: 500px;
+    width: 90%;
+    text-align: center;
+    border: 1px solid rgba(255,140,0,0.3);
+    position: relative;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+  }
+
+  .verification-content::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--warm-1), var(--warm-2), var(--warm-3));
+    border-radius: 16px 16px 0 0;
+  }
+
+  .verification-close {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: var(--warm-1);
+    color: #2a0c00;
+    border: none;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    font-weight: 900;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .verification-input {
+    width: 100%;
+    padding: 12px 16px;
+    border-radius: 8px;
+    border: 1px solid rgba(255,140,0,0.5);
+    background: rgba(255,255,255,0.1);
+    color: white;
+    font-size: 16px;
+    margin: 15px 0;
+    transition: all 0.3s;
+  }
+
+  .verification-input:focus {
+    outline: none;
+    border-color: var(--warm-1);
+    box-shadow: 0 0 10px rgba(255, 140, 0, 0.5);
+  }
+
+  .verification-btn {
+    background: linear-gradient(135deg, var(--warm-1), var(--warm-2));
+    color: #2a0c00;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s;
+    width: 100%;
+    margin-top: 10px;
+  }
+
+  .verification-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(255, 140, 0, 0.4);
+  }
+
+  .cooldown-timer {
+    color: var(--warm-2);
+    font-size: 0.9rem;
+    margin-top: 10px;
+    display: none;
+  }
+
   /* Mobile-specific fixes */
   @media (max-width:900px){ 
     .how-grid{grid-template-columns:1fr} 
@@ -1501,6 +1599,10 @@
     .shilling-action {
       width: 100%;
       text-align: center;
+    }
+
+    .verification-content {
+      padding: 20px 15px;
     }
   }
 
@@ -1662,6 +1764,31 @@
         <small>Suggestions: <span id="usernameSuggestion" class="username-suggestion" onclick="useSuggestion()">PepeLegend</span></small>
       </div>
       <button class="modal-btn" onclick="saveUsername()">Save Username</button>
+    </div>
+  </div>
+
+  <!-- Twitter Verification Modal -->
+  <div id="twitterVerificationModal" class="verification-modal">
+    <div class="verification-content">
+      <button class="verification-close" onclick="closeTwitterVerification()">×</button>
+      <h3>📱 Verify Your Tweet</h3>
+      <p>Post about SENPEPE on Twitter and paste the link below to verify.</p>
+      <input type="url" id="tweetLink" class="verification-input" placeholder="https://twitter.com/yourusername/status/123456">
+      <button class="verification-btn" onclick="verifyTweetLink()">Verify Tweet</button>
+      <div class="cooldown-timer" id="twitterCooldown"></div>
+    </div>
+  </div>
+
+  <!-- Meme Submission Modal -->
+  <div id="memeSubmissionModal" class="verification-modal">
+    <div class="verification-content">
+      <button class="verification-close" onclick="closeMemeSubmission()">×</button>
+      <h3>🎨 Submit Your Meme</h3>
+      <p>Upload or provide a link to your SENPEPE meme</p>
+      <input type="text" id="memeTitle" class="verification-input" placeholder="Meme Title">
+      <input type="url" id="memeUrl" class="verification-input" placeholder="Image URL (e.g., from Imgur)">
+      <button class="verification-btn" onclick="submitMemeForVerification()">Submit Meme</button>
+      <div class="cooldown-timer" id="memeCooldown"></div>
     </div>
   </div>
 
@@ -1938,7 +2065,6 @@
             <button class="action-btn" id="shareSocial">📱 Share on Social</button>
             <button class="action-btn" id="createMeme">🎨 Create Meme</button>
             <button class="action-btn" id="inviteFriend">👥 Invite Friend</button>
-            <button class="action-btn" id="helpCommunity">💝 Help Community</button>
         </div>
     </section>
     
@@ -2221,7 +2347,7 @@
                   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" role="img" aria-hidden="true"><path d="M400 32H48A48 48 0 0 0 0 80v352a48 48 0 0 0 48 48h137.25V327.69h-63V256h63v-54.64c0-62.15 37-96.48 93.67-96.48 27.14 0 55.52 4.84 55.52 4.84v61h-31.27c-30.81 0-40.42 19.12-40.42 38.73V256h68.78l-11 71.69h-57.78V480H400a48 48 0 0 0 48-48V80a48 48 0 0 0-48-48z"/></svg>
                 </a>
                 <a data-append-ref href="https://www.tiktok.com/@senpepe.official?_t=ZT-8zta8FHG29d&_r=1" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="TikTok">
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" role="img" aria-hidden="true"><path d="M448,209.91a210.06,210.06,0,0,1-122.77-39.25V349.38A162.55,162.55,0,1,1,185,188.31V278.2a74.62,74.62,0,1,0,52.23,71.18V0l88,0a121.18,121.18,0,0,0,1.86,22.17h0A122.18,122.18,0,0,0,381,102.39a121.43,121.43,0,0,0,67,20.14Z"/></svg>
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" role="img" aria-hidden="true"><path d="M448,209.91a210.06,210.06 0,0,1-122.77-39.25V349.38A162.55,162.55 0,1,1,185,188.31V278.2a74.62,74.62 0,1,0,52.23,71.18V0l88,0a121.18,121.18 0,0,0,1.86,22.17h0A122.18,122.18 0,0,0,381,102.39a121.43,121.43 0,0,0,67,20.14Z"/></svg>
                 </a>
                 <!-- Added Discord Icon -->
                 <a data-append-ref href="https://discord.gg/s5WUHrQY7h" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="Discord">
@@ -2624,6 +2750,160 @@
       console.log('Launch data populated successfully!');
   }
 
+  // ===== VERIFICATION SYSTEMS =====
+  
+  // Twitter Verification
+  function showTwitterVerification() {
+    document.getElementById('twitterVerificationModal').style.display = 'flex';
+  }
+  
+  function closeTwitterVerification() {
+    document.getElementById('twitterVerificationModal').style.display = 'none';
+    document.getElementById('tweetLink').value = '';
+  }
+  
+  function verifyTweetLink() {
+    const tweetLink = document.getElementById('tweetLink').value.trim();
+    
+    // Basic validation
+    if (!tweetLink.includes('twitter.com') && !tweetLink.includes('x.com')) {
+        showNotification('❌ Please enter a valid Twitter/X link');
+        return;
+    }
+    
+    if (!tweetLink.includes('/status/')) {
+        showNotification('❌ Please link directly to your tweet (not your profile)');
+        return;
+    }
+    
+    // Check if this tweet was already verified
+    const user = engagementData.users[userId];
+    user.verifiedTweets = user.verifiedTweets || [];
+    
+    if (user.verifiedTweets.includes(tweetLink)) {
+        showNotification('❌ This tweet has already been verified');
+        return;
+    }
+    
+    // Set cooldown (2 minutes)
+    const now = Date.now();
+    const lastTwitterAction = user.lastTwitterAction || 0;
+    const cooldownTime = 2 * 60 * 1000; // 2 minutes in milliseconds
+    
+    if (now - lastTwitterAction < cooldownTime) {
+        const remaining = Math.ceil((cooldownTime - (now - lastTwitterAction)) / 1000);
+        document.getElementById('twitterCooldown').textContent = `Please wait ${remaining} seconds`;
+        document.getElementById('twitterCooldown').style.display = 'block';
+        return;
+    }
+    
+    user.verifiedTweets.push(tweetLink);
+    user.lastTwitterAction = now;
+    
+    awardPoints(activityPoints.shareSocial, 'twitterVerified');
+    addActivity('twitterVerified', `Verified tweet: ${tweetLink}`);
+    closeTwitterVerification();
+    showNotification('✅ Tweet verified! +5 points');
+    
+    // Reset cooldown display
+    document.getElementById('twitterCooldown').style.display = 'none';
+  }
+  
+  // Meme Submission Verification
+  function showMemeSubmission() {
+    document.getElementById('memeSubmissionModal').style.display = 'flex';
+  }
+  
+  function closeMemeSubmission() {
+    document.getElementById('memeSubmissionModal').style.display = 'none';
+    document.getElementById('memeTitle').value = '';
+    document.getElementById('memeUrl').value = '';
+  }
+  
+  function submitMemeForVerification() {
+    const title = document.getElementById('memeTitle').value.trim();
+    const url = document.getElementById('memeUrl').value.trim();
+    
+    if (!title || !url) {
+        showNotification('❌ Please provide both a title and image URL');
+        return;
+    }
+    
+    // Basic URL validation
+    if (!url.startsWith('http')) {
+        showNotification('❌ Please enter a valid image URL');
+        return;
+    }
+    
+    // Set cooldown (2 minutes)
+    const user = engagementData.users[userId];
+    const now = Date.now();
+    const lastMemeAction = user.lastMemeAction || 0;
+    const cooldownTime = 2 * 60 * 1000; // 2 minutes in milliseconds
+    
+    if (now - lastMemeAction < cooldownTime) {
+        const remaining = Math.ceil((cooldownTime - (now - lastMemeAction)) / 1000);
+        document.getElementById('memeCooldown').textContent = `Please wait ${remaining} seconds`;
+        document.getElementById('memeCooldown').style.display = 'block';
+        return;
+    }
+    
+    user.lastMemeAction = now;
+    user.memesCreated = (user.memesCreated || 0) + 1;
+    
+    // Add to meme contest submissions
+    const submission = {
+        id: 'meme_' + Date.now(),
+        title: title,
+        imageUrl: url,
+        author: user.username || 'Anonymous',
+        votes: 0,
+        timestamp: new Date().toISOString()
+    };
+    
+    engagementData.memeContest.submissions.push(submission);
+    user.memeSubmissions = user.memeSubmissions || [];
+    user.memeSubmissions.push(submission.id);
+    
+    awardPoints(activityPoints.createMeme, 'memeSubmitted');
+    addActivity('memeSubmitted', `Submitted meme: ${title}`);
+    closeMemeSubmission();
+    showNotification('🎨 Meme submitted! +15 points');
+    
+    // Update meme gallery
+    updateMemeSubmissions();
+    
+    // Reset cooldown display
+    document.getElementById('memeCooldown').style.display = 'none';
+  }
+  
+  // Invite Friend with Rate Limiting
+  function setupInviteFriend() {
+    document.getElementById('inviteFriend').addEventListener('click', function() {
+        const user = engagementData.users[userId];
+        const now = Date.now();
+        const lastInviteAction = user.lastInviteAction || 0;
+        const cooldownTime = 2 * 60 * 1000; // 2 minutes in milliseconds
+        
+        if (now - lastInviteAction < cooldownTime) {
+            const remaining = Math.ceil((cooldownTime - (now - lastInviteAction)) / 1000);
+            showNotification(`⏳ Please wait ${remaining} seconds before inviting again`);
+            return;
+        }
+        
+        user.lastInviteAction = now;
+        user.invites = (user.invites || 0) + 1;
+        
+        // Generate referral link
+        const refLink = `${window.location.origin}?ref=${userId}`;
+        navigator.clipboard.writeText(refLink).then(() => {
+            awardPoints(activityPoints.inviteFriend, 'inviteFriend');
+            addActivity('inviteFriend', 'Invited a friend to join');
+            showNotification('👥 Referral link copied! +25 points');
+        });
+    });
+  }
+
   // ===== AUTO-ENGAGEMENT SYSTEM =====
   
   // User identification (in a real app, this would be from authentication)
@@ -2675,7 +2955,6 @@
           dailyCheckins: 0,
           invites: 0,
           memesCreated: 0,
-          helpsGiven: 0,
           lastCheckin: null,
           joinDate: new Date().toISOString(),
           username: null,
@@ -2687,7 +2966,11 @@
               lastTweet: null
           },
           completedChallenges: [],
-          memeSubmissions: []
+          memeSubmissions: [],
+          verifiedTweets: [],
+          lastTwitterAction: 0,
+          lastMemeAction: 0,
+          lastInviteAction: 0
       };
       
       engagementData.users[userId] = initialUserData;
@@ -2704,7 +2987,6 @@
               dailyCheckins: 0,
               invites: 0,
               memesCreated: 0,
-              helpsGiven: 0,
               lastCheckin: null,
               joinDate: new Date().toISOString(),
               username: null,
@@ -2716,7 +2998,11 @@
                   lastTweet: null
               },
               completedChallenges: [],
-              memeSubmissions: []
+              memeSubmissions: [],
+              verifiedTweets: [],
+              lastTwitterAction: 0,
+              lastMemeAction: 0,
+              lastInviteAction: 0
           };
       }
   }
@@ -2726,13 +3012,12 @@
       { id: 'first-checkin', name: 'First Timer', icon: '🚀', points: 10, condition: (user) => user.dailyCheckins >= 1 },
       { id: 'consistent-5', name: '5-Day Streak', icon: '🔥', points: 25, condition: (user) => user.dailyCheckins >= 5 },
       { id: 'consistent-30', name: 'Month Veteran', icon: '📅', points: 100, condition: (user) => user.dailyCheckins >= 30 },
-      { id: 'social-butterfly', name: 'Social Butterfly', icon: '📢', points: 50, condition: (user) => user.shares >= 10 },
+      { id: 'social-butterfly', name: 'Social Butterfly', icon: '📢', points: 50, condition: (user) => (user.verifiedTweets || []).length >= 5 },
       { id: 'meme-master', name: 'Meme Master', icon: '🎨', points: 75, condition: (user) => user.memesCreated >= 5 },
       { id: 'community-builder', name: 'Community Builder', icon: '👥', points: 100, condition: (user) => user.invites >= 3 },
-      { id: 'helper', name: 'Community Helper', icon: '💝', points: 50, condition: (user) => user.helpsGiven >= 5 },
       { id: 'level-5', name: 'Level 5 Achiever', icon: '⭐', points: 0, condition: (user) => user.level >= 5 },
       { id: 'level-10', name: 'Level 10 Legend', icon: '🏆', points: 0, condition: (user) => user.level >= 10 },
-      { id: 'twitter-warrior', name: 'Twitter Warrior', icon: '🐦', points: 50, condition: (user) => user.twitterStats.tweets >= 10 },
+      { id: 'twitter-warrior', name: 'Twitter Warrior', icon: '🐦', points: 50, condition: (user) => (user.verifiedTweets || []).length >= 10 },
       { id: 'meme-contest-winner', name: 'Meme Contest Winner', icon: '🏆', points: 100, condition: (user) => user.memeSubmissions.some(s => s.rank <= 3) }
   ];
   
@@ -2742,13 +3027,13 @@
       shareSocial: 5,
       createMeme: 15,
       inviteFriend: 25,
-      helpCommunity: 20,
       badgeEarned: 0, // Special case - points awarded separately
       challengeCompleted: 30,
       tweetAbout: 25,
       retweet: 10,
       likeTweet: 5,
-      memeSubmitted: 20
+      memeSubmitted: 20,
+      twitterVerified: 5
   };
   
   // Daily Challenges Definitions
@@ -3480,9 +3765,6 @@
               case 'inviteFriend':
                   activityText = '👥 Invited a friend to join';
                   break;
-              case 'helpCommunity':
-                  activityText = '💝 Helped a community member';
-                  break;
               case 'badgeEarned':
                   activityText = `🏆 Earned badge: ${activity.details}`;
                   break;
@@ -3497,6 +3779,9 @@
                   break;
               case 'tweetPosted':
                   activityText = '🐦 Posted about SENPEPE on Twitter';
+                  break;
+              case 'twitterVerified':
+                  activityText = '✅ Verified Twitter post';
                   break;
               default:
                   activityText = `Activity: ${activity.type}`;
@@ -3552,47 +3837,15 @@
   });
   
   document.getElementById('shareSocial').addEventListener('click', function() {
-      awardPoints(activityPoints.shareSocial, 'shareSocial');
-      addActivity('shareSocial', 'Shared SENPEPE on social media');
-      
-      // Simulate opening share dialog
-      const shareUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent("Check out SENPEPE - the hottest meme coin on Solana! #SENPEPE")}`;
-      window.open(shareUrl, '_blank', 'width=600,height=400');
+      showTwitterVerification();
   });
   
   document.getElementById('createMeme').addEventListener('click', function() {
-      awardPoints(activityPoints.createMeme, 'createMeme');
-      addActivity('createMeme', 'Created a SENPEPE meme');
-      
-      const user = engagementData.users[userId];
-      user.memesCreated = (user.memesCreated || 0) + 1;
-      
-      showNotification('🎨 Meme created! +15 points');
+      showMemeSubmission();
   });
   
-  document.getElementById('inviteFriend').addEventListener('click', function() {
-      awardPoints(activityPoints.inviteFriend, 'inviteFriend');
-      addActivity('inviteFriend', 'Invited a friend to join');
-      
-      const user = engagementData.users[userId];
-      user.invites = (user.invites || 0) + 1;
-      
-      // Generate referral link
-      const refLink = `${window.location.origin}?ref=${userId}`;
-      navigator.clipboard.writeText(refLink).then(() => {
-          showNotification('👥 Referral link copied! +25 points');
-      });
-  });
-  
-  document.getElementById('helpCommunity').addEventListener('click', function() {
-      awardPoints(activityPoints.helpCommunity, 'helpCommunity');
-      addActivity('helpCommunity', 'Helped a community member');
-      
-      const user = engagementData.users[userId];
-      user.helpsGiven = (user.helpsGiven || 0) + 1;
-      
-      showNotification('💝 Community help rewarded! +20 points');
-  });
+  // Set up invite friend with rate limiting
+  setupInviteFriend();
   
   // ===== INITIALIZATION =====
   
