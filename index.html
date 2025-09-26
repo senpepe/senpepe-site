@@ -6,10 +6,6 @@
 <title>SENPEPE — Meme Coin Revolution</title>
 <meta name="description" content="SENPEPE launches Oct 17 @ 7pm on Solana. Join the movement for memes, community, and utility." />
 
-<!-- Performance Hints -->
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="preload" as="image" href="assets/senpepe-main.png" imagesrcset="assets/senpepe-main.png 1x" />
-
 <style>
   :root{
     --space-1:#02060b; --space-2:#0b1c31;
@@ -1334,7 +1330,7 @@
     color: var(--warm-2);
   }
 
-  /* ===== VERIFICATION MODAL STYLES ===== */
+  /* Verification Modal */
   .verification-modal {
     display: none;
     position: fixed;
@@ -1348,11 +1344,11 @@
     justify-content: center;
     padding: 20px;
   }
-
+  
   .verification-modal.active {
     display: flex;
   }
-
+  
   .verification-content {
     background: var(--card);
     border-radius: 16px;
@@ -1364,7 +1360,7 @@
     position: relative;
     box-shadow: 0 20px 40px rgba(0,0,0,0.5);
   }
-
+  
   .verification-content::before {
     content: '';
     position: absolute;
@@ -1375,16 +1371,7 @@
     background: linear-gradient(90deg, var(--warm-1), var(--warm-2), var(--warm-3));
     border-radius: 16px 16px 0 0;
   }
-
-  .verification-title {
-    background: linear-gradient(90deg, var(--warm-1), var(--warm-2));
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-    margin-bottom: 15px;
-    font-size: 1.4rem;
-  }
-
+  
   .verification-input {
     width: 100%;
     padding: 12px 16px;
@@ -1396,20 +1383,13 @@
     margin: 15px 0;
     transition: all 0.3s;
   }
-
+  
   .verification-input:focus {
     outline: none;
     border-color: var(--warm-1);
     box-shadow: 0 0 10px rgba(255, 140, 0, 0.5);
   }
-
-  .verification-hint {
-    font-size: 0.85rem;
-    color: var(--muted);
-    margin-bottom: 15px;
-    text-align: left;
-  }
-
+  
   .verification-btn {
     background: linear-gradient(135deg, var(--warm-1), var(--warm-2));
     color: #2a0c00;
@@ -1422,118 +1402,130 @@
     width: 100%;
     margin-top: 10px;
   }
-
+  
   .verification-btn:hover {
     transform: translateY(-2px);
     box-shadow: 0 5px 15px rgba(255, 140, 0, 0.4);
   }
-
+  
   .verification-btn:disabled {
     opacity: 0.6;
     cursor: not-allowed;
     transform: none;
     box-shadow: none;
   }
-
+  
   .verification-status {
     margin-top: 15px;
     padding: 10px;
     border-radius: 8px;
     display: none;
   }
-
+  
   .verification-status.success {
     background: rgba(46, 204, 113, 0.2);
     border: 1px solid rgba(46, 204, 113, 0.5);
     color: #2ecc71;
     display: block;
   }
-
+  
   .verification-status.error {
     background: rgba(231, 76, 60, 0.2);
     border: 1px solid rgba(231, 76, 60, 0.5);
     color: #e74c3c;
     display: block;
   }
-
+  
   .verification-status.pending {
     background: rgba(241, 196, 15, 0.2);
     border: 1px solid rgba(241, 196, 15, 0.5);
     color: #f1c40f;
     display: block;
   }
-
-  .task-verified {
-    position: relative;
-  }
-
-  .task-verified::after {
-    content: '✓ Verified';
-    position: absolute;
-    top: -8px;
-    right: -8px;
-    background: linear-gradient(135deg, var(--warm-1), var(--warm-2));
-    color: #2a0c00;
-    padding: 4px 8px;
-    border-radius: 12px;
-    font-size: 0.7rem;
-    font-weight: bold;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.3);
-  }
-
-  .verification-steps {
-    text-align: left;
-    margin: 15px 0;
-    padding-left: 20px;
-  }
-
-  .verification-steps li {
-    margin-bottom: 8px;
-    color: var(--muted);
-  }
-
-  /* Help Community Explanation Styles */
-  .help-explanation {
-    background: rgba(255,255,255,0.05);
-    border-radius: 12px;
-    padding: 20px;
-    margin: 20px 0;
-    border: 1px solid rgba(255,140,0,0.2);
-  }
-
-  .help-options {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 15px;
-    margin: 15px 0;
-  }
-
-  .help-option {
-    background: rgba(255,255,255,0.03);
-    border-radius: 10px;
-    padding: 15px;
-    border: 1px solid rgba(255,140,0,0.1);
-    transition: all 0.3s;
-  }
-
-  .help-option:hover {
-    background: rgba(255,255,255,0.07);
-    transform: translateY(-2px);
-  }
-
-  .help-option h4 {
-    color: var(--warm-2);
-    margin-bottom: 8px;
-  }
-
-  .help-points {
-    display: inline-block;
-    background: rgba(255,255,255,0.1);
-    border-radius: 12px;
-    padding: 3px 8px;
+  
+  .task-status {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
     font-size: 0.8rem;
-    font-weight: bold;
-    margin-top: 5px;
+    margin-left: 10px;
+    padding: 2px 8px;
+    border-radius: 12px;
+  }
+  
+  .task-status.pending {
+    background: rgba(241, 196, 15, 0.2);
+    color: #f1c40f;
+  }
+  
+  .task-status.verified {
+    background: rgba(46, 204, 113, 0.2);
+    color: #2ecc71;
+  }
+  
+  .task-status.failed {
+    background: rgba(231, 76, 60, 0.2);
+    color: #e74c3c;
+  }
+  
+  /* Referral link styles */
+  .referral-link {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,140,0,0.3);
+    border-radius: 8px;
+    padding: 10px 15px;
+    margin: 10px 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  .referral-link-text {
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
+    font-size: 0.9rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    flex: 1;
+  }
+  
+  .copy-referral-btn {
+    background: rgba(255,255,255,0.1);
+    border: 1px solid rgba(255,140,0,0.3);
+    border-radius: 6px;
+    padding: 6px 12px;
+    color: var(--text);
+    cursor: pointer;
+    transition: all 0.3s;
+    margin-left: 10px;
+  }
+  
+  .copy-referral-btn:hover {
+    background: rgba(255,255,255,0.15);
+  }
+  
+  /* Challenge verification indicators */
+  .challenge-verification {
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .verification-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.1);
+    font-size: 12px;
+  }
+  
+  .verification-badge.verified {
+    background: rgba(46, 204, 113, 0.3);
+    color: #2ecc71;
   }
 
   /* Mobile-specific fixes */
@@ -1804,6 +1796,41 @@
     </div>
   </div>
 
+  <!-- Verification Modal -->
+  <div id="verificationModal" class="verification-modal">
+    <div class="verification-content">
+      <h3 id="verificationTitle">Verify Task Completion</h3>
+      <p id="verificationDescription">Please provide the required information to verify your task completion.</p>
+      
+      <div id="twitterVerification" style="display: none;">
+        <input type="url" id="twitterLink" class="verification-input" placeholder="Paste your Twitter post URL">
+        <div class="verification-status" id="twitterStatus"></div>
+      </div>
+      
+      <div id="memeVerification" style="display: none;">
+        <input type="url" id="memeLink" class="verification-input" placeholder="Paste your meme post URL">
+        <div class="verification-status" id="memeStatus"></div>
+      </div>
+      
+      <div id="referralVerification" style="display: none;">
+        <div class="referral-link">
+          <span class="referral-link-text" id="referralLinkText">Generating your referral link...</span>
+          <button class="copy-referral-btn" id="copyReferralBtn">Copy</button>
+        </div>
+        <p style="font-size: 0.9rem; margin: 10px 0;">Share this link with friends. When they join using your link, you'll get points!</p>
+        <div class="verification-status" id="referralStatus"></div>
+      </div>
+      
+      <div id="genericVerification" style="display: none;">
+        <p>Please complete the task as described, then click verify.</p>
+        <div class="verification-status" id="genericStatus"></div>
+      </div>
+      
+      <button class="verification-btn" id="verifyTaskBtn">Verify Task</button>
+      <button class="verification-btn" style="background: rgba(255,255,255,0.1); color: white; margin-top: 5px;" onclick="closeVerificationModal()">Cancel</button>
+    </div>
+  </div>
+
   <!-- Buy Banner Notification -->
   <div id="buyBanner" class="buy-banner" aria-live="polite" aria-atomic="true">
     🚀 $SENPEPE is now LIVE! Buy now before it moons! 🚀
@@ -1972,132 +1999,6 @@
     </div>
   </div>
 
-  <!-- ===== VERIFICATION MODALS ===== -->
-  
-  <!-- Twitter Post Verification Modal -->
-  <div id="twitterVerificationModal" class="verification-modal">
-    <div class="verification-content">
-      <h3 class="verification-title">Verify Twitter Post</h3>
-      <p>Paste the link to your Twitter post to verify and earn points.</p>
-      
-      <div class="verification-hint">
-        <strong>How to get your tweet link:</strong>
-        <ol class="verification-steps">
-          <li>Post about SENPEPE on Twitter</li>
-          <li>Click on the timestamp of your tweet</li>
-          <li>Copy the URL from your browser</li>
-          <li>Paste it here</li>
-        </ol>
-      </div>
-      
-      <input type="url" id="twitterPostUrl" class="verification-input" placeholder="https://twitter.com/yourusername/status/123456789" pattern="https://twitter.com/.*/status/.*">
-      <div id="twitterVerificationStatus" class="verification-status"></div>
-      <button id="verifyTwitterBtn" class="verification-btn">Verify Tweet</button>
-      <button class="verification-btn" onclick="closeVerificationModal('twitterVerificationModal')" style="background: rgba(255,255,255,0.1); color: white; margin-top: 10px;">Cancel</button>
-    </div>
-  </div>
-
-  <!-- Friend Invite Verification Modal -->
-  <div id="inviteVerificationModal" class="verification-modal">
-    <div class="verification-content">
-      <h3 class="verification-title">Verify Friend Invite</h3>
-      <p>Enter your friend's username or wallet address to verify the invitation.</p>
-      
-      <div class="verification-hint">
-        <strong>Requirements for verification:</strong>
-        <ul class="verification-steps">
-          <li>Your friend must join our Telegram/Discord using your referral link</li>
-          <li>They must complete at least one activity (check-in, etc.)</li>
-          <li>Points are awarded once they reach Level 2</li>
-        </ul>
-      </div>
-      
-      <input type="text" id="friendUsername" class="verification-input" placeholder="Friend's username or wallet address">
-      <div id="inviteVerificationStatus" class="verification-status"></div>
-      <button id="verifyInviteBtn" class="verification-btn">Verify Invitation</button>
-      <button class="verification-btn" onclick="closeVerificationModal('inviteVerificationModal')" style="background: rgba(255,255,255,0.1); color: white; margin-top: 10px;">Cancel</button>
-    </div>
-  </div>
-
-  <!-- Create Memories Verification Modal -->
-  <div id="memoryVerificationModal" class="verification-modal">
-    <div class="verification-content">
-      <h3 class="verification-title">Verify Memory Creation</h3>
-      <p>Share the link to your created memory (meme, artwork, story, etc.).</p>
-      
-      <div class="verification-hint">
-        <strong>Accepted memory types:</strong>
-        <ul class="verification-steps">
-          <li>Memes (upload to Imgur, Twitter, etc.)</li>
-          <li>Artwork (DeviantArt, Instagram, etc.)</li>
-          <li>Stories (Medium, personal blog, etc.)</li>
-          <li>Videos (YouTube, TikTok, etc.)</li>
-        </ul>
-        <p>Make sure your content is related to SENPEPE and follows community guidelines.</p>
-      </div>
-      
-      <input type="url" id="memoryUrl" class="verification-input" placeholder="https://example.com/your-memory">
-      <textarea id="memoryDescription" class="verification-input" placeholder="Brief description of your memory" style="height: 80px; resize: vertical;"></textarea>
-      <div id="memoryVerificationStatus" class="verification-status"></div>
-      <button id="verifyMemoryBtn" class="verification-btn">Verify Memory</button>
-      <button class="verification-btn" onclick="closeVerificationModal('memoryVerificationModal')" style="background: rgba(255,255,255,0.1); color: white; margin-top: 10px;">Cancel</button>
-    </div>
-  </div>
-
-  <!-- Help Community Explanation Modal -->
-  <div id="helpCommunityModal" class="verification-modal">
-    <div class="verification-content">
-      <h3 class="verification-title">Help the Community</h3>
-      <p>Earn points by helping other SENPEPE community members!</p>
-      
-      <div class="help-explanation">
-        <h4>What is "Help Community"?</h4>
-        <p>This feature rewards you for contributing to the growth and support of the SENPEPE community. You can help in various ways:</p>
-        
-        <div class="help-options">
-          <div class="help-option">
-            <h4>🤝 Welcome New Members</h4>
-            <p>Greet newcomers in Telegram/Discord and help them get started.</p>
-            <span class="help-points">+5 points per verified welcome</span>
-          </div>
-          
-          <div class="help-option">
-            <h4>💬 Answer Questions</h4>
-            <p>Help others by answering their questions about SENPEPE.</p>
-            <span class="help-points">+10 points per helpful answer</span>
-          </div>
-          
-          <div class="help-option">
-            <h4>🐛 Report Issues</h4>
-            <p>Identify and report bugs or issues with the platform.</p>
-            <span class="help-points">+15 points per valid report</span>
-          </div>
-          
-          <div class="help-option">
-            <h4>💡 Suggest Improvements</h4>
-            <p>Share ideas to improve the SENPEPE ecosystem.</p>
-            <span class="help-points">+20 points for implemented suggestions</span>
-          </div>
-        </div>
-        
-        <p><strong>Verification Process:</strong> Community moderators will verify your helpful actions and award points accordingly.</p>
-      </div>
-      
-      <div class="verification-hint">
-        <strong>How to get started:</strong>
-        <ol class="verification-steps">
-          <li>Join our Telegram/Discord community</li>
-          <li>Start helping other members</li>
-          <li>Moderators will track your contributions</li>
-          <li>Points are awarded daily based on your activity</li>
-        </ol>
-      </div>
-      
-      <button class="verification-btn" onclick="openCommunityChat()">Join Community Chat</button>
-      <button class="verification-btn" onclick="closeVerificationModal('helpCommunityModal')" style="background: rgba(255,255,255,0.1); color: white; margin-top: 10px;">Close</button>
-    </div>
-  </div>
-
   <!-- Accessibility: Skip to content -->
   <a href="#main" style="position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden">Skip to content</a>
 
@@ -2199,11 +2100,11 @@
         
         <!-- Action Buttons -->
         <div class="action-buttons">
-            <button class="action-btn primary" id="dailyCheckin">✅ Daily Check-in</button>
-            <button class="action-btn" id="shareSocial">📱 Share on Social</button>
-            <button class="action-btn" id="createMeme">🎨 Create Meme</button>
-            <button class="action-btn" id="inviteFriend">👥 Invite Friend</button>
-            <button class="action-btn" id="helpCommunity">💝 Help Community</button>
+            <button class="action-btn primary" id="dailyCheckin" onclick="openVerification('dailyCheckin')">✅ Daily Check-in</button>
+            <button class="action-btn" id="shareSocial" onclick="openVerification('shareSocial')">📱 Share on Social</button>
+            <button class="action-btn" id="createMeme" onclick="openVerification('createMeme')">🎨 Create Meme</button>
+            <button class="action-btn" id="inviteFriend" onclick="openVerification('inviteFriend')">👥 Invite Friend</button>
+            <button class="action-btn" id="helpCommunity" onclick="openVerification('helpCommunity')">💝 Help Community</button>
         </div>
     </section>
     
@@ -2818,405 +2719,207 @@
       console.log('Launch data populated successfully!');
   }
 
-  // ===== TASK VERIFICATION SYSTEM =====
+  // ===== VERIFICATION SYSTEM =====
+  let currentTaskType = null;
+  let currentChallengeId = null;
   
-  // Open verification modal functions
-  function openTwitterVerification() {
-    document.getElementById('twitterVerificationModal').classList.add('active');
-  }
-  
-  function openInviteVerification() {
-    document.getElementById('inviteVerificationModal').classList.add('active');
-  }
-  
-  function openMemoryVerification() {
-    document.getElementById('memoryVerificationModal').classList.add('active');
-  }
-  
-  function openHelpCommunity() {
-    document.getElementById('helpCommunityModal').classList.add('active');
-  }
-  
-  function closeVerificationModal(modalId) {
-    document.getElementById(modalId).classList.remove('active');
-    // Reset status messages
-    const statusElements = document.querySelectorAll('.verification-status');
-    statusElements.forEach(el => {
-      el.className = 'verification-status';
-      el.textContent = '';
-    });
-  }
-  
-  function openCommunityChat() {
-    window.open('https://t.me/+CMMZqpTja4U0ZjYx', '_blank');
-    closeVerificationModal('helpCommunityModal');
-  }
-  
-  // Twitter Post Verification
-  document.getElementById('verifyTwitterBtn').addEventListener('click', async function() {
-    const url = document.getElementById('twitterPostUrl').value;
-    const statusElement = document.getElementById('twitterVerificationStatus');
+  // Open verification modal for a specific task
+  function openVerification(taskType, challengeId = null) {
+    currentTaskType = taskType;
+    currentChallengeId = challengeId;
     
-    // Basic validation
-    if (!url || !url.match(/https:\/\/twitter\.com\/.*\/status\/.*/)) {
-      statusElement.textContent = 'Please enter a valid Twitter URL';
-      statusElement.className = 'verification-status error';
-      return;
+    // Reset modal
+    document.getElementById('twitterVerification').style.display = 'none';
+    document.getElementById('memeVerification').style.display = 'none';
+    document.getElementById('referralVerification').style.display = 'none';
+    document.getElementById('genericVerification').style.display = 'none';
+    
+    // Clear inputs and status
+    document.getElementById('twitterLink').value = '';
+    document.getElementById('memeLink').value = '';
+    document.getElementById('twitterStatus').className = 'verification-status';
+    document.getElementById('memeStatus').className = 'verification-status';
+    document.getElementById('referralStatus').className = 'verification-status';
+    document.getElementById('genericStatus').className = 'verification-status';
+    
+    // Configure modal based on task type
+    switch(taskType) {
+      case 'dailyCheckin':
+        document.getElementById('verificationTitle').textContent = 'Verify Daily Check-in';
+        document.getElementById('verificationDescription').textContent = 'Click verify to confirm your daily check-in.';
+        document.getElementById('genericVerification').style.display = 'block';
+        break;
+        
+      case 'shareSocial':
+      case 'twitterPost':
+        document.getElementById('verificationTitle').textContent = 'Verify Twitter Post';
+        document.getElementById('verificationDescription').textContent = 'Paste the URL of your Twitter post to verify.';
+        document.getElementById('twitterVerification').style.display = 'block';
+        break;
+        
+      case 'createMeme':
+      case 'shareMeme':
+        document.getElementById('verificationTitle').textContent = 'Verify Meme Post';
+        document.getElementById('verificationDescription').textContent = 'Paste the URL of your meme post to verify.';
+        document.getElementById('memeVerification').style.display = 'block';
+        break;
+        
+      case 'inviteFriend':
+        document.getElementById('verificationTitle').textContent = 'Invite a Friend';
+        document.getElementById('verificationDescription').textContent = 'Copy your unique referral link and share it with friends.';
+        document.getElementById('referralVerification').style.display = 'block';
+        generateReferralLink();
+        break;
+        
+      case 'helpCommunity':
+        document.getElementById('verificationTitle').textContent = 'Help Community';
+        document.getElementById('verificationDescription').textContent = 'Describe how you helped the community.';
+        document.getElementById('genericVerification').style.display = 'block';
+        break;
+        
+      default:
+        document.getElementById('verificationTitle').textContent = 'Verify Task';
+        document.getElementById('verificationDescription').textContent = 'Please complete the task as described.';
+        document.getElementById('genericVerification').style.display = 'block';
     }
     
-    // Show pending status
-    statusElement.textContent = 'Verifying your tweet...';
-    statusElement.className = 'verification-status pending';
-    this.disabled = true;
+    // Show modal
+    document.getElementById('verificationModal').classList.add('active');
+  }
+  
+  // Close verification modal
+  function closeVerificationModal() {
+    document.getElementById('verificationModal').classList.remove('active');
+    currentTaskType = null;
+    currentChallengeId = null;
+  }
+  
+  // Generate unique referral link for user
+  function generateReferralLink() {
+    const userId = localStorage.getItem('senpepeUserId') || 'user_' + Math.random().toString(36).substring(2, 9);
+    const baseUrl = window.location.origin + window.location.pathname;
+    const referralLink = baseUrl + '?ref=' + userId;
     
-    try {
-      // Simulate API call to verify tweet
-      const verificationResult = await verifyTwitterPost(url);
+    document.getElementById('referralLinkText').textContent = referralLink;
+    
+    // Set up copy functionality
+    document.getElementById('copyReferralBtn').onclick = function() {
+      navigator.clipboard.writeText(referralLink).then(function() {
+        showNotification('Referral link copied to clipboard!', 'success');
+      }, function(err) {
+        console.error('Could not copy text: ', err);
+        showNotification('Failed to copy link. Please copy manually.', 'error');
+      });
+    };
+  }
+  
+  // Verify task completion
+  document.getElementById('verifyTaskBtn').onclick = function() {
+    const verifyBtn = document.getElementById('verifyTaskBtn');
+    verifyBtn.disabled = true;
+    verifyBtn.textContent = 'Verifying...';
+    
+    // Simulate verification process (replace with actual backend verification)
+    setTimeout(function() {
+      let isValid = false;
+      let statusElement = null;
       
-      if (verificationResult.success) {
-        statusElement.textContent = 'Tweet verified successfully! +25 points awarded.';
+      switch(currentTaskType) {
+        case 'dailyCheckin':
+        case 'helpCommunity':
+          // These tasks don't require URL verification
+          isValid = true;
+          statusElement = document.getElementById('genericStatus');
+          break;
+          
+        case 'shareSocial':
+        case 'twitterPost':
+          const twitterUrl = document.getElementById('twitterLink').value;
+          isValid = validateTwitterUrl(twitterUrl);
+          statusElement = document.getElementById('twitterStatus');
+          break;
+          
+        case 'createMeme':
+        case 'shareMeme':
+          const memeUrl = document.getElementById('memeLink').value;
+          isValid = validateMemeUrl(memeUrl);
+          statusElement = document.getElementById('memeStatus');
+          break;
+          
+        case 'inviteFriend':
+          // For referral, we just need to generate the link
+          isValid = true;
+          statusElement = document.getElementById('referralStatus');
+          break;
+      }
+      
+      if (isValid) {
+        statusElement.textContent = 'Task verified successfully! Points awarded.';
         statusElement.className = 'verification-status success';
         
-        // Award points
-        awardPoints(25, 'Twitter Post');
+        // Award points for the task
+        awardPoints(currentTaskType, currentChallengeId);
         
-        // Mark task as completed
-        markTaskAsVerified('shareSocial');
-        
-        // Close modal after 2 seconds
-        setTimeout(() => {
-          closeVerificationModal('twitterVerificationModal');
-        }, 2000);
+        // Close modal after a delay
+        setTimeout(closeVerificationModal, 1500);
       } else {
-        statusElement.textContent = verificationResult.message || 'Could not verify tweet. Please make sure it is public and contains #SENPEPE.';
+        statusElement.textContent = 'Verification failed. Please check your submission and try again.';
         statusElement.className = 'verification-status error';
       }
-    } catch (error) {
-      statusElement.textContent = 'Verification failed. Please try again later.';
-      statusElement.className = 'verification-status error';
-    }
-    
-    this.disabled = false;
-  });
-  
-  // Friend Invite Verification
-  document.getElementById('verifyInviteBtn').addEventListener('click', async function() {
-    const friendId = document.getElementById('friendUsername').value;
-    const statusElement = document.getElementById('inviteVerificationStatus');
-    
-    if (!friendId) {
-      statusElement.textContent = 'Please enter your friend\'s username or wallet address';
-      statusElement.className = 'verification-status error';
-      return;
-    }
-    
-    statusElement.textContent = 'Verifying invitation...';
-    statusElement.className = 'verification-status pending';
-    this.disabled = true;
-    
-    try {
-      const verificationResult = await verifyFriendInvite(friendId);
       
-      if (verificationResult.success) {
-        statusElement.textContent = 'Invitation verified! +50 points awarded.';
-        statusElement.className = 'verification-status success';
-        
-        awardPoints(50, 'Friend Invite');
-        markTaskAsVerified('inviteFriend');
-        
-        setTimeout(() => {
-          closeVerificationModal('inviteVerificationModal');
-        }, 2000);
-      } else {
-        statusElement.textContent = verificationResult.message || 'Could not verify invitation. Your friend may need to complete more activities.';
-        statusElement.className = 'verification-status error';
-      }
-    } catch (error) {
-      statusElement.textContent = 'Verification failed. Please try again later.';
-      statusElement.className = 'verification-status error';
-    }
-    
-    this.disabled = false;
-  });
-  
-  // Memory Creation Verification
-  document.getElementById('verifyMemoryBtn').addEventListener('click', async function() {
-    const url = document.getElementById('memoryUrl').value;
-    const description = document.getElementById('memoryDescription').value;
-    const statusElement = document.getElementById('memoryVerificationStatus');
-    
-    if (!url || !description) {
-      statusElement.textContent = 'Please provide both a URL and description';
-      statusElement.className = 'verification-status error';
-      return;
-    }
-    
-    statusElement.textContent = 'Verifying your memory...';
-    statusElement.className = 'verification-status pending';
-    this.disabled = true;
-    
-    try {
-      const verificationResult = await verifyMemoryCreation(url, description);
-      
-      if (verificationResult.success) {
-        statusElement.textContent = 'Memory verified! +30 points awarded.';
-        statusElement.className = 'verification-status success';
-        
-        awardPoints(30, 'Memory Creation');
-        markTaskAsVerified('createMeme');
-        
-        setTimeout(() => {
-          closeVerificationModal('memoryVerificationModal');
-        }, 2000);
-      } else {
-        statusElement.textContent = verificationResult.message || 'Could not verify memory. Please make sure it is publicly accessible.';
-        statusElement.className = 'verification-status error';
-      }
-    } catch (error) {
-      statusElement.textContent = 'Verification failed. Please try again later.';
-      statusElement.className = 'verification-status error';
-    }
-    
-    this.disabled = false;
-  });
-  
-  // Verification API Functions (Simulated)
-  async function verifyTwitterPost(url) {
-    // In a real implementation, this would call your backend API
-    // For now, we'll simulate API call with random success
-    return new Promise(resolve => {
-      setTimeout(() => {
-        // Simulate 80% success rate
-        const success = Math.random() > 0.2;
-        
-        if (success) {
-          resolve({
-            success: true,
-            message: 'Tweet verified successfully'
-          });
-        } else {
-          resolve({
-            success: false,
-            message: 'Tweet not found or does not meet requirements'
-          });
-        }
-      }, 1500);
-    });
-  }
-  
-  async function verifyFriendInvite(friendId) {
-    return new Promise(resolve => {
-      setTimeout(() => {
-        // Check if friend exists and has sufficient activity
-        const friendData = engagementData.users[friendId] || null;
-        const success = friendData && friendData.level >= 2;
-        
-        if (success) {
-          resolve({
-            success: true,
-            message: 'Friend invitation verified'
-          });
-        } else {
-          resolve({
-            success: false,
-            message: 'Friend not found or has insufficient activity'
-          });
-        }
-      }, 1500);
-    });
-  }
-  
-  async function verifyMemoryCreation(url, description) {
-    return new Promise(resolve => {
-      setTimeout(() => {
-        // Basic URL validation
-        const isValidUrl = url.startsWith('http') && 
-                          (url.includes('imgur') || 
-                           url.includes('twitter') || 
-                           url.includes('instagram') || 
-                           url.includes('youtube') || 
-                           url.includes('tiktok') ||
-                           url.includes('deviantart') ||
-                           url.includes('medium'));
-        
-        const success = isValidUrl && description.length >= 10;
-        
-        if (success) {
-          resolve({
-            success: true,
-            message: 'Memory verified successfully'
-          });
-        } else {
-          resolve({
-            success: false,
-            message: 'Invalid URL or description too short'
-          });
-        }
-      }, 1500);
-    });
-  }
-  
-  // Points Awarding Function
-  function awardPoints(points, reason) {
-    const userData = getUserData();
-    userData.points += points;
-    
-    // Update UI
-    document.getElementById('userPoints').textContent = userData.points;
-    
-    // Check for level up
-    checkLevelUp(userData);
-    
-    // Save data
-    saveEngagementData();
-    
-    // Show notification
-    showNotification(`+${points} points for ${reason}!`, 'success');
-    
-    // Log activity
-    logActivity(`Earned ${points} points for ${reason}`);
-  }
-  
-  // Mark Task as Verified
-  function markTaskAsVerified(taskId) {
-    const button = document.getElementById(taskId);
-    button.classList.add('task-verified');
-    button.disabled = true;
-    
-    // Update task completion in user data
-    const userData = getUserData();
-    if (!userData.completedTasks) userData.completedTasks = [];
-    if (!userData.completedTasks.includes(taskId)) {
-      userData.completedTasks.push(taskId);
-      saveEngagementData();
-    }
-  }
-  
-  // ===== AUTO-ENGAGEMENT SYSTEM (Updated with Task Verification) =====
-  
-  // Engagement Data Structure (Local fallback)
-  let engagementData = {
-      users: {},
-      community: {
-          totalMembers: 1250,
-          totalPoints: 58420,
-          milestones: [
-              { goal: 100, reached: true, reward: "Exclusive Role" },
-              { goal: 500, reached: true, reward: "Community Shout-out" },
-              { goal: 1000, reached: false, reward: "Special Badge" },
-              { goal: 5000, reached: false, reward: "Governance Rights" }
-          ]
-      },
-      activities: [],
-      dailyChallenges: [],
-      memeContest: {
-          active: false,
-          submissions: [],
-          endDate: null
-      },
-      twitterShilling: {
-          leaderboard: [],
-          tweetTemplates: [
-              "🚀 $SENPEPE is launching soon on Solana! Get ready for the next big meme coin revolution! #SENPEPE #Solana #MemeCoin",
-              "💎 Don't miss out on $SENPEPE - the community-driven meme coin with real utility! Launching Oct 17! #SENPEPE #Crypto",
-              "🐸 SENPEPE is coming to Solana! Join the movement and be part of something special. #SENPEPE #MemeCoin #Solana"
-          ]
-      }
+      verifyBtn.disabled = false;
+      verifyBtn.textContent = 'Verify Task';
+    }, 1500); // Simulate API delay
   };
   
-  // User ID for local storage
-  let userId = 'user_' + Math.random().toString(36).substr(2, 9);
-  
-  // Initialize user data if not exists (local fallback)
-  if (!localStorage.getItem('senpepeEngagementData')) {
-      const initialUserData = {
-          points: 0,
-          level: 1,
-          badges: [],
-          dailyCheckins: 0,
-          invites: 0,
-          memesCreated: 0,
-          helpsGiven: 0,
-          lastCheckin: null,
-          joinDate: new Date().toISOString(),
-          username: null,
-          twitterStats: {
-              tweets: 0,
-              retweets: 0,
-              likes: 0,
-              points: 0,
-              lastTweet: null
-          },
-          completedTasks: []
-      };
-      
-      engagementData.users[userId] = initialUserData;
-      saveEngagementData();
-  } else {
-      engagementData = JSON.parse(localStorage.getItem('senpepeEngagementData'));
+  // Validate Twitter URL
+  function validateTwitterUrl(url) {
+    if (!url) return false;
+    
+    // Basic Twitter URL validation
+    const twitterRegex = /https?:\/\/(www\.)?(twitter|x)\.com\/[a-zA-Z0-9_]+\/status\/[0-9]+/;
+    return twitterRegex.test(url);
   }
   
-  // Update Engagement System Initialization
-  function initializeEngagementSystem() {
-    // Load user data
-    const userData = getUserData();
+  // Validate meme URL (can be from various platforms)
+  function validateMemeUrl(url) {
+    if (!url) return false;
     
-    // Update UI with user data
-    document.getElementById('userPoints').textContent = userData.points || 0;
-    document.getElementById('userLevel').textContent = userData.level || 1;
+    // Accept URLs from common social/media platforms
+    const allowedDomains = [
+      'twitter.com', 'x.com', 
+      'reddit.com', 'imgur.com',
+      'instagram.com', 'facebook.com',
+      'tiktok.com', 'discord.com'
+    ];
     
-    // Calculate level progress
-    const pointsToNextLevel = (userData.level || 1) * 100;
-    const currentLevelPoints = (userData.points || 0) % 100;
-    const progressPercent = (currentLevelPoints / pointsToNextLevel) * 100;
-    
-    document.getElementById('levelProgress').style.width = `${progressPercent}%`;
-    document.getElementById('levelText').textContent = 
-      `Level ${userData.level || 1}: ${currentLevelPoints}/${pointsToNextLevel} points to next level`;
-    
-    // Mark completed tasks as verified
-    if (userData.completedTasks) {
-      userData.completedTasks.forEach(taskId => {
-        const button = document.getElementById(taskId);
-        if (button) {
-          button.classList.add('task-verified');
-          button.disabled = true;
-        }
-      });
+    try {
+      const urlObj = new URL(url);
+      return allowedDomains.some(domain => urlObj.hostname.includes(domain));
+    } catch (e) {
+      return false;
     }
-    
-    // Add event listeners for verification modals
-    document.getElementById('shareSocial').addEventListener('click', openTwitterVerification);
-    document.getElementById('inviteFriend').addEventListener('click', openInviteVerification);
-    document.getElementById('createMeme').addEventListener('click', openMemoryVerification);
-    document.getElementById('helpCommunity').addEventListener('click', openHelpCommunity);
-    
-    // Daily check-in (no verification needed)
-    document.getElementById('dailyCheckin').addEventListener('click', function() {
-      const today = new Date().toDateString();
-      const userData = getUserData();
-      
-      if (userData.lastCheckin === today) {
-        showNotification('You have already checked in today!', 'info');
-        return;
-      }
-      
-      userData.lastCheckin = today;
-      userData.dailyCheckins = (userData.dailyCheckins || 0) + 1;
-      
-      awardPoints(10, 'Daily Check-in');
-      markTaskAsVerified('dailyCheckin');
-      
-      // Special bonus for consecutive days
-      if (userData.dailyCheckins % 7 === 0) {
-        awardPoints(25, '7-Day Streak Bonus');
-        showNotification('7-day streak bonus! +25 points!', 'success');
-      }
-    });
   }
   
-  // Helper function to get user data
-  function getUserData() {
+  // Award points for completed task
+  function awardPoints(taskType, challengeId = null) {
+    const pointsMap = {
+      'dailyCheckin': 10,
+      'shareSocial': 25,
+      'createMeme': 30,
+      'inviteFriend': 50,
+      'helpCommunity': 15,
+      'twitterPost': 25,
+      'shareMeme': 30
+    };
+    
+    const points = pointsMap[taskType] || 10;
+    
+    // Update user points in engagement data
+    let engagementData = JSON.parse(localStorage.getItem('senpepeEngagementData') || '{}');
+    if (!engagementData.users) engagementData.users = {};
+    
+    const userId = localStorage.getItem('senpepeUserId') || 'defaultUser';
     if (!engagementData.users[userId]) {
       engagementData.users[userId] = {
         points: 0,
@@ -3229,69 +2932,250 @@
         lastCheckin: null,
         joinDate: new Date().toISOString(),
         username: null,
-        completedTasks: []
+        completedChallenges: []
       };
     }
-    return engagementData.users[userId];
-  }
-  
-  // Save engagement data to localStorage
-  function saveEngagementData() {
+    
+    // Update points
+    engagementData.users[userId].points += points;
+    
+    // Update specific counters
+    switch(taskType) {
+      case 'dailyCheckin':
+        engagementData.users[userId].dailyCheckins++;
+        engagementData.users[userId].lastCheckin = new Date().toISOString();
+        break;
+      case 'inviteFriend':
+        engagementData.users[userId].invites++;
+        break;
+      case 'createMeme':
+      case 'shareMeme':
+        engagementData.users[userId].memesCreated++;
+        break;
+      case 'helpCommunity':
+        engagementData.users[userId].helpsGiven++;
+        break;
+    }
+    
+    // Mark challenge as completed if applicable
+    if (challengeId && engagementData.dailyChallenges) {
+      const challenge = engagementData.dailyChallenges.find(c => c.id === challengeId);
+      if (challenge) {
+        challenge.completed = true;
+        if (!engagementData.users[userId].completedChallenges) {
+          engagementData.users[userId].completedChallenges = [];
+        }
+        engagementData.users[userId].completedChallenges.push(challengeId);
+      }
+    }
+    
+    // Save updated data
     localStorage.setItem('senpepeEngagementData', JSON.stringify(engagementData));
+    
+    // Update UI
+    updateEngagementUI();
+    
+    // Show success notification
+    showNotification(`+${points} points awarded for ${getTaskName(taskType)}!`, 'success');
   }
   
-  // Check for level up
-  function checkLevelUp(userData) {
-    const pointsNeeded = userData.level * 100;
-    if (userData.points >= pointsNeeded) {
-      userData.level += 1;
-      document.getElementById('userLevel').textContent = userData.level;
+  // Get display name for task type
+  function getTaskName(taskType) {
+    const taskNames = {
+      'dailyCheckin': 'Daily Check-in',
+      'shareSocial': 'Social Share',
+      'createMeme': 'Meme Creation',
+      'inviteFriend': 'Friend Invitation',
+      'helpCommunity': 'Community Help',
+      'twitterPost': 'Twitter Post',
+      'shareMeme': 'Meme Share'
+    };
+    
+    return taskNames[taskType] || 'Task';
+  }
+  
+  // Update engagement UI with current data
+  function updateEngagementUI() {
+    const engagementData = JSON.parse(localStorage.getItem('senpepeEngagementData') || '{}');
+    const userId = localStorage.getItem('senpepeUserId') || 'defaultUser';
+    const userData = engagementData.users ? engagementData.users[userId] : null;
+    
+    if (userData) {
+      // Update points and level
+      document.getElementById('userPoints').textContent = userData.points || 0;
       
-      showNotification(`Level Up! You are now Level ${userData.level}`, 'success');
+      // Calculate level based on points (simplified: 100 points per level)
+      const level = Math.floor((userData.points || 0) / 100) + 1;
+      document.getElementById('userLevel').textContent = level;
       
-      // Award level up bonus
-      awardPoints(50, 'Level Up Bonus');
+      // Update progress bar
+      const levelProgress = ((userData.points || 0) % 100);
+      document.getElementById('levelProgress').style.width = `${levelProgress}%`;
+      document.getElementById('levelText').textContent = `Level ${level}: ${levelProgress}/100 points to next level`;
+      
+      // Update challenges with verification status
+      updateChallengesUI(engagementData, userId);
     }
   }
   
-  // Show notification
+  // Update challenges with verification status indicators
+  function updateChallengesUI(engagementData, userId) {
+    const challengesContainer = document.getElementById('challengesContainer');
+    if (!challengesContainer) return;
+    
+    // Clear existing challenges
+    challengesContainer.innerHTML = '';
+    
+    // Add challenges with verification
+    const challenges = [
+      {
+        id: 'twitterChallenge',
+        title: 'Post on Twitter',
+        description: 'Share $SENPEPE on Twitter with our hashtag',
+        reward: 25,
+        type: 'twitterPost'
+      },
+      {
+        id: 'memeChallenge',
+        title: 'Create a Meme',
+        description: 'Create and share a SENPEPE meme',
+        reward: 30,
+        type: 'shareMeme'
+      },
+      {
+        id: 'referralChallenge',
+        title: 'Invite a Friend',
+        description: 'Invite friends using your referral link',
+        reward: 50,
+        type: 'inviteFriend'
+      }
+    ];
+    
+    challenges.forEach(challenge => {
+      const isCompleted = engagementData.users[userId]?.completedChallenges?.includes(challenge.id) || false;
+      
+      const challengeCard = document.createElement('div');
+      challengeCard.className = `challenge-card ${isCompleted ? 'completed' : ''}`;
+      challengeCard.innerHTML = `
+        <div class="challenge-title">
+          ${challenge.title}
+          <span class="challenge-reward">+${challenge.reward} pts</span>
+        </div>
+        <p>${challenge.description}</p>
+        <div class="challenge-verification">
+          <span class="verification-badge ${isCompleted ? 'verified' : ''}">${isCompleted ? '✓' : '!'}</span>
+          <span>${isCompleted ? 'Verified' : 'Requires verification'}</span>
+        </div>
+        <button class="challenge-action ${isCompleted ? 'completed' : ''}" 
+                onclick="${isCompleted ? '' : `openVerification('${challenge.type}', '${challenge.id}')`}"
+                ${isCompleted ? 'disabled' : ''}>
+          ${isCompleted ? 'Completed' : 'Verify Completion'}
+        </button>
+      `;
+      
+      challengesContainer.appendChild(challengeCard);
+    });
+  }
+  
+  // Initialize engagement system with verification
+  function initializeEngagementSystem() {
+    // Load existing data or initialize
+    if (!localStorage.getItem('senpepeEngagementData')) {
+      const initialData = {
+        users: {},
+        community: {
+          totalMembers: 1250,
+          totalPoints: 58420,
+          milestones: [
+            { goal: 100, reached: true, reward: "Exclusive Role" },
+            { goal: 500, reached: true, reward: "Community Shout-out" },
+            { goal: 1000, reached: false, reward: "Special Badge" },
+            { goal: 5000, reached: false, reward: "Governance Rights" }
+          ]
+        },
+        activities: [],
+        dailyChallenges: [],
+        memeContest: {
+          active: false,
+          submissions: [],
+          endDate: null
+        },
+        twitterShilling: {
+          leaderboard: [],
+          tweetTemplates: [
+            "🚀 $SENPEPE is launching soon on Solana! Get ready for the next big meme coin revolution! #SENPEPE #Solana #MemeCoin",
+            "💎 Don't miss out on $SENPEPE - the community-driven meme coin with real utility! Launching Oct 17! #SENPEPE #Crypto",
+            "🐸 SENPEPE is coming to Solana! Join the movement and be part of something special. #SENPEPE #MemeCoin #Solana"
+          ]
+        }
+      };
+      
+      localStorage.setItem('senpepeEngagementData', JSON.stringify(initialData));
+    }
+    
+    // Update UI with current data
+    updateEngagementUI();
+    
+    // Set up task buttons with verification
+    document.getElementById('dailyCheckin').onclick = function() { openVerification('dailyCheckin'); };
+    document.getElementById('shareSocial').onclick = function() { openVerification('twitterPost'); };
+    document.getElementById('createMeme').onclick = function() { openVerification('shareMeme'); };
+    document.getElementById('inviteFriend').onclick = function() { openVerification('inviteFriend'); };
+    document.getElementById('helpCommunity').onclick = function() { openVerification('helpCommunity'); };
+  }
+  
+  // Initialize when page loads
+  document.addEventListener('DOMContentLoaded', function() {
+    initializeEngagementSystem();
+    
+    // Check for referral parameter in URL
+    const urlParams = new URLSearchParams(window.location.search);
+    const refParam = urlParams.get('ref');
+    
+    if (refParam) {
+      // User joined via referral link
+      let engagementData = JSON.parse(localStorage.getItem('senpepeEngagementData') || '{}');
+      
+      // Award points to referrer (in a real system, this would be handled by the backend)
+      if (engagementData.users && engagementData.users[refParam]) {
+        engagementData.users[refParam].points += 50; // Award referral points
+        localStorage.setItem('senpepeEngagementData', JSON.stringify(engagementData));
+        
+        // Show notification to new user
+        showNotification('You joined using a referral link! The referrer has been awarded points.', 'success');
+      }
+      
+      // Remove ref parameter from URL without reloading
+      const newUrl = window.location.protocol + "//" + window.location.host + window.location.pathname;
+      window.history.replaceState({}, document.title, newUrl);
+    }
+  });
+
+  // Notification system
   function showNotification(message, type = 'info') {
     const notification = document.getElementById('notification');
     const notificationText = document.getElementById('notificationText');
     
     notificationText.textContent = message;
-    notification.className = `notification ${type}`;
+    
+    // Set background based on type
+    if (type === 'success') {
+      notification.style.background = 'linear-gradient(135deg, #2ecc71, #27ae60)';
+    } else if (type === 'error') {
+      notification.style.background = 'linear-gradient(135deg, #e74c3c, #c0392b)';
+    } else {
+      notification.style.background = 'linear-gradient(135deg, var(--warm-1), var(--warm-2))';
+    }
+    
     notification.classList.add('show');
     
+    // Auto-hide after 5 seconds
     setTimeout(() => {
       notification.classList.remove('show');
-    }, 3000);
+    }, 5000);
   }
-  
-  // Log activity
-  function logActivity(activity) {
-    const activityFeed = document.getElementById('activityFeed');
-    const timestamp = new Date().toLocaleTimeString();
-    
-    const activityItem = document.createElement('div');
-    activityItem.className = 'activity-item';
-    activityItem.innerHTML = `
-      <div>${activity}</div>
-      <div class="timestamp">${timestamp}</div>
-    `;
-    
-    activityFeed.insertBefore(activityItem, activityFeed.firstChild);
-    
-    // Keep only last 10 activities
-    if (activityFeed.children.length > 10) {
-      activityFeed.removeChild(activityFeed.lastChild);
-    }
-  }
-  
-  // Initialize the engagement system when the page loads
-  document.addEventListener('DOMContentLoaded', function() {
-    initializeEngagementSystem();
-  });
+
+  // Rest of your existing JavaScript code...
 </script>
 </body>
 </html>
