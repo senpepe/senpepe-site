@@ -141,11 +141,6 @@
   }
   .planet-img.ringed{ box-shadow: none !important; }
   .planet-img.sun{ box-shadow: 0 0 40px rgba(255,200,0,.35),0 0 80px rgba(255,130,0,.25), inset -18px -18px 36px rgba(0,0,0,.35) }
-  .planet-img.ringed::after{
-    content:""; position:absolute; inset:-18% -18%; border-radius:50%; transform:rotateX(65deg);
-    background:conic-gradient(from 12deg, rgba(200,220,255,.28), rgba(255,255,255,0) 34%, rgba(200,220,255,.28) 68%, rgba(255,255,255,0) 100%);
-    filter:blur(.6px)
-  }
 
   /* ==== HOW section ==== */
   #how{ position:relative; overflow:hidden }
@@ -189,7 +184,7 @@
   .note{ font-size:.9rem; color:#dbe5ff; opacity:.9; margin-top:6px }
 
   /* Safety row */
-  .safety{ display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:12px; margin-top:14px }
+  .safety{ display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:12px; margin-top:14px }
   .chip{ display:inline-flex; align-items:center; gap:8px; font-weight:900; font-size:.85rem; padding:10px 12px; border-radius:999px; background:rgba(0,0,0,.25); border:1px solid rgba(255,255,255,.12); color:#fff; justify-content:center }
 
   /* Contract panel (spans) */
@@ -203,7 +198,74 @@
   .qr{ display:grid; place-items:center; background:rgba(0,0,0,.2); border:1px dashed rgba(255,255,255,.18); border-radius:14px; padding:16px; aspect-ratio:1/1 }
   .qr small{ color:#ffe2b3; opacity:.9 }
 
-  /* ===== HOW TO BUY ===== */
+  /* ===== PRE-LAUNCH BENEFITS SECTION ===== */
+  #prelaunch-benefits {
+    background: linear-gradient(180deg, var(--space-2) 0%, var(--space-1) 100%);
+    padding: 80px 20px;
+    text-align: center;
+  }
+  
+  .benefits-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .benefit-card {
+    background: rgba(255,255,255,0.05);
+    border-radius: 20px;
+    padding: 30px 20px;
+    border: 1px solid rgba(255,140,0,0.3);
+    transition: transform 0.3s, box-shadow 0.3s;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .benefit-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--warm-1), var(--warm-2), var(--warm-3));
+  }
+  
+  .benefit-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(255,140,0,0.2);
+  }
+  
+  .benefit-icon {
+    font-size: 3rem;
+    margin-bottom: 15px;
+    display: block;
+  }
+  
+  .benefit-card h3 {
+    color: var(--warm-2);
+    margin-bottom: 15px;
+    font-size: 1.4rem;
+  }
+  
+  .benefit-card p {
+    color: var(--muted);
+    line-height: 1.6;
+  }
+
+  /* ===== HOW TO PREPARE SECTION ===== */
+  #how{ position:relative; overflow:hidden }
+  #how .how-sky{ position:absolute; inset:0; z-index:-2; pointer-events:none; overflow:hidden; background: radial-gradient(1200px 800px at 50% 100%, rgba(11,28,49,.85), #000 70%) }
+  #how .how-star{ position:absolute; width:2px; height:2px; background:#fff; border-radius:50%; animation: twinkle .9s infinite alternate; opacity:.9 }
+  #how .how-rails{ position:absolute; inset:0; z-index:1; pointer-events:none }
+  #how .rail{ position:absolute; top:0; bottom:0; width:clamp(68px,12vw,140px) }
+  #how .rail.left{ left:0 }  #how .rail.right{ right:0 }
+  .how-panel{ background:#fff;color:#1a0d00;border-radius:24px;box-shadow:0 20px 50px rgba(0,0,0,.35);padding:26px; position:relative; z-index:2 }
+
   .how-title{ background:linear-gradient(90deg,var(--warm-1),var(--warm-2),var(--warm-3));color:#2a0c00;text-align:center;padding:16px;border-radius:16px;font-weight:900;letter-spacing:.06em;text-transform:uppercase }
   .how-grid{ display:grid;grid-template-columns:1.2fr .8fr; gap:22px; align-items:center }
   .how-steps{ counter-reset:step; list-style:none; padding:0; margin:16px 0 0 }
@@ -1970,8 +2032,8 @@
     </div>
     
     <div class="cta" role="group" aria-label="Primary actions">
-      <a id="buyBtn" class="btn buy"  href="#how">How to Buy (Soon)</a>
-      <a class="btn join" href="https://t.me/+CMMZqpTja4U0ZjYx" target="_blank" rel="noopener noreferrer" aria-label="Join our Telegram team">Join Our Team</a>
+      <a id="buyBtn" class="btn buy"  href="#how">How to Prepare for Launch</a>
+      <a class="btn join" href="https://t.me/+CMMZqpTja4U0ZjYx" target="_blank" rel="noopener noreferrer" aria-label="Join our Telegram team">Join Our Genesis Group</a>
       <!-- Add-to-Calendar -->
       <a class="btn" download="senpepe_launch.ics" aria-label="Add SENPEPE launch to your calendar"
          href='data:text/calendar;charset=utf-8,BEGIN:VCALENDAR%0AVERSION:2.0%0ABEGIN:VEVENT%0ADTSTART:20251017T190000%0ADTEND:20251017T200000%0ASUMMARY:SENPEPE%20Launch%0ADESCRIPTION:Join%20the%20SENPEPE%20launch%20on%20Solana%0AEND:VEVENT%0AEND:VCALENDAR'>🗓 Add to Calendar</a>
@@ -2003,6 +2065,32 @@
         We're here to prove that memes can move markets, culture can create value, and family can build something that lasts. 
         Senpai Pepe isn't just another coin—it's the future of meme culture on the blockchain.
       </p>
+    </section>
+
+    <!-- ===== PRE-LAUNCH BENEFITS SECTION ===== -->
+    <section id="prelaunch-benefits" aria-labelledby="prelaunch-title">
+      <div class="wrap">
+        <h2 id="prelaunch-title">🚀 Why Join Before Launch?</h2>
+        <p class="subtitle">Be part of our genesis group and unlock exclusive benefits</p>
+        
+        <div class="benefits-grid">
+          <div class="benefit-card">
+            <div class="benefit-icon">👑</div>
+            <h3>Founding Member Status</h3>
+            <p>Get recognized as an OG supporter with special privileges and exclusive access to community decisions.</p>
+          </div>
+          <div class="benefit-card">
+            <div class="benefit-icon">⚡</div>
+            <h3>Early Access</h3>
+            <p>Be first in line when we launch - avoid gas wars and slippage with priority access to the token.</p>
+          </div>
+          <div class="benefit-card">
+            <div class="benefit-icon">🎁</div>
+            <h3>Exclusive Rewards</h3>
+            <p>Earn bonus tokens and NFTs for helping build our community before anyone else knows about SENPEPE.</p>
+          </div>
+        </div>
+      </div>
     </section>
 
     <!-- ===== AUTO-ENGAGEMENT SYSTEM ===== -->
@@ -2212,7 +2300,7 @@
 
         <!-- Core metrics -->
         <div class="grid">
-          <div class="card"><h3>Price (USD)</h3><p id="priceUsd">TBA</p><div class="note">Announced at launch</div></div>
+          <div class="card"><h3>Price (USD)</h3><p id="priceUsd">Pre-launch valuation discussion in our Telegram</p><div class="note">Announced at launch</div></div>
           <div class="card"><h3>Price (SOL)</h3><p id="priceSol">TBA</p><div class="note">Announced at launch</div></div>
           <div class="card"><h3>Market Cap</h3><p id="mcap">TBA</p><div class="note">Fully diluted at listing</div></div>
           <div class="card"><h3>Liquidity</h3><p id="liq">TBA</p><div class="note">Pair info released at launch</div></div>
@@ -2223,7 +2311,7 @@
           <div class="card contract" id="contractCard" aria-live="polite">
             <div>
               <h3 style="margin-bottom:8px">Contract</h3>
-              <div id="ca" class="ca">SENPEPE_CONTRACT_ADDRESS_HERE</div>
+              <div id="ca" class="ca">Contract will be verified and pinned before launch</div>
               <div class="actions" style="margin-top:10px">
                 <button class="pill" type="button" id="copyCA">Copy</button>
                 <button class="pill disabled" type="button" id="addWalletBtn" aria-disabled="true">Add to Wallet (Soon)</button>
@@ -2241,30 +2329,29 @@
         <div class="safety" aria-label="Safety and transparency">
           <div class="chip">🔒 LP Lock: <span style="margin-left:6px" id="lpLock">TBA</span></div>
           <div class="chip">📝 Audit: <span style="margin-left:6px" id="audit">TBA</span></div>
-          <div class="chip">🗝️ Ownership: <span style="margin-left:6px" id="ownership">TBA</span></div>
         </div>
       </div>
     </section>
 
-    <!-- ===== HOW TO BUY $SENPEPE ===== -->
+    <!-- ===== HOW TO PREPARE FOR $SENPEPE LAUNCH ===== -->
     <section id="how" aria-labelledby="how-title">
       <div class="how-sky" id="howSky" aria-hidden="true"></div>
       <div class="how-rails" aria-hidden="true"><div class="rail left" id="howRailL"></div><div class="rail right" id="howRailR"></div></div>
       <div class="wrap how-panel">
-        <h2 class="how-title" id="how-title">How to Buy $SENPEPE (Coming Soon)</h2>
+        <h2 class="how-title" id="how-title">How to Prepare for $SENPEPE Launch</h2>
         <div class="how-grid">
           <div>
             <ol class="how-steps">
               <li>Install a Solana wallet (Phantom, Solflare, etc.).</li>
               <li>Back up your secret recovery phrase securely.</li>
               <li>Buy SOL on an exchange and send it to your wallet.</li>
-              <li>Open a DEX (Jupiter or Raydium).</li>
-              <li>Connect your wallet and paste the <strong>verified</strong> $SENPEPE contract.</li>
-              <li>Review slippage/fees, then swap SOL → $SENPEPE.</li>
+              <li>Join our Telegram for real-time launch updates.</li>
+              <li>Be ready to paste the verified $SENPEPE contract at launch.</li>
+              <li>Review slippage/fees, then swap SOL → $SENPEPE quickly.</li>
             </ol>
-            <div class="pill-row" role="group" aria-label="Swap links">
-              <a class="pill primary disabled" href="#" aria-disabled="true">Coming Soon</a>
-              <a class="pill primary disabled" href="#" aria-disabled="true">Coming Soon</a>
+            <div class="pill-row" role="group" aria-label="Preparation links">
+              <a class="pill primary" href="https://phantom.app/" target="_blank">Get Phantom Wallet</a>
+              <a class="pill primary" href="https://t.me/+CMMZqpTja4U0ZjYx" target="_blank">Join Launch Chat</a>
             </div>
             <!-- FAQ -->
             <details class="how-faq">
@@ -2312,9 +2399,9 @@
 
       <div class="bottom-wrap">
         <div>
-          <h2 id="cta-bottom-title" class="bottom-title">JOIN THE<br/>COMMUNITY</h2>
-          <p class="bottom-copy">Get in early. Meet the crew. Drop memes. Claim your spot for launch-day chaos.</p>
-          <a class="tg-btn" data-append-ref href="https://t.me/+CMMZqpTja4U0ZjYx" target="_blank" rel="noopener noreferrer">✈ JOIN OUR TEAM ON TELEGRAM</a>
+          <h2 id="cta-bottom-title" class="bottom-title">JOIN THE<br/>GENESIS GROUP</h2>
+          <p class="bottom-copy">Get in early. Meet the crew. Drop memes. Claim your spot for launch-day chaos and exclusive founding member benefits.</p>
+          <a class="tg-btn" data-append-ref href="https://t.me/+CMMZqpTja4U0ZjYx" target="_blank" rel="noopener noreferrer">✈ JOIN OUR GENESIS GROUP ON TELEGRAM</a>
           
           <div class="social-icons-container">
             <div class="social-icons-wrapper">
@@ -2348,7 +2435,7 @@
         </div>
         <div class="mail-col">
           <h2 class="bottom-title">JOIN OUR<br/>MAILING LIST</h2>
-          <p class="bottom-copy">Be the first to know when SENPEPE launches.</p>
+          <p class="bottom-copy">Be the first to know when SENPEPE launches with exclusive early access.</p>
           <form id="mailForm" style="width:100%" novalidate>
             <input id="mailInput" class="mail-input" type="email" placeholder="Enter your email" required autocomplete="email" />
             <div id="errorMessage" class="error-message">Please enter a valid email address</div>
@@ -2693,8 +2780,7 @@
           
           // Safety features
           lpLock: tokenData.lpLock || '90 days',
-          audit: tokenData.audit || 'Pending',
-          ownership: tokenData.ownership || 'Renounced'
+          audit: tokenData.audit || 'Pending'
       };
       
       // Apply updates
@@ -4373,8 +4459,7 @@
   //     tax: '0%',
   //     decimals: '9',
   //     lpLock: '90 days',
-  //     audit: 'Pending',
-  //     ownership: 'Renounced'
+  //     audit: 'Pending'
   // });
 </script>
 </body>
