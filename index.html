@@ -1,20 +1,4466 @@
-<section id="prelaunch-benefits">
-    <h2>🚀 Why Join Before Launch?</h2>
-    <div class="benefits-grid">
-        <div class="benefit-card">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>SENPEPE — Meme Coin Revolution</title>
+<meta name="description" content="SENPEPE launches Oct 17 @ 7pm on Solana. Join the movement for memes, community, and utility." />
+
+<!-- Canonical / Theme / Icons -->
+<link rel="canonical" href="https://yourdomain/" />
+<meta name="theme-color" content="#ff8c00" />
+<link rel="icon" href="assets/favicon-32.png" sizes="32x32" />
+<link rel="icon" href="assets/favicon-192.png" sizes="192x192" />
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png" />
+<link rel="manifest" href="/manifest.webmanifest" />
+
+<!-- Performance Hints -->
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="image" href="assets/senpepe-main.png" imagesrcset="assets/senpepe-main.png 1x" />
+
+<!-- Open Graph / Twitter -->
+<meta property="og:title" content="SENPEPE — Meme Coin Revolution">
+<meta property="og:description" content="Launching Oct 17 @ 7pm on Solana. Join the movement.">
+<meta property="og:image" content="https://yourdomain/assets/senpepe-main.png">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://yourdomain/">
+<meta name="twitter:card" content="summary_large_image">
+
+<style>
+  :root{
+    --space-1:#02060b; --space-2:#0b1c31;
+    --cool-1:#34e7ff; --cool-2:#9eff6b;
+    --warm-1:#ff8c00; --warm-2:#ffe066; --warm-3:#ff6b81;
+    --text:#ffffff; --muted:#dbe5ff;
+    --card:rgba(15,15,25,.55);
+    --radius:16px; --maxw:1100px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{height:100%}
+  body{
+    font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Arial,sans-serif;
+    color:var(--text);
+    overflow-x:hidden;
+    background: radial-gradient(1200px 800px at 50% 100%, var(--space-2) 0%, #000 70%);
+  }
+  header, main, footer{position:relative; z-index:2}
+  header{height:auto}
+
+  /* ===== HERO ===== */
+  .hero{ position:relative; min-height:96vh; display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; padding:48px 20px 100px; overflow:hidden }
+  .hero .warp-layer{ position:absolute; inset:0; z-index:-3; overflow:hidden; pointer-events:none; background: radial-gradient(1200px 800px at 50% 100%, rgba(11,28,49,.85), #000 70%) }
+  .streak{ position:absolute; top:var(--top,50%); left:var(--left,110vw); width:2px; height:var(--len,120px); background:linear-gradient(to bottom, rgba(255,255,255,0) 0%, rgba(255,255,255,.95) 60%, rgba(255,255,255,0) 100%); transform:rotate(var(--angle,-12deg)); opacity:var(--op,.6); filter:drop-shadow(0 0 6px rgba(255,255,255,.5)); animation:streak-move var(--dur,10s) linear var(--delay,0s) infinite }
+  @keyframes streak-move{from{transform:translateX(0) rotate(var(--angle,-12deg))}to{transform:translateX(-130vw) rotate(var(--angle,-12deg))}}
+  .star{ position:absolute;width:2px;height:2px;background:#fff;border-radius:50%;animation:twinkle .75s infinite alternate;z-index:-2 }
+  @keyframes twinkle{from{opacity:.25}to{opacity:1}}
+
+  .hero .logo{width:min(36vw,140px);height:auto;border-radius:50%;filter:drop-shadow(0 8px 22px rgba(0,0,0,.6));margin-bottom:10px}
+  #hero-title{ font-size:clamp(2.6rem,6vw,5rem); background:linear-gradient(92deg,#ffe066 0%,#ffcf33 25%,#ffb400 50%,#ff8c00 75%,#ffe066 100%); -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent; letter-spacing:.5px;text-shadow:0 0 14px rgba(255,200,50,.18), 0 2px 10px rgba(0,0,0,.25) }
+  .subtag{margin-top:6px;font-weight:800;letter-spacing:.04em;color:#ffd26a;opacity:.95}
+  .hero p{max-width:900px;margin-top:16px;color:var(--muted);line-height:1.7}
+  .cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:22px;justify-content:center;}
+  .btn{padding:14px 20px;border-radius:14px;text-decoration:none;font-weight:800;border:1px solid rgba(255,255,255,.12);transition:.2s}
+  .btn:hover{filter:brightness(1.05);transform:translateY(-2px);}
+  .btn.buy{background:linear-gradient(135deg,var(--warm-1),var(--warm-2)); color:#2a0c00}
+  .btn.join{background:linear-gradient(135deg,#2afc7f,#9eff6b); color:#04210f}
+  .btn.neutral{background:rgba(255,255,255,.08); color:#fff}
+
+  /* Pre-launch badge */
+  .prelaunch-badge { background: linear-gradient(135deg, var(--warm-1), var(--warm-3)); color: #2a0c00; padding: 8px 16px; border-radius: 20px; font-weight: 800; margin-top: 16px; text-transform: uppercase; letter-spacing: 1px; font-size: 0.9rem; box-shadow: 0 4px 12px rgba(0,0,0,0.3); }
+
+  /* Countdown timer */
+  .countdown { display:flex; gap:12px; margin-top:20px; justify-content:center; flex-wrap:wrap; }
+  .countdown-item { background: rgba(15,15,25,.6); border-radius:12px; padding:12px; min-width:70px; text-align:center; box-shadow:0 4px 12px rgba(0,0,0,0.25); }
+  .countdown-value { font-size:1.8rem; font-weight:900; background:linear-gradient(135deg, var(--warm-1), var(--warm-2)); -webkit-background-clip: text; background-clip:text; -webkit-text-fill-color: transparent; color: transparent; }
+  .countdown-label { font-size:0.8rem; margin-top:4px; color:var(--muted); }
+
+  /* Price update pulse indicator */
+  .price-update-pulse {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 8px;
+    font-size: 0.85rem;
+    color: var(--muted);
+    opacity: 0.8;
+  }
+  .pulse-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #9eff6b;
+    animation: pulse 2s infinite;
+  }
+  @keyframes pulse {
+    0% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.5; transform: scale(1.1); }
+    100% { opacity: 1; transform: scale(1); }
+  }
+
+  /* Buy banner notification */
+  .buy-banner {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(90deg, var(--warm-1), var(--warm-2), var(--warm-3));
+    color: #2a0c00;
+    padding: 12px 20px;
+    text-align: center;
+    font-weight: 900;
+    z-index: 10000;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    transform: translateY(-100%);
+    transition: transform 0.5s ease;
+  }
+  .buy-banner.show {
+    transform: translateY(0);
+  }
+
+  /* ===== ROCKET + embers ===== */
+  .rocket-wrap{ position:absolute; bottom:18%; left:-25vw; width:min(28vw,280px); pointer-events:none; z-index:-1; transform:rotate(6deg); animation:fly-across 22s linear infinite; perspective:800px }
+  .rocket-photo{ width:100%; height:auto; display:block; filter:drop-shadow(0 14px 32px rgba(0,0,0,.5)); opacity:.95 }
+  .ember{ position:absolute; left:8%; bottom:20%; width:var(--w,18px); height:var(--h,18px); border-radius:50%; background: radial-gradient(circle at 40% 50%, rgba(255,240,180,.95), rgba(255,120,0,.75) 60%, rgba(255,80,0,0) 72%); filter:blur(0.6px) drop-shadow(0 2px 6px rgba(255,120,0,.4)); transform: translateY(var(--ey,0)) scale(var(--s,1)); animation: ember-move var(--t,3.2s) linear var(--d,0s) infinite }
+  @keyframes ember-move{0%{transform:translateX(0) translateY(var(--ey,0)) scale(var(--s,1));opacity:1}100%{transform:translateX(-60vw) translateY(calc(var(--ey,0) + 6px)) scale(calc(var(--s,1)*.8));opacity:0}}
+  @keyframes fly-across{0%{transform:translateX(0) rotate(6deg)}100%{transform:translateX(150vw) rotate(6deg)}}
+
+  /* ===== PLANET BELT ===== */
+  .planet-field{ position:absolute; inset:0; z-index:-2; pointer-events:none; overflow:hidden }
+  .belt-track{ position:absolute; top:0; left:0; width:200%; height:100%; animation:belt-move var(--beltDur,26s) linear infinite; }
+  @keyframes belt-move{ from{ transform:translateX(0); } to{ transform:translateX(-50%); } }
+  .belt-group{ position:absolute; top:0; width:50%; height:100%; }
+  .belt-group.g1{ left:0; } .belt-group.g2{ left:50%; }
+
+  .planet-img{
+    position:absolute; width:var(--w,200px); height:var(--w,200px);
+    background:center/cover no-repeat;
+    border-radius:50%;
+    -webkit-mask-image: radial-gradient(closest-side, #000 99%, transparent 100%);
+            mask-image: radial-gradient(closest-side, #000 99%, transparent 100%);
+    box-shadow: inset -18px -18px 36px rgba(0,0,0,.45), 0 20px 40px rgba(0,0,0,.35);
+  }
+  .planet-img.ringed{ box-shadow: none !important; }
+  .planet-img.sun{ box-shadow: 0 0 40px rgba(255,200,0,.35),0 0 80px rgba(255,130,0,.25), inset -18px -18px 36px rgba(0,0,0,.35) }
+
+  /* ==== HOW section ==== */
+  #how{ position:relative; overflow:hidden }
+  #how .how-sky{ position:absolute; inset:0; z-index:-2; pointer-events:none; overflow:hidden; background: radial-gradient(1200px 800px at 50% 100%, rgba(11,28,49,.85), #000 70%) }
+  #how .how-star{ position:absolute; width:2px; height:2px; background:#fff; border-radius:50%; animation: twinkle .9s infinite alternate; opacity:.9 }
+  #how .how-rails{ position:absolute; inset:0; z-index:1; pointer-events:none }
+  #how .rail{ position:absolute; top:0; bottom:0; width:clamp(68px,12vw,140px) }
+  #how .rail.left{ left:0 }  #how .rail.right{ right:0 }
+  .how-panel{ background:#fff;color:#1a0d00;border-radius:24px;box-shadow:0 20px 50px rgba(0,0,0,.35);padding:26px; position:relative; z-index:2 }
+
+  .sideItem{ position:absolute; left:50%; transform:translate(-50%,0); width:var(--w,160px); height:auto; filter:drop-shadow(0 10px 14px rgba(0,0,0,.35)); opacity:0 }
+  .sideItem img{ width:100%; height:auto; display:block }
+
+  /* ===== Generic sections ===== */
+  section{padding:80px 20px}
+  .wrap{max-width:var(--maxw); margin:0 auto}
+  h2{font-size:clamp(1.6rem,3.2vw,2.2rem); text-align:center}
+
+  /* ===== $SENPEPE INFO (revamp) ===== */
+  #info{ background: linear-gradient(180deg, var(--warm-1) 0%, var(--warm-2) 100%) }
+  #info .wrap{max-width:1200px}
+  #info h2{ color:#2a0c00; text-shadow:0 1px 0 rgba(255,255,255,.35); letter-spacing:.06em; margin-bottom:8px }
+  #info .subtitle{ text-align:center; color:#3a2200; opacity:.9; margin-top:2px; font-weight:700 }
+
+  /* Top stat strip */
+  .info-stats{ display:grid; gap:12px; margin:18px auto 20px; grid-template-columns:repeat(2,minmax(0,1fr)); max-width:1000px }
+  @media (min-width:800px){ .info-stats{ grid-template-columns:repeat(4,minmax(0,1fr)) } }
+  .stat{ background:rgba(0,0,0,.18); border:1px solid rgba(0,0,0,.12); border-radius:14px; padding:14px 16px; display:flex; align-items:center; gap:12px }
+  .stat .ico{ width:34px; height:34px; border-radius:50%; display:grid; place-items:center; background:#1b1320; box-shadow: inset 0 0 0 1px rgba(255,255,255,.12) }
+  .stat .kpi{ display:flex; flex-direction:column; line-height:1.1 }
+  .kpi-number{ font-weight:900; font-size:1.05rem; color:#fff }
+  .kpi-label{ font-size:.78rem; color:#ffe2b3; opacity:.9 }
+
+  /* Core grid cards */
+  #info .grid{ display:grid; gap:16px; margin-top:8px; grid-template-columns:1fr }
+  @media (min-width:700px){ #info .grid{ grid-template-columns:repeat(3,minmax(0,1fr)) } }
+
+  #info .card{ background:rgba(15,15,25,.7); border:1px solid rgba(255,255,255,.12); border-radius:var(--radius); padding:20px; text-align:center; min-height:120px; display:flex; flex-direction:column; justify-content:center; box-shadow:0 14px 28px rgba(0,0,0,.28) }
+  #info .card h3{ margin:0 0 6px; letter-spacing:.08em; color:#fff; opacity:.95; font-size:.95rem }
+  #info .card p{ margin:0; font-weight:900; font-size:1.22rem; color:#fff }
+  .note{ font-size:.9rem; color:#dbe5ff; opacity:.9; margin-top:6px }
+
+  /* Safety row */
+  .safety{ display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:12px; margin-top:14px }
+  .chip{ display:inline-flex; align-items:center; gap:8px; font-weight:900; font-size:.85rem; padding:10px 12px; border-radius:999px; background:rgba(0,0,0,.25); border:1px solid rgba(255,255,255,.12); color:#fff; justify-content:center }
+
+  /* Contract panel (spans) */
+  .contract{ grid-column:1/-1; display:grid; gap:16px; grid-template-columns:1fr; align-items:center }
+  @media (min-width:900px){ .contract{ grid-template-columns:2fr 1fr } }
+  .contract .ca{ font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace; background:#071019; color:#a9ffde; padding:14px; border-radius:12px; border:1px dashed rgba(255,255,255,.18); word-break:break-all; }
+  .contract .actions{ display:flex; gap:10px; flex-wrap:wrap; justify-content:center }
+  .pill{ background:#11172a;color:#fff;text-decoration:none;font-weight:800;padding:14px 18px;border:1px solid rgba(0,0,0,.25);border-radius:999px;cursor:pointer }
+  .pill.primary{ background:linear-gradient(135deg,var(--warm-1),var(--warm-3)); color:#2a0c00 }
+  .pill.disabled { opacity:.6; cursor:not-allowed; pointer-events:none; }
+  .qr{ display:grid; place-items:center; background:rgba(0,0,0,.2); border:1px dashed rgba(255,255,255,.18); border-radius:14px; padding:16px; aspect-ratio:1/1 }
+  .qr small{ color:#ffe2b3; opacity:.9 }
+
+  /* ===== PRE-LAUNCH BENEFITS SECTION ===== */
+  #prelaunch-benefits {
+    background: linear-gradient(180deg, var(--space-2) 0%, var(--space-1) 100%);
+    padding: 80px 20px;
+    text-align: center;
+  }
+  
+  .benefits-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .benefit-card {
+    background: rgba(255,255,255,0.05);
+    border-radius: 20px;
+    padding: 30px 20px;
+    border: 1px solid rgba(255,140,0,0.3);
+    transition: transform 0.3s, box-shadow 0.3s;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .benefit-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--warm-1), var(--warm-2), var(--warm-3));
+  }
+  
+  .benefit-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(255,140,0,0.2);
+  }
+  
+  .benefit-icon {
+    font-size: 3rem;
+    margin-bottom: 15px;
+    display: block;
+  }
+  
+  .benefit-card h3 {
+    color: var(--warm-2);
+    margin-bottom: 15px;
+    font-size: 1.4rem;
+  }
+  
+  .benefit-card p {
+    color: var(--muted);
+    line-height: 1.6;
+  }
+
+  /* ===== HOW TO PREPARE SECTION ===== */
+  #how{ position:relative; overflow:hidden }
+  #how .how-sky{ position:absolute; inset:0; z-index:-2; pointer-events:none; overflow:hidden; background: radial-gradient(1200px 800px at 50% 100%, rgba(11,28,49,.85), #000 70%) }
+  #how .how-star{ position:absolute; width:2px; height:2px; background:#fff; border-radius:50%; animation: twinkle .9s infinite alternate; opacity:.9 }
+  #how .how-rails{ position:absolute; inset:0; z-index:1; pointer-events:none }
+  #how .rail{ position:absolute; top:0; bottom:0; width:clamp(68px,12vw,140px) }
+  #how .rail.left{ left:0 }  #how .rail.right{ right:0 }
+  .how-panel{ background:#fff;color:#1a0d00;border-radius:24px;box-shadow:0 20px 50px rgba(0,0,0,.35);padding:26px; position:relative; z-index:2 }
+
+  .how-title{ background:linear-gradient(90deg,var(--warm-1),var(--warm-2),var(--warm-3));color:#2a0c00;text-align:center;padding:16px;border-radius:16px;font-weight:900;letter-spacing:.06em;text-transform:uppercase }
+  .how-grid{ display:grid;grid-template-columns:1.2fr .8fr; gap:22px; align-items:center }
+  .how-steps{ counter-reset:step; list-style:none; padding:0; margin:16px 0 0 }
+  .how-steps li{ position:relative; padding-left:44px; margin:12px 0; line-height:1.75 }
+  .how-steps li::before{ counter-increment:step; content:counter(step) "."; position:absolute; left:0; top:0; width:30px;height:30px;border-radius:999px;background:linear-gradient(135deg,var(--warm-1),var(--warm-2)); color:#2a0c00; display:grid;place-items:center;font-weight:900 }
+  .pill-row{ display:flex;flex-wrap:wrap;gap:12px;margin-top:12px;justify-content:center }
+  .how-art{ width:100%; height:auto; max-width:360px; object-fit:contain; filter:drop-shadow(0 12px 28px rgba(0,0,0,.25)); border-radius:18px }
+
+  /* ===== EXCHANGES ===== */
+  #exchanges{ position:relative; padding:0; background: linear-gradient(180deg, var(--warm-1) 0%, var(--warm-2) 100%) }
+  #exchanges h2{ color:#000 }
+  #exchanges .wrap{
+    position:relative;
+    z-index:1;
+    --exPad: clamp(24px, 40vw, 620px);
+    padding:60px 20px;
+    padding-right: var(--exPad);
+  }
+  #exchanges .ex-wrap{ display:grid; grid-template-columns:1fr; place-items:center; }
+  #exchanges .card{ text-align:center; }
+  #exchanges .card.center{ max-width:340px; margin:0 auto; padding:14px 18px; }
+  #exchanges .fix-center{ position:relative; left: calc(var(--exPad) / 2); }
+  #exchanges .ex-art{ 
+    position:absolute; 
+    top:0; 
+    bottom:0; 
+    right:0; 
+    margin:0; 
+    overflow:visible; 
+    pointer-events:none; 
+    z-index:0; 
+    /* Move image 5mm to the left */
+    transform: translateX(-5mm);
+  }
+  #exchanges .ex-photo{ 
+    height:100%; 
+    width:auto; 
+    display:block; 
+    border:none !important; 
+    box-shadow:none !important; 
+    border-radius:0; 
+    outline:none; 
+    background:transparent; 
+    /* Enlarge the image by 25% while keeping base fixed */
+    transform: scale(1.25);
+    transform-origin: bottom center;
+  }
+  @media (max-width:900px){
+    #exchanges .wrap{ padding:40px 16px; padding-right:16px; }
+    #exchanges .fix-center{ left:0; }
+    #exchanges .ex-art{ 
+      position: static; 
+      right:auto; 
+      top:auto; 
+      bottom:auto; 
+      margin: 20px auto 0;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      /* Reset transform on mobile */
+      transform: none;
+    }
+    #exchanges .ex-photo{ 
+      width: 2in; 
+      height: auto; 
+      max-width: 300px;
+      /* Reset scale on mobile */
+      transform: none;
+      transform-origin: center;
+    }
+  }
+
+  /* ===== BOTTOM CTA (galaxy) ===== */
+  #cta-bottom{ position:relative; overflow:hidden }
+  #cta-bottom .cta-sky{ position:absolute; inset:0; z-index:-1; pointer-events:none; overflow:hidden; background: radial-gradient(1200px 800px at 50% 100%, rgba(11,28,49,.85), #000 70%) }
+  #cta-bottom .cta-star{ position:absolute; width:2px; height:2px; background:#fff; border-radius:50%; animation: twinkle .9s infinite alternate; opacity:.9 }
+  .bottom-wrap{max-width:var(--maxw);margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:32px;align-items:start}
+  .bottom-title{font-size:clamp(1.8rem,4vw,3rem);line-height:1.02;text-align:left;margin-bottom:8px;letter-spacing:.02em}
+  .bottom-copy{color:#dbe5ff;text-align:left;line-height:1.7;margin:10px 0 18px}
+  .tg-btn{display:inline-block;padding:16px 24px;border-radius:999px;text-decoration:none;font-weight:900;background:linear-gradient(135deg,var(--warm-1),var(--warm-2));color:#2a0c00;box-shadow:0 12px 28px rgba(0,0,0,.25)}
+  .mail-col{display:flex;flex-direction:column;gap:14px;align-items:flex-start}
+  .mail-input{width:100%;padding:16px 18px;border-radius:999px;border:none;background:#f2f6ff;color:#0b0f1a;box-shadow:inset 0 0 0 2px rgba(0,0,0,.05)}
+  .mail-btn{padding:16px 24px;border-radius:999px;border:none;font-weight:900;background:linear-gradient(135deg,var(--warm-1),var(--warm-2));color:#2a0c00;cursor:pointer; margin-top:24px}
+
+  .cta-pepe{ position:absolute; left:12px; top:14px; width:min(110px,18vw); opacity:.95; pointer-events:none; filter:drop-shadow(0 10px 20px rgba(0,0,0,.45)); animation:ctaPepeSpin 14s linear infinite }
+  @keyframes ctaPepeSpin{from{transform:rotate(0)}to{transform:rotate(360deg)}}
+
+  /* Meme overlay (click to change) — bigger */
+  #meme-board{ position:relative; padding:0; color:#fff }
+  #meme-stage{ position:relative; min-height:56vh; background:#111 center/cover no-repeat; display:flex; align-items:center; justify-content:center }
+  .overlay-swap{ width:min(72vw,460px); aspect-ratio:1/1; object-fit:cover; border-radius:16px; box-shadow:0 18px 45px rgba(0,0,0,.45); cursor:pointer; user-select:none }
+
+  footer{padding:28px 16px; text-align:center; color:#b7c7ff; border-top:1px solid rgba(255,255,255,.08)}
+  .footer-brand{ display:block; margin: 10px auto 14px; width:min(220px,40vw); height:auto; filter:drop-shadow(0 10px 24px rgba(0,0,0,.45)) }
+
+  /* Bottom-only flipping SOL1 images */
+  .cornerFlip{ position:fixed; bottom:1.5vh; width:min(18vw,120px); height:auto; z-index:1; pointer-events:none; filter:drop-shadow(0 6px 14px rgba(0,0,0,.45)); animation:flipY 6s linear infinite; transform-style:preserve-3d }
+  .cornerFlip.left{ left:1.5vw } .cornerFlip.right{ right:1.5vw; animation-direction:reverse }
+  @keyframes flipY{from{transform:rotateY(0)}to{transform:rotateY(360deg)}}
+
+  /* ===== DIAMOND SHOWER ===== */
+  .diamond-layer{ position:fixed; inset:0; z-index:999; pointer-events:none; overflow:visible }
+  .diamond{ position:absolute; left:0; top:0; width:var(--w,28px); height:auto; opacity:0; transform:translate(-50%,-50%) translate3d(var(--x,0),var(--y,0),0) scale(var(--s,1)); transition: transform 900ms ease, opacity 400ms ease; filter:drop-shadow(0 8px 12px rgba(0,0,0,.35)) }
+
+  /* Social Icons + toast + validation */
+  .social-icons { display: flex; gap: 16px; margin-top: 20px; }
+  .social-icon { width: 44px; height: 44px; border-radius: 50%; display: flex; align-items: center; justify-content: center; background: linear-gradient(135deg, var(--warm-1), var(--warm-2)); transition: all 0.3s ease; box-shadow: 0 4px 12px rgba(0,0,0,0.2); }
+  .social-icon:hover { transform: translateY(-3px) scale(1.1); filter: brightness(1.1); }
+  .social-icon svg { width: 24px; height: 24px; fill: #2a0c00; }
+  .toast { position: fixed; bottom: 20px; right: 20px; background: linear-gradient(135deg, var(--warm-1), var(--warm-2)); color: #2a0c00; padding: 12px 20px; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.2); z-index: 1000; opacity: 0; transform: translateY(20px); transition: all 0.3s ease; }
+  .toast.show { opacity: 1; transform: translateY(0); }
+  .mail-input.error { box-shadow: inset 0 0 0 2px #ff3e3e; }
+  .error-message { color: #ff6b6b; font-size: 0.9rem; margin-top: 4px; display: none; }
+  .error-message.show { display: block; }
+
+  /* FAQ tweaks */
+  details.how-faq{ margin:10px auto 0; max-width:900px; background:rgba(15,15,25,.6); border:1px solid rgba(255,255,255,.08); color:#fff; padding:14px 18px; border-radius:14px }
+  details.how-faq summary{ cursor:pointer; font-weight:800 }
+
+  /* Feedback title gradient */
+  .feedback-title{
+    background:linear-gradient(90deg,var(--warm-1),var(--warm-2),var(--warm-3));
+    color:#2a0c00; text-align:center; padding:16px; border-radius:16px;
+    font-weight:900; letter-spacing:.06em; text-transform:uppercase; margin-bottom:16px;
+  }
+
+  /* Mission statement section */
+  .mission-section {
+    background: rgba(15,15,25,.7);
+    border-radius: 24px;
+    padding: 40px;
+    margin: 40px auto;
+    max-width: 900px;
+    text-align: center;
+    border: 1px solid rgba(255,255,255,.12);
+  }
+  .mission-title {
+    font-size: clamp(1.8rem, 3vw, 2.4rem);
+    margin-bottom: 20px;
+    background: linear-gradient(90deg, var(--warm-1), var(--warm-2));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+  }
+  .mission-text {
+    line-height: 1.7;
+    font-size: 1.1rem;
+    color: var(--muted);
+  }
+
+  /* ===== TERMS AGREEMENT ===== */
+  .terms-agreement {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(15,15,25,.95);
+    border: 1px solid rgba(255,255,255,.15);
+    border-radius: 12px;
+    padding: 15px 20px;
+    max-width: 500px;
+    width: 90%;
+    z-index: 1000;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+  }
+  
+  .terms-agreement.hidden {
+    opacity: 0;
+    transform: translateX(-50%) translateY(20px);
+    pointer-events: none;
+  }
+  
+  .terms-text {
+    font-size: 0.85rem;
+    color: var(--muted);
+    margin-bottom: 12px;
+    line-height: 1.4;
+  }
+  
+  .terms-agree-btn {
+    background: linear-gradient(135deg, var(--warm-1), var(--warm-2));
+    color: #2a0c00;
+    border: none;
+    border-radius: 8px;
+    padding: 8px 16px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+  
+  .terms-agree-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(255, 140, 0, 0.3);
+  }
+  
+  .terms-link {
+    color: var(--warm-2);
+    text-decoration: underline;
+    cursor: pointer;
+  }
+  
+  /* Terms Modal */
+  .terms-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.8);
+    z-index: 1001;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .terms-modal.active {
+    display: flex;
+  }
+  
+  .terms-content {
+    background: var(--space-2);
+    border-radius: 16px;
+    padding: 30px;
+    max-width: 600px;
+    width: 90%;
+    max-height: 80vh;
+    overflow-y: auto;
+    color: var(--text);
+  }
+  
+  .terms-content h2 {
+    color: var(--warm-2);
+    margin-bottom: 20px;
+  }
+  
+  .terms-content h3 {
+    color: var(--warm-1);
+    margin: 15px 0 10px;
+  }
+  
+  .terms-content p {
+    margin-bottom: 15px;
+    line-height: 1.5;
+  }
+  
+  .terms-close {
+    background: var(--warm-1);
+    color: #2a0c00;
+    border: none;
+    border-radius: 8px;
+    padding: 10px 20px;
+    font-weight: 700;
+    cursor: pointer;
+    margin-top: 20px;
+  }
+
+  /* ===== PRIVACY POLICY & DISCLAIMER MODALS ===== */
+  .policy-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.9);
+    z-index: 1002;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+  }
+  
+  .policy-modal.active {
+    display: flex;
+  }
+  
+  .policy-content {
+    background: var(--space-2);
+    border-radius: 16px;
+    padding: 30px;
+    max-width: 800px;
+    width: 90%;
+    max-height: 85vh;
+    overflow-y: auto;
+    color: var(--text);
+    position: relative;
+  }
+  
+  .policy-close {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: var(--warm-1);
+    color: #2a0c00;
+    border: none;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    font-weight: 900;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .policy-content h2 {
+    color: var(--warm-2);
+    margin-bottom: 20px;
+    padding-right: 40px;
+  }
+  
+  .policy-content h3 {
+    color: var(--warm-1);
+    margin: 20px 0 10px;
+    font-size: 1.2rem;
+  }
+  
+  .policy-content p {
+    margin-bottom: 15px;
+    line-height: 1.6;
+  }
+  
+  .policy-content ul {
+    margin: 10px 0 15px 20px;
+  }
+  
+  .policy-content li {
+    margin-bottom: 8px;
+    line-height: 1.5;
+  }
+
+  /* ===== AUTO-ENGAGEMENT SYSTEM STYLES ===== */
+  .engagement-section {
+    max-width: var(--maxw);
+    margin: 40px auto;
+    padding: 30px;
+    background: var(--card);
+    border-radius: var(--radius);
+    border: 1px solid rgba(255,255,255,.12);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .engagement-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--warm-1), var(--warm-2), var(--warm-3));
+  }
+  
+  .badge-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 15px;
+    margin: 20px 0;
+  }
+  
+  .badge {
+    background: rgba(255,255,255,.08);
+    border-radius: 12px;
+    padding: 15px;
+    text-align: center;
+    transition: transform 0.3s;
+    border: 1px solid rgba(255,140,0,0.3);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .badge::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+    transition: left 0.5s;
+  }
+
+  .badge:hover::before {
+    left: 100%;
+  }
+  
+  .badge.unlocked {
+    background: linear-gradient(135deg, var(--warm-1), var(--warm-3));
+    color: #2a0c00;
+    font-weight: bold;
+    box-shadow: 0 8px 25px rgba(255, 140, 0, 0.3);
+    border: 1px solid rgba(255,255,255,0.3);
+  }
+  
+  .badge-icon {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.3));
+  }
+  
+  .leaderboard {
+    margin: 30px 0;
+  }
+  
+  .leaderboard-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 12px 16px;
+    margin: 8px 0;
+    background: rgba(255,255,255,.05);
+    border-radius: 10px;
+    border: 1px solid rgba(255,140,0,0.2);
+    transition: all 0.3s ease;
+  }
+
+  .leaderboard-item:hover {
+    background: rgba(255,255,255,.08);
+    transform: translateX(5px);
+  }
+  
+  .leaderboard-rank {
+    font-weight: bold;
+    color: var(--warm-2);
+    text-shadow: 0 0 10px rgba(255, 224, 102, 0.5);
+  }
+  
+  .progress-container {
+    margin: 20px 0;
+    background: rgba(0,0,0,0.3);
+    padding: 20px;
+    border-radius: 12px;
+    border: 1px solid rgba(255,140,0,0.2);
+  }
+  
+  .progress-bar {
+    height: 20px;
+    background: rgba(255,255,255,.1);
+    border-radius: 10px;
+    overflow: hidden;
+    margin: 10px 0;
+    border: 1px solid rgba(255,255,255,0.1);
+  }
+  
+  .progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--warm-1), var(--warm-2));
+    width: 0%;
+    transition: width 0.5s;
+    box-shadow: 0 0 15px rgba(255, 140, 0, 0.5);
+  }
+  
+  .activity-feed {
+    max-height: 300px;
+    overflow-y: auto;
+    margin: 20px 0;
+    padding: 15px;
+    background: rgba(0,0,0,.3);
+    border-radius: 12px;
+    border: 1px solid rgba(255,140,0,0.2);
+  }
+
+  .activity-feed::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  .activity-feed::-webkit-scrollbar-track {
+    background: rgba(255,255,255,0.1);
+    border-radius: 3px;
+  }
+
+  .activity-feed::-webkit-scrollbar-thumb {
+    background: var(--warm-1);
+    border-radius: 3px;
+  }
+  
+  .activity-item {
+    padding: 10px 0;
+    border-bottom: 1px solid rgba(255,255,255,.1);
+    transition: all 0.3s ease;
+  }
+
+  .activity-item:hover {
+    background: rgba(255,255,255,.05);
+    padding-left: 10px;
+    border-radius: 6px;
+  }
+  
+  .timestamp {
+    font-size: 0.8rem;
+    color: var(--muted);
+  }
+  
+  .stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+    margin: 20px 0;
+  }
+  
+  .stat-card {
+    background: rgba(255,255,255,.05);
+    padding: 20px;
+    border-radius: 12px;
+    text-align: center;
+    border: 1px solid rgba(255,140,0,0.2);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .stat-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--warm-1), var(--warm-2));
+  }
+
+  .stat-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(255, 140, 0, 0.2);
+  }
+  
+  .stat-value {
+    font-size: 2.2rem;
+    font-weight: bold;
+    color: var(--warm-2);
+    text-shadow: 0 0 10px rgba(255, 224, 102, 0.5);
+    margin-bottom: 5px;
+  }
+  
+  .action-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: 20px 0;
+    justify-content: center;
+  }
+  
+  .action-btn {
+    padding: 12px 20px;
+    background: rgba(255,255,255,.1);
+    border: 1px solid rgba(255,140,0,0.3);
+    border-radius: 10px;
+    color: var(--text);
+    cursor: pointer;
+    transition: all 0.3s;
+    font-weight: 600;
+    flex: 1;
+    min-width: 140px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .action-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+    transition: left 0.5s;
+  }
+
+  .action-btn:hover::before {
+    left: 100%;
+  }
+  
+  .action-btn:hover {
+    background: rgba(255,255,255,.15);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(255, 140, 0, 0.3);
+  }
+  
+  .action-btn.primary {
+    background: linear-gradient(135deg, var(--warm-1), var(--warm-2));
+    color: #2a0c00;
+    font-weight: bold;
+    border: none;
+    box-shadow: 0 4px 15px rgba(255, 140, 0, 0.4);
+  }
+
+  .action-btn.primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(255, 140, 0, 0.6);
+  }
+  
+  .member-spotlight {
+    text-align: center;
+    padding: 25px;
+    background: rgba(255,255,255,.05);
+    border-radius: 12px;
+    margin: 20px 0;
+    border: 1px solid rgba(255,140,0,0.3);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .member-spotlight::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--warm-1), var(--warm-2), var(--warm-3));
+  }
+  
+  .spotlight-avatar {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    margin: 0 auto 15px;
+    background: linear-gradient(135deg, var(--warm-1), var(--warm-2));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    box-shadow: 0 8px 25px rgba(255, 140, 0, 0.4);
+    border: 3px solid rgba(255,255,255,0.2);
+  }
+  
+  .milestone-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 15px;
+    margin: 20px 0;
+  }
+  
+  .milestone {
+    background: rgba(255,255,255,.05);
+    padding: 20px;
+    border-radius: 12px;
+    text-align: center;
+    border: 1px solid rgba(255,140,0,0.2);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .milestone::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: rgba(255,255,255,0.1);
+  }
+  
+  .milestone.reached {
+    background: linear-gradient(135deg, var(--warm-1), var(--warm-3));
+    color: #2a0c00;
+    font-weight: bold;
+    box-shadow: 0 8px 25px rgba(255, 140, 0, 0.3);
+    border: 1px solid rgba(255,255,255,0.3);
+  }
+
+  .milestone.reached::before {
+    background: linear-gradient(90deg, var(--warm-2), var(--warm-1));
+  }
+
+  .milestone:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(255, 140, 0, 0.2);
+  }
+  
+  .notification {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: linear-gradient(135deg, var(--warm-1), var(--warm-2));
+    color: #2a0c00;
+    padding: 15px 20px;
+    border-radius: 10px;
+    box-shadow: 0 5px 25px rgba(255, 140, 0, 0.4);
+    z-index: 1000;
+    transform: translateX(150%);
+    transition: transform 0.3s;
+    border-left: 4px solid #2a0c00;
+    font-weight: 600;
+  }
+  
+  .notification.show {
+    transform: translateX(0);
+  }
+
+  /* Username Modal Styles */
+  .modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.9);
+    z-index: 1003;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+  }
+
+  .modal-content {
+    background: var(--card);
+    border-radius: 16px;
+    padding: 30px;
+    max-width: 400px;
+    width: 90%;
+    text-align: center;
+    border: 1px solid rgba(255,140,0,0.3);
+    position: relative;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+  }
+
+  .modal-content::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--warm-1), var(--warm-2), var(--warm-3));
+    border-radius: 16px 16px 0 0;
+  }
+
+  .modal h3 {
+    background: linear-gradient(90deg, var(--warm-1), var(--warm-2));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 10px;
+  }
+
+  .modal-input {
+    width: 100%;
+    padding: 12px 16px;
+    border-radius: 8px;
+    border: 1px solid rgba(255,140,0,0.5);
+    background: rgba(255,255,255,0.1);
+    color: white;
+    font-size: 16px;
+    margin: 15px 0;
+    transition: all 0.3s;
+  }
+
+  .modal-input:focus {
+    outline: none;
+    border-color: var(--warm-1);
+    box-shadow: 0 0 10px rgba(255, 140, 0, 0.5);
+  }
+
+  .modal-btn {
+    background: linear-gradient(135deg, var(--warm-1), var(--warm-2));
+    color: #2a0c00;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s;
+    width: 100%;
+    margin-top: 10px;
+  }
+
+  .modal-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(255, 140, 0, 0.4);
+  }
+
+  .username-suggestion {
+    color: var(--warm-2);
+    cursor: pointer;
+    text-decoration: underline;
+    margin: 5px 0;
+    display: inline-block;
+  }
+
+  .username-suggestion:hover {
+    color: var(--warm-1);
+  }
+
+  .username-error {
+    color: #ff6b6b;
+    margin: 10px 0;
+    display: none;
+  }
+
+  /* ===== DAILY CHALLENGES STYLES ===== */
+  .challenges-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+    margin: 20px 0;
+  }
+  
+  .challenge-card {
+    background: rgba(255,255,255,.05);
+    border-radius: 12px;
+    padding: 20px;
+    border: 1px solid rgba(255,140,0,0.2);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .challenge-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: rgba(255,255,255,0.1);
+  }
+  
+  .challenge-card.completed {
+    background: linear-gradient(135deg, var(--warm-1), var(--warm-3));
+    color: #2a0c00;
+    font-weight: bold;
+    box-shadow: 0 8px 25px rgba(255, 140, 0, 0.3);
+    border: 1px solid rgba(255,255,255,0.3);
+  }
+  
+  .challenge-card.completed::before {
+    background: linear-gradient(90deg, var(--warm-2), var(--warm-1));
+  }
+  
+  .challenge-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(255, 140, 0, 0.2);
+  }
+  
+  .challenge-title {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .challenge-reward {
+    background: rgba(255,255,255,.1);
+    border-radius: 20px;
+    padding: 5px 10px;
+    font-size: 0.8rem;
+    font-weight: bold;
+  }
+  
+  .challenge-progress {
+    height: 8px;
+    background: rgba(255,255,255,.1);
+    border-radius: 4px;
+    overflow: hidden;
+    margin: 10px 0;
+  }
+  
+  .challenge-progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--warm-1), var(--warm-2));
+    width: 0%;
+    transition: width 0.5s;
+  }
+  
+  .challenge-action {
+    background: linear-gradient(135deg, var(--warm-1), var(--warm-2));
+    color: #2a0c00;
+    border: none;
+    border-radius: 8px;
+    padding: 8px 16px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 10px;
+    width: 100%;
+    transition: all 0.3s;
+  }
+  
+  .challenge-action:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(255, 140, 0, 0.4);
+  }
+  
+  .challenge-action.completed {
+    background: rgba(255,255,255,.2);
+    color: white;
+    cursor: default;
+  }
+  
+  .challenge-action.completed:hover {
+    transform: none;
+    box-shadow: none;
+  }
+  
+  /* ===== MEME CONTEST STYLES ===== */
+  .contest-container {
+    background: rgba(255,255,255,.05);
+    border-radius: 12px;
+    padding: 25px;
+    margin: 20px 0;
+    border: 1px solid rgba(255,140,0,0.3);
+  }
+  
+  .contest-timer {
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin: 15px 0;
+    color: var(--warm-2);
+    text-shadow: 0 0 10px rgba(255, 224, 102, 0.5);
+  }
+  
+  .contest-prizes {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+    margin: 20px 0;
+  }
+  
+  .prize-card {
+    background: rgba(255,255,255,.05);
+    border-radius: 10px;
+    padding: 15px;
+    text-align: center;
+    border: 1px solid rgba(255,140,0,0.2);
+  }
+  
+  .prize-rank {
+    font-size: 1.8rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: var(--warm-2);
+  }
+  
+  .submission-form {
+    margin: 20px 0;
+  }
+  
+  .submission-input {
+    width: 100%;
+    padding: 12px 16px;
+    border-radius: 8px;
+    border: 1px solid rgba(255,140,0,0.5);
+    background: rgba(255,255,255,0.1);
+    color: white;
+    font-size: 16px;
+    margin-bottom: 10px;
+  }
+  
+  .submission-input:focus {
+    outline: none;
+    border-color: var(--warm-1);
+    box-shadow: 0 0 10px rgba(255, 140, 0, 0.5);
+  }
+  
+  .submission-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 15px;
+    margin: 20px 0;
+  }
+  
+  .submission-item {
+    background: rgba(255,255,255,.05);
+    border-radius: 10px;
+    overflow: hidden;
+    border: 1px solid rgba(255,140,0,0.2);
+  }
+  
+  .submission-image {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+  }
+  
+  .submission-info {
+    padding: 10px;
+  }
+  
+  .submission-author {
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+  
+  .submission-votes {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 0.9rem;
+  }
+  
+  .vote-btn {
+    background: rgba(255,255,255,.1);
+    border: none;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s;
+  }
+  
+  .vote-btn:hover {
+    background: rgba(255,255,255,.2);
+  }
+  
+  /* ===== TWITTER SHILLING STYLES ===== */
+  .shilling-container {
+    background: rgba(255,255,255,.05);
+    border-radius: 12px;
+    padding: 25px;
+    margin: 20px 0;
+    border: 1px solid rgba(255,140,0,0.3);
+  }
+  
+  .shilling-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 15px;
+    margin: 20px 0;
+  }
+  
+  .shilling-stat {
+    background: rgba(255,255,255,.05);
+    border-radius: 10px;
+    padding: 15px;
+    text-align: center;
+    border: 1px solid rgba(255,140,0,0.2);
+  }
+  
+  .shilling-value {
+    font-size: 2rem;
+    font-weight: bold;
+    color: var(--warm-2);
+    margin-bottom: 5px;
+  }
+  
+  .shilling-label {
+    font-size: 0.9rem;
+    color: var(--muted);
+  }
+  
+  .shilling-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: 20px 0;
+  }
+  
+  .shilling-action {
+    padding: 10px 15px;
+    background: rgba(255,255,255,.1);
+    border: 1px solid rgba(255,140,0,0.3);
+    border-radius: 8px;
+    color: var(--text);
+    cursor: pointer;
+    transition: all 0.3s;
+    flex: 1;
+    min-width: 120px;
+  }
+  
+  .shilling-action:hover {
+    background: rgba(255,255,255,.15);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(255, 140, 0, 0.3);
+  }
+  
+  .shilling-action.primary {
+    background: linear-gradient(135deg, var(--warm-1), var(--warm-2));
+    color: #2a0c00;
+    font-weight: bold;
+    border: none;
+  }
+  
+  .shilling-leaderboard {
+    margin: 20px 0;
+  }
+  
+  .shilling-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 16px;
+    margin: 8px 0;
+    background: rgba(255,255,255,.05);
+    border-radius: 10px;
+    border: 1px solid rgba(255,140,0,0.2);
+    transition: all 0.3s ease;
+  }
+  
+  .shilling-item:hover {
+    background: rgba(255,255,255,.08);
+    transform: translateX(5px);
+  }
+  
+  .shilling-rank {
+    font-weight: bold;
+    color: var(--warm-2);
+    margin-right: 15px;
+  }
+  
+  .shilling-user {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex: 1;
+  }
+  
+  .shilling-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--warm-1), var(--warm-2));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    color: #2a0c00;
+  }
+  
+  .shilling-details {
+    flex: 1;
+  }
+  
+  .shilling-name {
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+  
+  .shilling-stats {
+    display: flex;
+    gap: 10px;
+    font-size: 0.8rem;
+    color: var(--muted);
+  }
+  
+  .shilling-score {
+    font-weight: bold;
+    color: var(--warm-2);
+  }
+
+  /* Verification Modal Styles */
+  .verification-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.9);
+    z-index: 1004;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+  }
+
+  .verification-content {
+    background: var(--card);
+    border-radius: 16px;
+    padding: 30px;
+    max-width: 500px;
+    width: 90%;
+    text-align: center;
+    border: 1px solid rgba(255,140,0,0.3);
+    position: relative;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+  }
+
+  .verification-content::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--warm-1), var(--warm-2), var(--warm-3));
+    border-radius: 16px 16px 0 0;
+  }
+
+  .verification-close {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: var(--warm-1);
+    color: #2a0c00;
+    border: none;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    font-weight: 900;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .verification-input {
+    width: 100%;
+    padding: 12px 16px;
+    border-radius: 8px;
+    border: 1px solid rgba(255,140,0,0.5);
+    background: rgba(255,255,255,0.1);
+    color: white;
+    font-size: 16px;
+    margin: 15px 0;
+    transition: all 0.3s;
+  }
+
+  .verification-input:focus {
+    outline: none;
+    border-color: var(--warm-1);
+    box-shadow: 0 0 10px rgba(255, 140, 0, 0.5);
+  }
+
+  .verification-btn {
+    background: linear-gradient(135deg, var(--warm-1), var(--warm-2));
+    color: #2a0c00;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s;
+    width: 100%;
+    margin-top: 10px;
+  }
+
+  .verification-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(255, 140, 0, 0.4);
+  }
+
+  .cooldown-timer {
+    color: var(--warm-2);
+    font-size: 0.9rem;
+    margin-top: 10px;
+    display: none;
+  }
+
+  /* Verification Status Styles */
+  .verification-status {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 0.8rem;
+    padding: 2px 8px;
+    border-radius: 12px;
+    margin-left: 8px;
+  }
+
+  .verification-status.pending {
+    background: rgba(255, 193, 7, 0.2);
+    color: #ffc107;
+  }
+
+  .verification-status.verified {
+    background: rgba(40, 167, 69, 0.2);
+    color: #28a745;
+  }
+
+  .verification-status.failed {
+    background: rgba(220, 53, 69, 0.2);
+    color: #dc3545;
+  }
+
+  /* Mobile-specific fixes */
+  @media (max-width:900px){ 
+    .how-grid{grid-template-columns:1fr} 
+    .bottom-wrap{grid-template-columns:1fr} 
+    .terms-agreement {
+      bottom: 10px;
+      padding: 12px 15px;
+    }
+    .policy-content {
+      padding: 20px 15px;
+    }
+    
+    /* Fix for mobile layout issues */
+    #cta-bottom {
+      padding: 40px 20px;
+    }
+    
+    .cta-pepe {
+      position: relative;
+      left: auto;
+      top: auto;
+      width: 100px;
+      margin: 0 auto 20px;
+      display: block;
+    }
+    
+    .social-icons {
+      justify-content: center;
+      margin-top: 30px;
+      margin-bottom: 20px;
+    }
+    
+    /* Fix for overlapping elements */
+    .bottom-wrap > div:first-child {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+    
+    .bottom-title {
+      text-align: center;
+    }
+    
+    .bottom-copy {
+      text-align: center;
+    }
+    
+    /* Engagement system mobile fixes */
+    .badge-grid {
+      grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+      gap: 10px;
+    }
+    
+    .action-buttons {
+      flex-direction: column;
+    }
+    
+    .action-btn {
+      width: 100%;
+      text-align: center;
+    }
+    
+    .stats-grid {
+      grid-template-columns: 1fr 1fr;
+    }
+    
+    .milestone-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .engagement-section {
+      padding: 20px 15px;
+      margin: 20px auto;
+    }
+
+    .modal-content {
+      padding: 20px;
+    }
+    
+    /* New systems mobile fixes */
+    .challenges-container {
+      grid-template-columns: 1fr;
+    }
+    
+    .contest-prizes {
+      grid-template-columns: 1fr;
+    }
+    
+    .submission-gallery {
+      grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    }
+    
+    .shilling-stats {
+      grid-template-columns: 1fr 1fr;
+    }
+    
+    .shilling-actions {
+      flex-direction: column;
+    }
+    
+    .shilling-action {
+      width: 100%;
+      text-align: center;
+    }
+
+    .verification-content {
+      padding: 20px 15px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .social-icons-wrapper {
+      flex-direction: column;
+      gap: 15px;
+    }
+    
+    .promo-pack-container {
+      flex-direction: column;
+      gap: 15px;
+    }
+    
+    /* Additional mobile fixes for better spacing */
+    section {
+      padding: 60px 16px;
+    }
+    
+    .hero {
+      padding: 40px 16px 80px;
+    }
+    
+    .cta {
+      flex-direction: column;
+      align-items: center;
+    }
+    
+    .btn {
+      width: 100%;
+      max-width: 280px;
+      text-align: center;
+    }
+    
+    .countdown {
+      gap: 8px;
+    }
+    
+    .countdown-item {
+      min-width: 60px;
+      padding: 10px;
+    }
+    
+    .countdown-value {
+      font-size: 1.5rem;
+    }
+    
+    .info-stats {
+      grid-template-columns: 1fr;
+      gap: 10px;
+    }
+    
+    .safety {
+      grid-template-columns: 1fr;
+      gap: 10px;
+    }
+    
+    .chip {
+      justify-content: flex-start;
+      padding: 8px 12px;
+    }
+    
+    .how-panel {
+      padding: 20px;
+    }
+    
+    .how-steps li {
+      padding-left: 36px;
+      margin: 10px 0;
+    }
+    
+    .how-steps li::before {
+      width: 26px;
+      height: 26px;
+    }
+    
+    .mission-section {
+      padding: 30px 20px;
+      margin: 30px 16px;
+    }
+    
+    .overlay-swap {
+      width: 90vw;
+    }
+    
+    .rocket-wrap {
+      width: min(40vw, 200px);
+    }
+    
+    /* Engagement system mobile fixes */
+    .engagement-section {
+      padding: 20px 15px;
+      margin: 20px auto;
+    }
+    
+    .badge-grid {
+      grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    }
+    
+    .stat-card {
+      padding: 15px;
+    }
+    
+    .stat-value {
+      font-size: 1.8rem;
+    }
+
+    .action-btn {
+      padding: 10px 15px;
+      font-size: 14px;
+    }
+
+    .modal {
+      padding: 10px;
+    }
+
+    .modal-content {
+      padding: 20px 15px;
+    }
+    
+    /* New systems mobile fixes */
+    .challenge-card {
+      padding: 15px;
+    }
+    
+    .contest-container {
+      padding: 15px;
+    }
+    
+    .shilling-container {
+      padding: 15px;
+    }
+    
+    .shilling-item {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 10px;
+    }
+    
+    .shilling-user {
+      width: 100%;
+    }
+    
+    .shilling-score {
+      align-self: flex-end;
+    }
+  }
+</style>
+</head>
+<body>
+  <!-- Username Modal -->
+  <div id="usernameModal" class="modal">
+    <div class="modal-content">
+      <h3>🎮 Choose Your SENPEPE Username</h3>
+      <p>Join the community with your unique name!</p>
+      <input type="text" id="usernameInput" class="modal-input" placeholder="Enter username (3-15 chars)" maxlength="15">
+      <div id="usernameError" class="username-error"></div>
+      <div style="margin: 10px 0;">
+        <small>Suggestions: <span id="usernameSuggestion" class="username-suggestion" onclick="useSuggestion()">PepeLegend</span></small>
+      </div>
+      <button class="modal-btn" onclick="saveUsername()">Save Username</button>
+    </div>
+  </div>
+
+  <!-- Twitter Verification Modal -->
+  <div id="twitterVerificationModal" class="verification-modal">
+    <div class="verification-content">
+      <button class="verification-close" onclick="closeTwitterVerification()">×</button>
+      <h3>📱 Verify Your Tweet</h3>
+      <p>Post about SENPEPE on Twitter and paste the link below to verify.</p>
+      <input type="url" id="tweetLink" class="verification-input" placeholder="https://twitter.com/yourusername/status/123456">
+      <button class="verification-btn" onclick="verifyTweetLink()">Verify Tweet</button>
+      <div class="cooldown-timer" id="twitterCooldown"></div>
+    </div>
+  </div>
+
+  <!-- Meme Submission Modal -->
+  <div id="memeSubmissionModal" class="verification-modal">
+    <div class="verification-content">
+      <button class="verification-close" onclick="closeMemeSubmission()">×</button>
+      <h3>🎨 Submit Your Meme</h3>
+      <p>Upload or provide a link to your SENPEPE meme</p>
+      <input type="text" id="memeTitle" class="verification-input" placeholder="Meme Title">
+      <input type="url" id="memeUrl" class="verification-input" placeholder="Image URL (e.g., from Imgur)">
+      <button class="verification-btn" onclick="submitMemeForVerification()">Submit Meme</button>
+      <div class="cooldown-timer" id="memeCooldown"></div>
+    </div>
+  </div>
+
+  <!-- Buy Banner Notification -->
+  <div id="buyBanner" class="buy-banner" aria-live="polite" aria-atomic="true">
+    🚀 $SENPEPE is now LIVE! Buy now before it moons! 🚀
+  </div>
+
+  <!-- Simple Terms Agreement Banner -->
+  <div id="termsAgreement" class="terms-agreement">
+    <div class="terms-text">
+      By using this site, you agree to our <span class="terms-link" onclick="openTerms()">Terms of Service</span>, 
+      <span class="terms-link" onclick="openPrivacyPolicy()">Privacy Policy</span>, and 
+      <span class="terms-link" onclick="openRiskDisclaimer()">Risk Disclaimer</span>. 
+      Crypto investments carry high risks - only invest what you can afford to lose.
+    </div>
+    <button class="terms-agree-btn" onclick="acceptTerms()">I Understand</button>
+  </div>
+  
+  <!-- Terms Modal (hidden by default) -->
+  <div id="termsModal" class="terms-modal">
+    <div class="terms-content">
+      <h2>Terms of Service</h2>
+      
+      <h3>1. Acceptance of Terms</h3>
+      <p>By accessing and using this website, you accept and agree to be bound by these Terms of Service.</p>
+      
+      <h3>2. No Financial Advice</h3>
+      <p>All content on this website is for informational purposes only. Nothing contained herein constitutes financial, investment, or legal advice.</p>
+      
+      <h3>3. High-Risk Investment Warning</h3>
+      <p>Cryptocurrencies and meme coins are extremely volatile and high-risk investments. You could lose your entire investment. Only invest what you can afford to lose.</p>
+      
+      <h3>4. User Responsibility</h3>
+      <p>You are solely responsible for:</p>
+      <ul>
+        <li>Conducting your own research (DYOR)</li>
+        <li>Complying with local laws and regulations</li>
+        <li>Securing your wallets and private keys</li>
+        <li>Verifying all contract addresses</li>
+      </ul>
+      
+      <h3>5. No Guarantees</h3>
+      <p>There are no guarantees of profits or protection from losses. Past performance is not indicative of future results.</p>
+      
+      <h3>6. Limitation of Liability</h3>
+      <p>We are not liable for any financial losses, damages, or other issues resulting from your use of this website or investment decisions.</p>
+      
+      <button class="terms-close" onclick="closeTerms()">Close</button>
+    </div>
+  </div>
+
+  <!-- Privacy Policy Modal -->
+  <div id="privacyPolicyModal" class="policy-modal">
+    <div class="policy-content">
+      <button class="policy-close" onclick="closePrivacyPolicy()">×</button>
+      <h2>Privacy Policy</h2>
+      
+      <p><strong>Last updated:</strong> October 2024</p>
+      
+      <h3>1. Information We Collect</h3>
+      <p>We collect minimal information necessary to provide our services:</p>
+      <ul>
+        <li><strong>Email addresses</strong> voluntarily provided for launch notifications</li>
+        <li><strong>Usage data</strong> through cookies and analytics</li>
+        <li><strong>Public blockchain data</strong> related to token transactions</li>
+      </ul>
+      
+      <h3>2. How We Use Your Information</h3>
+      <p>We use collected information for:</p>
+      <ul>
+        <li>Sending launch updates and important announcements</li>
+        <li>Improving website functionality and user experience</li>
+        <li>Analyzing website traffic and user behavior</li>
+        <li>Preventing fraud and ensuring security</li>
+      </ul>
+      
+      <h3>3. Data Sharing and Disclosure</h3>
+      <p>We do not sell, trade, or rent your personal information. We may share data with:</p>
+      <ul>
+        <li>Service providers who assist in website operations</li>
+        <li>Legal authorities when required by law</li>
+        <li>Third parties during business transfers or mergers</li>
+      </ul>
+      
+      <h3>4. Cookies and Tracking</h3>
+      <p>We use cookies to enhance user experience and analyze site traffic. You can disable cookies through your browser settings.</p>
+      
+      <h3>5. Data Security</h3>
+      <p>We implement reasonable security measures to protect your information, but cannot guarantee absolute security.</p>
+      
+      <h3>6. Your Rights</h3>
+      <p>You have the right to:</p>
+      <ul>
+        <li>Access and review your personal information</li>
+        <li>Request deletion of your data</li>
+        <li>Opt-out of marketing communications</li>
+        <li>Withdraw consent for data processing</li>
+      </ul>
+      
+      <h3>7. Third-Party Links</h3>
+      <p>Our website may contain links to external sites. We are not responsible for their privacy practices.</p>
+      
+      <h3>8. Changes to This Policy</h3>
+      <p>We may update this policy periodically. Continued use of the site constitutes acceptance of changes.</p>
+      
+      <h3>9. Contact Information</h3>
+      <p>For privacy-related inquiries, contact us at: <a href="mailto:senpepe.official@gmail.com">senpepe.official@gmail.com</a></p>
+    </div>
+  </div>
+
+  <!-- Risk Disclaimer Modal -->
+  <div id="riskDisclaimerModal" class="policy-modal">
+    <div class="policy-content">
+      <button class="policy-close" onclick="closeRiskDisclaimer()">×</button>
+      <h2>Risk Disclaimer</h2>
+      
+      <h3>⚠️ IMPORTANT WARNING</h3>
+      <p><strong>Cryptocurrency investments, particularly meme coins like SENPEPE, involve extremely high risks and may result in the loss of your entire investment.</strong></p>
+      
+      <h3>1. High Volatility</h3>
+      <p>Cryptocurrency prices are highly volatile and can fluctuate dramatically within short periods. There is no guarantee of profits.</p>
+      
+      <h3>2. No Regulatory Protection</h3>
+      <p>Crypto assets are largely unregulated. You may not have the same protections as traditional financial investments.</p>
+      
+      <h3>3. Technical Risks</h3>
+      <p>Potential risks include:</p>
+      <ul>
+        <li>Smart contract vulnerabilities</li>
+        <li>Exchange hacks or failures</li>
+        <li>Wallet security breaches</li>
+        <li>Network congestion or failures</li>
+      </ul>
+      
+      <h3>4. Market Risks</h3>
+      <p>Meme coins are particularly susceptible to:</p>
+      <ul>
+        <li>Extreme price manipulation</li>
+        <li>Pump-and-dump schemes</li>
+        <li>Liquidity issues</li>
+        <li>Rug pulls and scams</li>
+      </ul>
+      
+      <h3>5. Investment Advice</h3>
+      <p><strong>NOT FINANCIAL ADVICE:</strong> All content on this website is for informational purposes only. Never invest more than you can afford to lose.</p>
+      
+      <h3>6. Due Diligence</h3>
+      <p>You are solely responsible for:</p>
+      <ul>
+        <li>Conducting thorough research (DYOR)</li>
+        <li>Understanding the technology and risks</li>
+        <li>Verifying contract addresses</li>
+        <li>Securing your investments</li>
+      </ul>
+      
+      <h3>7. No Guarantees</h3>
+      <p>There are absolutely no guarantees of returns. Past performance does not indicate future results.</p>
+      
+      <h3>8. Legal Compliance</h3>
+      <p>Ensure cryptocurrency investments are legal in your jurisdiction. You are responsible for complying with local laws and tax obligations.</p>
+      
+      <h3>9. Acceptance of Risk</h3>
+      <p>By using this website or investing in SENPEPE, you acknowledge and accept all associated risks.</p>
+      
+      <p style="background: rgba(255, 0, 0, 0.1); padding: 15px; border-radius: 8px; border-left: 4px solid red;">
+        <strong>WARNING:</strong> Only invest money you are prepared to lose entirely. Consider consulting with a qualified financial advisor before making any investment decisions.
+      </p>
+    </div>
+  </div>
+
+  <!-- Accessibility: Skip to content -->
+  <a href="#main" style="position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden">Skip to content</a>
+
+  <!-- ===== HERO ===== -->
+  <section class="hero" aria-labelledby="hero-title">
+    <div class="warp-layer" id="warp"></div>
+
+    <img class="logo" src="assets/senpepe-main.png" alt="SENPEPE logo" id="heroLogo"/>
+
+    <h1 id="hero-title">SENPAI PEPE</h1>
+    <div class="subtag">(SENPEPE)</div>
+    
+    <div class="prelaunch-badge">Coming Soon to Solana</div>
+
+    <p>Embark on an outrageous journey with SENPEPE — the meme-fueled community coin built to entertain, energize, and take over the Solana galaxy. Strap in.</p>
+    
+    <!-- Countdown -->
+    <div class="countdown" id="countdown" aria-live="polite">
+      <div class="countdown-item"><div class="countdown-value" id="days">00</div><div class="countdown-label">Days</div></div>
+      <div class="countdown-item"><div class="countdown-value" id="hours">00</div><div class="countdown-label">Hours</div></div>
+      <div class="countdown-item"><div class="countdown-value" id="minutes">00</div><div class="countdown-label">Minutes</div></div>
+      <div class="countdown-item"><div class="countdown-value" id="seconds">00</div><div class="countdown-label">Seconds</div></div>
+    </div>
+    
+    <!-- Price update pulse indicator -->
+    <div class="price-update-pulse" id="priceUpdatePulse" style="display: none;">
+      <span class="pulse-dot"></span>
+      <span id="updateText">Price updates every 30 seconds</span>
+    </div>
+    
+    <div class="cta" role="group" aria-label="Primary actions">
+      <a id="buyBtn" class="btn buy"  href="#how">How to Prepare for Launch</a>
+      <a class="btn join" href="https://t.me/+CMMZqpTja4U0ZjYx" target="_blank" rel="noopener noreferrer" aria-label="Join our Telegram team">Join Our Genesis Group</a>
+      <!-- Add-to-Calendar -->
+      <a class="btn" download="senpepe_launch.ics" aria-label="Add SENPEPE launch to your calendar"
+         href='data:text/calendar;charset=utf-8,BEGIN:VCALENDAR%0AVERSION:2.0%0ABEGIN:VEVENT%0ADTSTART:20251017T190000%0ADTEND:20251017T200000%0ASUMMARY:SENPEPE%20Launch%0ADESCRIPTION:Join%20the%20SENPEPE%20launch%20on%20Solana%0AEND:VEVENT%0AEND:VCALENDAR'>🗓 Add to Calendar</a>
+
+      <!-- Share & Referral -->
+      <button class="btn neutral" id="shareBtn">📣 Share on X</button>
+      <button class="btn neutral" id="refBtn">🎟 Copy Referral Link</button>
+    </div>
+
+    <!-- Rocket + embers -->
+    <div class="rocket-wrap" id="rocketWrap" aria-hidden="true">
+      <img class="rocket-photo" src="assets/sen-rocket.png" alt="" id="senRocket"/>
+    </div>
+
+    <!-- PLANET BELT -->
+    <div id="planetField" class="planet-field" aria-hidden="true"></div>
+  </section>
+
+  <main id="main">
+    <!-- ===== MISSION STATEMENT ===== -->
+    <section class="mission-section" aria-labelledby="mission-title">
+      <h2 id="mission-title" class="mission-title">Our Mission</h2>
+      <p class="mission-text">
+        Senpai Pepe (senpepe for short) is more than a meme coin—it's a movement built on trust, culture, and community. 
+        In a world where too many projects chase quick cash and leave people behind, Senpai Pepe rises with a different purpose: 
+        to build the biggest, strongest meme coin family in crypto. Our mission is to give every holder a place where they belong, 
+        where laughter fuels growth, and where hope turns into opportunity. Powered by the speed and accessibility of Solana, 
+        Senpai Pepe is designed not just to entertain but to unite—a community-driven project where every voice matters and every win is shared. 
+        We're here to prove that memes can move markets, culture can create value, and family can build something that lasts. 
+        Senpai Pepe isn't just another coin—it's the future of meme culture on the blockchain.
+      </p>
+    </section>
+
+    <!-- ===== PRE-LAUNCH BENEFITS SECTION ===== -->
+    <section id="prelaunch-benefits" aria-labelledby="prelaunch-title">
+      <div class="wrap">
+        <h2 id="prelaunch-title">🚀 Why Join Before Launch?</h2>
+        <p class="subtitle">Be part of our genesis group and unlock exclusive benefits</p>
+        
+        <div class="benefits-grid">
+          <div class="benefit-card">
             <div class="benefit-icon">👑</div>
             <h3>Founding Member Status</h3>
-            <p>Get recognized as an OG supporter with special privileges</p>
-        </div>
-        <div class="benefit-card">
+            <p>Get recognized as an OG supporter with special privileges and exclusive access to community decisions.</p>
+          </div>
+          <div class="benefit-card">
             <div class="benefit-icon">⚡</div>
             <h3>Early Access</h3>
-            <p>Be first in line when we launch - avoid gas wars and slippage</p>
-        </div>
-        <div class="benefit-card">
+            <p>Be first in line when we launch - avoid gas wars and slippage with priority access to the token.</p>
+          </div>
+          <div class="benefit-card">
             <div class="benefit-icon">🎁</div>
             <h3>Exclusive Rewards</h3>
-            <p>Earn bonus tokens and NFTs for helping build our community</p>
+            <p>Earn bonus tokens and NFTs for helping build our community before anyone else knows about SENPEPE.</p>
+          </div>
         </div>
+      </div>
+    </section>
+
+    <!-- ===== AUTO-ENGAGEMENT SYSTEM ===== -->
+    <section class="engagement-section">
+        <h2>🎮 SENPEPE Community Engagement</h2>
+        
+        <!-- User Stats -->
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-value" id="userPoints">0</div>
+                <div>Engagement Points</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value" id="userLevel">1</div>
+                <div>Community Level</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value" id="userRank">-</div>
+                <div>Global Rank</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value" id="daysActive">1</div>
+                <div>Days Active</div>
+            </div>
+        </div>
+        
+        <!-- Level Progress -->
+        <div class="progress-container">
+            <h3>Level Progress</h3>
+            <div class="progress-bar">
+                <div class="progress-fill" id="levelProgress"></div>
+            </div>
+            <div id="levelText">Level 1: 0/100 points to next level</div>
+        </div>
+        
+        <!-- Action Buttons -->
+        <div class="action-buttons">
+            <button class="action-btn primary" id="dailyCheckin">✅ Daily Check-in</button>
+            <button class="action-btn" id="shareSocial">📱 Share on Social</button>
+            <button class="action-btn" id="createMeme">🎨 Create Meme</button>
+            <button class="action-btn" id="inviteFriend">👥 Invite Friend</button>
+        </div>
+    </section>
+    
+    <!-- ===== DAILY CHALLENGES SYSTEM ===== -->
+    <section class="engagement-section">
+        <h2>🎯 Daily Challenges</h2>
+        <p>Complete daily tasks to earn points and level up your SENPEPE status!</p>
+        
+        <div class="challenges-container" id="challengesContainer">
+            <!-- Challenges will be populated automatically -->
+        </div>
+    </section>
+    
+    <!-- ===== MEME CONTEST SYSTEM ===== -->
+    <section class="engagement-section">
+        <h2>🎨 Community Meme Contest</h2>
+        
+        <div class="contest-container">
+            <div class="contest-timer" id="contestTimer">Next contest starts in: 2 days, 5 hours</div>
+            
+            <h3>🏆 Contest Prizes</h3>
+            <div class="contest-prizes">
+                <div class="prize-card">
+                    <div class="prize-rank">🥇</div>
+                    <div>1st Place: 500 SENPEPE</div>
+                </div>
+                <div class="prize-card">
+                    <div class="prize-rank">🥈</div>
+                    <div>2nd Place: 300 SENPEPE</div>
+                </div>
+                <div class="prize-card">
+                    <div class="prize-rank">🥉</div>
+                    <div>3rd Place: 200 SENPEPE</div>
+                </div>
+            </div>
+            
+            <h3>Submit Your Meme</h3>
+            <div class="submission-form">
+                <input type="text" class="submission-input" id="memeTitle" placeholder="Meme Title">
+                <input type="url" class="submission-input" id="memeUrl" placeholder="Image URL">
+                <button class="action-btn primary" id="submitMeme">Submit Meme</button>
+            </div>
+            
+            <h3>Current Submissions</h3>
+            <div class="submission-gallery" id="submissionGallery">
+                <!-- Meme submissions will be populated automatically -->
+            </div>
+        </div>
+    </section>
+    
+    <!-- ===== TWITTER SHILLING LEADERBOARD ===== -->
+    <section class="engagement-section">
+        <h2>🐦 Twitter Shilling Leaderboard</h2>
+        
+        <div class="shilling-container">
+            <h3>Your Twitter Stats</h3>
+            <div class="shilling-stats">
+                <div class="shilling-stat">
+                    <div class="shilling-value" id="tweetsCount">0</div>
+                    <div class="shilling-label">Tweets</div>
+                </div>
+                <div class="shilling-stat">
+                    <div class="shilling-value" id="retweetsCount">0</div>
+                    <div class="shilling-label">Retweets</div>
+                </div>
+                <div class="shilling-stat">
+                    <div class="shilling-value" id="likesCount">0</div>
+                    <div class="shilling-label">Likes</div>
+                </div>
+                <div class="shilling-stat">
+                    <div class="shilling-value" id="shillingPoints">0</div>
+                    <div class="shilling-label">Points</div>
+                </div>
+            </div>
+            
+            <div class="shilling-actions">
+                <button class="shilling-action primary" id="tweetNow">Tweet Now</button>
+                <button class="shilling-action" id="copyTweet">Copy Tweet Template</button>
+                <button class="shilling-action" id="verifyTweet">Verify Engagement</button>
+            </div>
+            
+            <h3>Shilling Leaderboard</h3>
+            <div class="shilling-leaderboard" id="shillingLeaderboard">
+                <!-- Leaderboard will be populated automatically -->
+            </div>
+        </div>
+    </section>
+    
+    <!-- Badges & Achievements -->
+    <section class="engagement-section">
+        <h2>🏆 Achievement Badges</h2>
+        <div class="badge-grid" id="badgeContainer">
+            <!-- Badges will be populated automatically -->
+        </div>
+    </section>
+    
+    <!-- Community Leaderboard -->
+    <section class="engagement-section">
+        <h2>🏅 Community Leaderboard</h2>
+        <div class="leaderboard" id="leaderboardContainer">
+            <!-- Leaderboard will be populated automatically -->
+        </div>
+    </section>
+    
+    <!-- Community Milestones -->
+    <section class="engagement-section">
+        <h2>🎯 Community Milestones</h2>
+        <div class="milestone-grid" id="milestoneContainer">
+            <!-- Milestones will be populated automatically -->
+        </div>
+    </section>
+    
+    <!-- Member Spotlight -->
+    <section class="engagement-section">
+        <h2>💫 Member Spotlight</h2>
+        <div class="member-spotlight" id="spotlightContainer">
+            <!-- Spotlight will be populated automatically -->
+        </div>
+    </section>
+    
+    <!-- Activity Feed -->
+    <section class="engagement-section">
+        <h2>📊 Live Activity Feed</h2>
+        <div class="activity-feed" id="activityFeed">
+            <!-- Activities will be populated automatically -->
+        </div>
+    </section>
+
+    <!-- ===== $SENPEPE INFO (revamped) ===== -->
+    <section id="info" aria-labelledby="info-title">
+      <div class="wrap">
+        <h2 id="info-title">$SENPEPE INFO</h2>
+        <div class="subtitle">All the essentials in one glance — updated live at launch.</div>
+
+        <!-- Top stat strip -->
+        <div class="info-stats" role="list">
+          <div class="stat" role="listitem">
+            <div class="ico">🪙</div>
+            <div class="kpi">
+              <div class="kpi-number" id="infoNetwork">Solana</div>
+              <div class="kpi-label">Network</div>
+            </div>
+          </div>
+          <div class="stat" role="listitem">
+            <div class="ico">🚀</div>
+            <div class="kpi">
+              <div class="kpi-number" id="infoLaunch">Oct 17 · 7:00 PM</div>
+              <div class="kpi-label">Launch Status</div>
+            </div>
+          </div>
+          <div class="stat" role="listitem">
+            <div class="ico">🏷️</div>
+            <div class="kpi">
+              <div class="kpi-number">SENPEPE</div>
+              <div class="kpi-label">Ticker</div>
+            </div>
+          </div>
+          <div class="stat" role="listitem">
+            <div class="ico">🔢</div>
+            <div class="kpi">
+              <div class="kpi-number" id="infoDecimals">TBA</div>
+              <div class="kpi-label">Decimals</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Core metrics -->
+        <div class="grid">
+          <div class="card"><h3>Price (USD)</h3><p id="priceUsd">Pre-launch valuation discussion in our Telegram</p><div class="note">Announced at launch</div></div>
+          <div class="card"><h3>Price (SOL)</h3><p id="priceSol">TBA</p><div class="note">Announced at launch</div></div>
+          <div class="card"><h3>Market Cap</h3><p id="mcap">TBA</p><div class="note">Fully diluted at listing</div></div>
+          <div class="card"><h3>Liquidity</h3><p id="liq">TBA</p><div class="note">Pair info released at launch</div></div>
+          <div class="card"><h3>Total Supply</h3><p id="supply">TBA</p><div class="note">Tokenomics reveal at launch</div></div>
+          <div class="card"><h3>Buy/Sell Tax</h3><p id="tax">TBA</p><div class="note">Posted with contract</div></div>
+
+          <!-- Contract panel -->
+          <div class="card contract" id="contractCard" aria-live="polite">
+            <div>
+              <h3 style="margin-bottom:8px">Contract</h3>
+              <div id="ca" class="ca">Contract will be verified and pinned before launch</div>
+              <div class="actions" style="margin-top:10px">
+                <button class="pill" type="button" id="copyCA">Copy</button>
+                <button class="pill disabled" type="button" id="addWalletBtn" aria-disabled="true">Add to Wallet (Soon)</button>
+                <button class="pill" type="button" id="copyInfo">Copy Info Summary</button>
+              </div>
+              <div class="note">The verified contract will drop here at launch — always check official links.</div>
+            </div>
+            <div class="qr">
+              <small id="qrNote">QR appears when contract is live</small>
+            </div>
+          </div>
+        </div>
+
+        <!-- Safety / transparency chips -->
+        <div class="safety" aria-label="Safety and transparency">
+          <div class="chip">🔒 LP Lock: <span style="margin-left:6px" id="lpLock">TBA</span></div>
+          <div class="chip">📝 Audit: <span style="margin-left:6px" id="audit">TBA</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== HOW TO PREPARE FOR $SENPEPE LAUNCH ===== -->
+    <section id="how" aria-labelledby="how-title">
+      <div class="how-sky" id="howSky" aria-hidden="true"></div>
+      <div class="how-rails" aria-hidden="true"><div class="rail left" id="howRailL"></div><div class="rail right" id="howRailR"></div></div>
+      <div class="wrap how-panel">
+        <h2 class="how-title" id="how-title">How to Prepare for $SENPEPE Launch</h2>
+        <div class="how-grid">
+          <div>
+            <ol class="how-steps">
+              <li>Install a Solana wallet (Phantom, Solflare, etc.).</li>
+              <li>Back up your secret recovery phrase securely.</li>
+              <li>Buy SOL on an exchange and send it to your wallet.</li>
+              <li>Join our Telegram for real-time launch updates.</li>
+              <li>Be ready to paste the verified $SENPEPE contract at launch.</li>
+              <li>Review slippage/fees, then swap SOL → $SENPEPE quickly.</li>
+            </ol>
+            <div class="pill-row" role="group" aria-label="Preparation links">
+              <a class="pill primary" href="https://phantom.app/" target="_blank">Get Phantom Wallet</a>
+              <a class="pill primary" href="https://t.me/+CMMZqpTja4U0ZjYx" target="_blank">Join Launch Chat</a>
+            </div>
+            <!-- FAQ -->
+            <details class="how-faq">
+              <summary><b>What's the contract?</b></summary>
+              <p style="margin-top:8px">TBA at launch — always verify from official links here or on our Telegram.</p>
+            </details>
+            <details class="how-faq">
+              <summary><b>Which DEX should I use?</b></summary>
+              <p style="margin-top:8px">We'll post direct links for Jupiter and Raydium at launch time.</p>
+            </details>
+          </div>
+          <div class="center" style="text-align:center">
+            <img class="how-art" id="howArt" src="assets/senpepe-2.png" alt="SENPEPE Art">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== EXCHANGES (image fills section height, visible) ===== -->
+    <section id="exchanges" aria-labelledby="ex-title">
+      <div class="wrap">
+        <h2 id="ex-title" class="center fix-center">Crypto Exchanges</h2>
+        <div class="ex-wrap">
+          <div>
+            <div class="grid">
+              <div class="card center fix-center">
+                <div class="pill-row" style="justify-content:center">
+                  <a class="pill" href="#" aria-disabled="true">TO BE ANNOUNCED</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>        
+      </div>
+
+      <figure class="ex-art" aria-hidden="true">
+        <img id="exPhoto" class="ex-photo" src="assets/senpepe3.png" alt="">
+      </figure>
+    </section>
+
+    <!-- ===== BOTTOM CTA ===== -->
+    <section id="cta-bottom" aria-labelledby="cta-bottom-title">
+      <div class="cta-sky" id="ctaSky" aria-hidden="true"></div>
+      <img id="ctaPepe" class="cta-pepe" src="assets/senpepe4.png" alt="" aria-hidden="true">
+
+      <div class="bottom-wrap">
+        <div>
+          <h2 id="cta-bottom-title" class="bottom-title">JOIN THE<br/>GENESIS GROUP</h2>
+          <p class="bottom-copy">Get in early. Meet the crew. Drop memes. Claim your spot for launch-day chaos and exclusive founding member benefits.</p>
+          <a class="tg-btn" data-append-ref href="https://t.me/+CMMZqpTja4U0ZjYx" target="_blank" rel="noopener noreferrer">✈ JOIN OUR GENESIS GROUP ON TELEGRAM</a>
+          
+          <div class="social-icons-container">
+            <div class="social-icons-wrapper">
+              <div class="social-icons" aria-label="Social links">
+                <a data-append-ref href="https://www.instagram.com/senpepe.official?igsh=MWRsNjU2dW14MTBjaw%3D%3D&utm_source=qr" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="Instagram">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" role="img" aria-hidden="true"><path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1 37 2.1 147.8 0 184.8z"/></svg>
+                </a>
+                <a data-append-ref href="https://www.facebook.com/share/17VtucWJra/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="Facebook">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" role="img" aria-hidden="true"><path d="M400 32H48A48 48 0 0 0 0 80v352a48 48 0 0 0 48 48h137.25V327.69h-63V256h63v-54.64c0-62.15 37-96.48 93.67-96.48 27.14 0 55.52 4.84 55.52 4.84v61h-31.27c-30.81 0-40.42 19.12-40.42 38.73V256h68.78l-11 71.69h-57.78V480H400a48 48 0 0 0 48-48V80a48 48 0 0 0-48-48z"/></svg>
+                </a>
+                <a data-append-ref href="https://www.tiktok.com/@senpepe.official?_t=ZT-8zta8FHG29d&_r=1" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="TikTok">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" role="img" aria-hidden="true"><path d="M448,209.91a210.06,210.06 0,0,1-122.77-39.25V349.38A162.55,162.55 0,1,1,185,188.31V278.2a74.62,74.62 0,1,0,52.23,71.18V0l88,0a121.18,121.18 0,0,0,1.86,22.17h0A122.18,122.18 0,0,0,381,102.39a121.43,121.43 0,0,0,67,20.14Z"/></svg>
+                </a>
+                <!-- Added Discord Icon -->
+                <a data-append-ref href="https://discord.gg/s5WUHrQY7h" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="Discord">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 127.14 96.36" role="img" aria-hidden="true">
+                    <path d="M107.7,8.07A105.15,105.15,0,0,0,81.47,0a72.06,72.06,0,0,0-3.36,6.83A97.68,97.68,0,0,0,49,6.83,72.37,72.37,0,0,0,45.64,0,105.89,105.89,0,0,0,19.39,8.09C2.79,32.65-1.71,56.6.54,80.21h0A105.73,105.73,0,0,0,32.71,96.36,77.7,77.7,0,0,0,39.6,85.25a68.42,68.42,0,0,1-10.85-5.18c.91-.66,1.8-1.34,2.66-2a75.57,75.57,0,0,0,64.32,0c.87.71,1.76,1.39,2.66,2a68.68,68.68,0,0,1-10.87,5.19,77,77,0,0,0,6.89,11.1A105.25,105.25,0,0,0,126.6,80.22h0C129.24,52.84,122.09,29.11,107.7,8.07ZM42.45,65.69C36.18,65.69,31,60,31,53s5-12.74,11.43-12.74S54,46,53.89,53,48.84,65.69,42.45,65.69Zm42.24,0C78.41,65.69,73.25,60,73.25,53s5-12.74,11.44-12.74S96.23,46,96.12,53,91.08,65.69,84.69,65.69Z"/>
+                  </svg>
+                </a>
+              </div>
+            </div>
+            
+            <div class="promo-pack-container">
+              <button class="pill" id="copySocials">Copy Promo Pack</button>
+            </div>
+          </div>
+          
+          <div style="margin-top:10px">
+            <a href="mailto:senpepe.official@gmail.com?subject=SENPEPE%20Community" style="color:#2a0c00;text-decoration:underline;background:linear-gradient(135deg,var(--warm-1),var(--warm-2));-webkit-background-clip:text;color:transparent;">or email us</a>
+          </div>
+        </div>
+        <div class="mail-col">
+          <h2 class="bottom-title">JOIN OUR<br/>MAILING LIST</h2>
+          <p class="bottom-copy">Be the first to know when SENPEPE launches with exclusive early access.</p>
+          <form id="mailForm" style="width:100%" novalidate>
+            <input id="mailInput" class="mail-input" type="email" placeholder="Enter your email" required autocomplete="email" />
+            <div id="errorMessage" class="error-message">Please enter a valid email address</div>
+            <button id="mailBtn" class="mail-btn" type="submit">GET LAUNCH UPDATES</button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Meme overlay (click to change) ===== -->
+    <section id="meme-board" aria-labelledby="meme-title">
+      <h2 id="meme-title" class="sr-only" style="position:absolute;left:-9999px">Community Art</h2>
+      <div id="meme-stage" role="img" aria-label="Community artwork background">
+        <img id="overlaySwap" class="overlay-swap" src="" alt="SENPEPE artwork (click to change)">
+      </div>
+    </section>
+
+    <!-- ===== Feedback Card (fixed) ===== -->
+    <section aria-labelledby="feedback-title">
+      <div class="wrap">
+        <h2 id="feedback-title" class="feedback-title">Got Feedback?</h2>
+        <div class="how-panel" style="text-align:center">
+          <p style="margin:10px 0 18px">Found a bug or got a feature idea — drop it and earn community shoutouts.</p>
+          <div class="pill-row" style="justify-content:center; margin-top:10px">
+            <a class="pill primary" data-append-ref href="https://t.me/+CMMZqpTja4U0ZjYx" target="_blank" rel="noopener">📝 Send Feedback</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <img id="senpepeBottom" class="footer-brand" src="assets/senpepe5.png" alt="SENPEPE" loading="lazy" decoding="async">
+    © <span id="year"></span> SENPEPE Community
+    
+    <div style="margin: 15px 0; font-size: 0.9em;">
+      <a href="#" onclick="openTerms()" style="color: #ff8c00; margin: 0 10px;">Terms of Service</a> • 
+      <a href="#" onclick="openPrivacyPolicy()" style="color: #ff8c00; margin: 0 10px;">Privacy Policy</a> • 
+      <a href="#" onclick="openRiskDisclaimer()" style="color: #ff8c00; margin: 0 10px;">Risk Disclaimer</a>
     </div>
-</section>
+    
+    <p style="margin-top: 10px; font-size: 0.8em; opacity: 0.7;">
+      SENPEPE is a community token. Not an investment opportunity. High risk involved.
+    </p>
+    
+    <p style="margin-top: 10px;">Contact: <a href="mailto:senpepe.official@gmail.com" style="color: #ff8c00;">senpepe.official@gmail.com</a></p>
+    <p style="margin-top:8px;opacity:.85"><a href="/sitemap.xml">Sitemap</a> · <a href="/robots.txt">Robots</a></p>
+  </footer>
+
+  <!-- Bottom-only flipping SOL1 images -->
+  <img id="solLeft"  class="cornerFlip left"  src="" alt="SOL1" loading="lazy" decoding="async">
+  <img id="solRight" class="cornerFlip right" src="" alt="SOL1" loading="lazy" decoding="async">
+
+  <!-- Toast notification -->
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+  <!-- Notification System -->
+  <div class="notification" id="notification">
+    <div id="notificationText"></div>
+  </div>
+
+  <!-- Risk/Disclaimer Modal -->
+  <dialog id="risk">
+    <h3 style="margin-bottom:8px">Community Token, Not Financial Advice</h3>
+    <p style="margin-bottom:16px">Crypto is risky. Only spend what you can afford to lose. Always do your own research.</p>
+    <form method="dialog"><button class="pill primary" aria-label="Acknowledge risk">I Understand</button></form>
+  </dialog>
+
+  <!-- LIVE badge toggled by countdown -->
+  <div id="statusDot" style="position:fixed;right:16px;bottom:16px;background:#13d760;color:#001b0a;padding:10px 14px;border-radius:999px;font-weight:900;box-shadow:0 10px 24px rgba(0,0,0,.25);display:none">🔴 LIVE NOW</div>
+
+<script>
+  // Year
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  // Terms of Service functionality
+  function openTerms() {
+      document.getElementById('termsModal').classList.add('active');
+  }
+  
+  function closeTerms() {
+      document.getElementById('termsModal').classList.remove('active');
+  }
+  
+  function openPrivacyPolicy() {
+      document.getElementById('privacyPolicyModal').classList.add('active');
+  }
+  
+  function closePrivacyPolicy() {
+      document.getElementById('privacyPolicyModal').classList.remove('active');
+  }
+  
+  function openRiskDisclaimer() {
+      document.getElementById('riskDisclaimerModal').classList.add('active');
+  }
+  
+  function closeRiskDisclaimer() {
+      document.getElementById('riskDisclaimerModal').classList.remove('active');
+  }
+  
+  function acceptTerms() {
+      // Hide the terms agreement banner
+      document.getElementById('termsAgreement').classList.add('hidden');
+      
+      // Set a cookie/localStorage to remember acceptance
+      localStorage.setItem('termsAccepted', 'true');
+      
+      // Enable wallet functionality and other features
+      enableWalletFeatures();
+  }
+  
+  function enableWalletFeatures() {
+      // Enable your wallet integration and other features here
+      console.log('Terms accepted - enabling features');
+      
+      // Enable "Add to Wallet" button after launch
+      setupWalletIntegration();
+  }
+  
+  // Check if user already accepted terms
+  document.addEventListener('DOMContentLoaded', function() {
+      if (localStorage.getItem('termsAccepted')) {
+          document.getElementById('termsAgreement').classList.add('hidden');
+          enableWalletFeatures();
+      }
+      
+      // Close modals when clicking outside
+      document.getElementById('termsModal').addEventListener('click', function(e) {
+          if (e.target === this) {
+              closeTerms();
+          }
+      });
+      
+      document.getElementById('privacyPolicyModal').addEventListener('click', function(e) {
+          if (e.target === this) {
+              closePrivacyPolicy();
+          }
+      });
+      
+      document.getElementById('riskDisclaimerModal').addEventListener('click', function(e) {
+          if (e.target === this) {
+              closeRiskDisclaimer();
+          }
+      });
+  });
+
+  // Fixed launch date: October 17, 2025 at 7:00 PM (local time)
+  const launchDate = new Date('2025-10-17T19:00:00');
+  let priceUpdateInterval = null;
+  
+  function updateCountdown() {
+    const now = Date.now(), d = launchDate - now;
+    if (d < 0) {
+      document.getElementById('countdown').innerHTML = '<div class="prelaunch-badge">SENPEPE Has Launched!</div>';
+      // Flip info launch status to LIVE
+      const il = document.getElementById('infoLaunch'); if (il) il.textContent = 'LIVE';
+      
+      // Show price update pulse after launch
+      document.getElementById('priceUpdatePulse').style.display = 'flex';
+      
+      // Start price update simulation (replace with real API calls)
+      startPriceUpdates();
+      
+      // Show buy banner
+      showBuyBanner();
+      
+      // Enable "Add to Wallet" button with contract (if terms accepted)
+      if (localStorage.getItem('termsAccepted')) {
+          enableAddToWallet();
+      }
+      
+      return;
+    }
+    const DD = Math.floor(d/86400000),
+          HH = Math.floor(d%86400000/3600000),
+          MM = Math.floor(d%3600000/60000),
+          SS = Math.floor(d%60000/1000);
+    days.textContent=String(DD).padStart(2,'0');
+    hours.textContent=String(HH).padStart(2,'0');
+    minutes.textContent=String(MM).padStart(2,'0');
+    seconds.textContent=String(SS).padStart(2,'0');
+  }
+  setInterval(updateCountdown,1000); updateCountdown();
+
+  // Toggle LIVE badge when countdown hits zero
+  (function(){
+    const dot=document.getElementById('statusDot');
+    const _old=updateCountdown;
+    window.updateCountdown=function(){
+      _old();
+      const d = new Date('2025-10-17T19:00:00') - Date.now();
+      dot.style.display = d<=0 ? 'block':'none';
+    };
+  })();
+
+  // Price update simulation (replace with real API calls)
+  function startPriceUpdates() {
+    // Clear any existing interval
+    if (priceUpdateInterval) clearInterval(priceUpdateInterval);
+    
+    // Update price every 30 seconds
+    priceUpdateInterval = setInterval(() => {
+      // Simulate price changes (replace with real API calls)
+      const priceUsd = document.getElementById('priceUsd');
+      const priceSol = document.getElementById('priceSol');
+      const mcap = document.getElementById('mcap');
+      
+      if (priceUsd.textContent === 'TBA') {
+        // Initial price setting
+        priceUsd.textContent = '$0.0000123';
+        priceSol.textContent = '0.00000045 SOL';
+        mcap.textContent = '$1.23M';
+      } else {
+        // Simulate price fluctuation
+        const currentPrice = parseFloat(priceUsd.textContent.replace('$', ''));
+        const change = (Math.random() - 0.5) * 0.000001; // Small random change
+        const newPrice = Math.max(0.000001, currentPrice + change);
+        priceUsd.textContent = '$' + newPrice.toFixed(7);
+        
+        // Update SOL price proportionally
+        const currentSolPrice = parseFloat(priceSol.textContent.split(' ')[0]);
+        const newSolPrice = Math.max(0.0000001, currentSolPrice + (change / 27.5)); // Rough SOL conversion
+        priceSol.textContent = newSolPrice.toFixed(8) + ' SOL';
+        
+        // Update market cap
+        const currentMcap = parseFloat(mcap.textContent.replace('$', '').replace('M', ''));
+        const newMcap = Math.max(0.5, currentMcap + (Math.random() - 0.5) * 0.1);
+        mcap.textContent = '$' + newMcap.toFixed(2) + 'M';
+      }
+      
+      // Pulse animation for visual feedback
+      const pulse = document.getElementById('priceUpdatePulse');
+      pulse.style.animation = 'none';
+      setTimeout(() => {
+        pulse.style.animation = 'pulse 0.5s ease';
+      }, 10);
+    }, 30000); // Update every 30 seconds
+  }
+
+  // Show buy banner notification
+  function showBuyBanner() {
+    const banner = document.getElementById('buyBanner');
+    banner.classList.add('show');
+    
+    // Auto-hide after 10 seconds
+    setTimeout(() => {
+      banner.classList.remove('show');
+    }, 10000);
+    
+    // Show again every 2 minutes
+    setInterval(() => {
+      banner.classList.add('show');
+      setTimeout(() => {
+        banner.classList.remove('show');
+      }, 10000);
+    }, 120000);
+  }
+
+  // Enable "Add to Wallet" button with contract
+  function enableAddToWallet() {
+    const addWalletBtn = document.getElementById('addWalletBtn');
+    const caElement = document.getElementById('ca');
+    const qrNote = document.getElementById('qrNote');
+    
+    // Set the contract address (replace with actual contract)
+    const contractAddress = 'SENPEPE_CONTRACT_ADDRESS_HERE'; // Replace with actual contract
+    caElement.textContent = contractAddress;
+    
+    // Enable the button
+    addWalletBtn.classList.remove('disabled');
+    addWalletBtn.textContent = 'Add to Wallet';
+    addWalletBtn.setAttribute('aria-disabled', 'false');
+    
+    // Update QR code note
+    qrNote.textContent = 'Scan to add to wallet';
+  }
+
+  // Enhanced wallet integration with simple confirmation
+  function setupWalletIntegration() {
+    const addWalletBtn = document.getElementById('addWalletBtn');
+    if (addWalletBtn) {
+        addWalletBtn.addEventListener('click', function() {
+            // Simple confirmation instead of multiple scary warnings
+            if (confirm('Always verify contract addresses from official sources before adding to your wallet. Continue?')) {
+                // Your wallet integration code here
+                if (window.solana && window.solana.isPhantom) {
+                    // Phantom wallet integration
+                    window.solana.connect().then(() => {
+                        // Add token logic
+                        const contractAddress = document.getElementById('ca').textContent;
+                        window.solana.request({
+                            method: 'addToken',
+                            params: {
+                                tokenAddress: contractAddress,
+                                tokenSymbol: 'SENPEPE',
+                                tokenDecimals: 9,
+                                tokenImage: 'https://yourdomain/assets/senpepe-main.png'
+                            }
+                        }).then(() => {
+                            toast('SENPEPE added to your wallet!');
+                        });
+                    });
+                } else {
+                    // Fallback
+                    const contractAddress = document.getElementById('ca').textContent;
+                    navigator.clipboard.writeText(contractAddress).then(() => {
+                        toast('Contract address copied. Please verify before using.');
+                    });
+                }
+            }
+        });
+    }
+  }
+
+  // Auto-population function for launch data
+  async function populateLaunchData(contractAddress, tokenData = {}) {
+      // Update contract address
+      document.getElementById('ca').textContent = contractAddress;
+      
+      // Enable wallet functionality
+      const addWalletBtn = document.getElementById('addWalletBtn');
+      addWalletBtn.classList.remove('disabled');
+      addWalletBtn.setAttribute('aria-disabled', 'false');
+      addWalletBtn.textContent = 'Add to Wallet';
+      
+      // Generate QR code for contract
+      const qrNote = document.querySelector('.qr small');
+      qrNote.textContent = 'Scan to add to wallet';
+      
+      // Update all TBA fields with actual data
+      const updates = {
+          // Prices and metrics (you can get these from your DEX/api)
+          priceUsd: tokenData.priceUsd || '$0.0000123',
+          priceSol: tokenData.priceSol || '0.00000045 SOL',
+          mcap: tokenData.mcap || '$1.23M',
+          liq: tokenData.liq || '$250K',
+          supply: tokenData.supply || '1B',
+          tax: tokenData.tax || '0%',
+          
+          // Contract details
+          infoDecimals: tokenData.decimals || '9',
+          
+          // Safety features
+          lpLock: tokenData.lpLock || '90 days',
+          audit: tokenData.audit || 'Pending'
+      };
+      
+      // Apply updates
+      Object.keys(updates).forEach(key => {
+          const element = document.getElementById(key);
+          if (element) element.textContent = updates[key];
+      });
+      
+      // Update buy button to actual DEX links
+      const buyBtn = document.getElementById('buyBtn');
+      buyBtn.textContent = 'Buy $SENPEPE Now';
+      buyBtn.href = `https://jup.ag/swap/SOL-SENPEPE_${contractAddress}`;
+      buyBtn.removeAttribute('aria-disabled');
+      
+      // Update DEX links in "How to Buy" section
+      document.querySelectorAll('.pill.primary.disabled').forEach(btn => {
+          btn.classList.remove('disabled');
+          btn.setAttribute('aria-disabled', 'false');
+          if (btn.textContent.includes('Jupiter')) {
+              btn.href = `https://jup.ag/swap/SOL-SENPEPE_${contractAddress}`;
+              btn.textContent = 'Buy on Jupiter';
+          } else if (btn.textContent.includes('Raydium')) {
+              btn.href = `https://raydium.io/swap/?inputCurrency=sol&outputCurrency=${contractAddress}`;
+              btn.textContent = 'Buy on Raydium';
+          }
+      });
+      
+      // Show live trading indicators
+      document.getElementById('priceUpdatePulse').style.display = 'flex';
+      startPriceUpdates(); // Start real price updates
+      
+      console.log('Launch data populated successfully!');
+  }
+
+  // ===== ENHANCED VERIFICATION SYSTEMS =====
+
+  // Twitter Verification with actual validation
+  async function verifyTweetLink() {
+      const tweetLink = document.getElementById('tweetLink').value.trim();
+      const user = engagementData.users[userId];
+      
+      // Basic validation
+      if (!tweetLink.includes('twitter.com') && !tweetLink.includes('x.com')) {
+          showNotification('❌ Please enter a valid Twitter/X link');
+          return;
+      }
+      
+      if (!tweetLink.includes('/status/')) {
+          showNotification('❌ Please link directly to your tweet (not your profile)');
+          return;
+      }
+      
+      // Extract tweet ID for verification
+      const tweetId = extractTweetId(tweetLink);
+      if (!tweetId) {
+          showNotification('❌ Invalid tweet link format');
+          return;
+      }
+      
+      // Check if this tweet was already verified
+      user.verifiedTweets = user.verifiedTweets || [];
+      if (user.verifiedTweets.includes(tweetLink)) {
+          showNotification('❌ This tweet has already been verified');
+          return;
+      }
+      
+      // Rate limiting
+      const now = Date.now();
+      const lastTwitterAction = user.lastTwitterAction || 0;
+      const cooldownTime = 2 * 60 * 1000; // 2 minutes
+      
+      if (now - lastTwitterAction < cooldownTime) {
+          const remaining = Math.ceil((cooldownTime - (now - lastTwitterAction)) / 1000);
+          document.getElementById('twitterCooldown').textContent = `Please wait ${remaining} seconds`;
+          document.getElementById('twitterCooldown').style.display = 'block';
+          return;
+      }
+      
+      // Show verification in progress
+      showNotification('🔍 Verifying tweet...');
+      
+      try {
+          // Simulate actual verification (replace with real API calls)
+          const isVerified = await simulateTweetVerification(tweetId, user.username);
+          
+          if (isVerified) {
+              // Successful verification
+              user.verifiedTweets.push(tweetLink);
+              user.lastTwitterAction = now;
+              user.twitterStats.tweets = (user.twitterStats.tweets || 0) + 1;
+              user.twitterStats.points = (user.twitterStats.points || 0) + activityPoints.twitterVerified;
+              
+              awardPoints(activityPoints.twitterVerified, 'twitterVerified');
+              addActivity('twitterVerified', `Verified tweet: ${tweetLink.substring(0, 30)}...`);
+              
+              closeTwitterVerification();
+              showNotification('✅ Tweet verified! +5 points');
+              
+              // Update leaderboard
+              updateTwitterLeaderboard();
+              updateTwitterStats();
+          } else {
+              showNotification('❌ Could not verify tweet. Make sure it contains #SENPEPE and is public.');
+          }
+      } catch (error) {
+          showNotification('❌ Verification failed. Please try again.');
+      }
+      
+      document.getElementById('twitterCooldown').style.display = 'none';
+  }
+
+  // Extract tweet ID from URL
+  function extractTweetId(url) {
+      const match = url.match(/(?:twitter\.com|x\.com)\/\w+\/status\/(\d+)/);
+      return match ? match[1] : null;
+  }
+
+  // Simulate tweet verification (replace with real API)
+  async function simulateTweetVerification(tweetId, username) {
+      // In a real implementation, you would:
+      // 1. Call Twitter API to get tweet details
+      // 2. Check if tweet contains required hashtags (#SENPEPE)
+      // 3. Verify it's from the correct user
+      // 4. Check if it's a recent tweet
+      
+      // Simulate API delay
+      await new Promise(resolve => setTimeout(resolve, 2000));
+      
+      // Simulate verification criteria
+      const hasRequiredContent = Math.random() > 0.3; // 70% success rate
+      const isRecent = Math.random() > 0.2; // 80% success rate
+      
+      return hasRequiredContent && isRecent;
+  }
+
+  // Enhanced Meme Submission Verification
+  async function submitMemeForVerification() {
+      const title = document.getElementById('memeTitle').value.trim();
+      const url = document.getElementById('memeUrl').value.trim();
+      const user = engagementData.users[userId];
+      
+      if (!title || !url) {
+          showNotification('❌ Please provide both a title and image URL');
+          return;
+      }
+      
+      // Validate URL format
+      if (!isValidImageUrl(url)) {
+          showNotification('❌ Please enter a valid image URL (Imgur, etc.)');
+          return;
+      }
+      
+      // Rate limiting
+      const now = Date.now();
+      const lastMemeAction = user.lastMemeAction || 0;
+      const cooldownTime = 2 * 60 * 1000; // 2 minutes
+      
+      if (now - lastMemeAction < cooldownTime) {
+          const remaining = Math.ceil((cooldownTime - (now - lastMemeAction)) / 1000);
+          document.getElementById('memeCooldown').textContent = `Please wait ${remaining} seconds`;
+          document.getElementById('memeCooldown').style.display = 'block';
+          return;
+      }
+      
+      // Validate image
+      showNotification('🔍 Validating meme...');
+      
+      try {
+          const isValidImage = await validateImageUrl(url);
+          
+          if (isValidImage) {
+              user.lastMemeAction = now;
+              user.memesCreated = (user.memesCreated || 0) + 1;
+              
+              // Add to meme contest submissions
+              const submission = {
+                  id: 'meme_' + Date.now(),
+                  title: title,
+                  imageUrl: url,
+                  author: user.username || 'Anonymous',
+                  votes: 0,
+                  timestamp: new Date().toISOString(),
+                  verified: true
+              };
+              
+              engagementData.memeContest.submissions.push(submission);
+              user.memeSubmissions = user.memeSubmissions || [];
+              user.memeSubmissions.push(submission.id);
+              
+              awardPoints(activityPoints.createMeme, 'memeSubmitted');
+              addActivity('memeSubmitted', `Submitted meme: ${title}`);
+              closeMemeSubmission();
+              showNotification('🎨 Meme submitted and verified! +15 points');
+              
+              updateMemeSubmissions();
+          } else {
+              showNotification('❌ Invalid image or URL not accessible');
+          }
+      } catch (error) {
+          showNotification('❌ Image validation failed. Please try another URL.');
+      }
+      
+      document.getElementById('memeCooldown').style.display = 'none';
+  }
+
+  // Validate image URL
+  function isValidImageUrl(url) {
+      const imageExtensions = ['.jpg', '.jpeg', '.png', '.gif', '.webp'];
+      const imageHosts = ['imgur.com', 'i.imgur.com', 'ibb.co', 'i.ibb.co', 'cdn.discordapp.com'];
+      
+      const urlLower = url.toLowerCase();
+      const isImageExtension = imageExtensions.some(ext => urlLower.includes(ext));
+      const isImageHost = imageHosts.some(host => urlLower.includes(host));
+      
+      return isImageExtension || isImageHost;
+  }
+
+  // Validate image URL accessibility
+  async function validateImageUrl(url) {
+      return new Promise((resolve) => {
+          const img = new Image();
+          img.onload = () => resolve(true);
+          img.onerror = () => resolve(false);
+          img.src = url;
+          
+          // Timeout after 5 seconds
+          setTimeout(() => resolve(false), 5000);
+      });
+  }
+
+  // Enhanced Daily Check-in with IP verification
+  function setupDailyCheckin() {
+      document.getElementById('dailyCheckin').addEventListener('click', function() {
+          const user = engagementData.users[userId];
+          const today = new Date().toDateString();
+          
+          // Check if already checked in today
+          if (user.lastCheckin === today) {
+              showNotification('❌ You already checked in today! Come back tomorrow.');
+              return;
+          }
+          
+          // Simulate IP-based verification (prevent multiple accounts)
+          const canCheckIn = verifyDailyCheckin(userId);
+          
+          if (canCheckIn) {
+              user.dailyCheckins = (user.dailyCheckins || 0) + 1;
+              user.lastCheckin = today;
+              
+              awardPoints(activityPoints.dailyCheckin, 'dailyCheckin');
+              addActivity('dailyCheckin', 'Daily check-in completed');
+              
+              // Weekly streak bonus
+              if (user.dailyCheckins % 7 === 0) {
+                  awardPoints(50, 'weeklyBonus');
+                  showNotification('🎊 7-day streak bonus! +50 points');
+              }
+              
+              showNotification('✅ Daily check-in complete! +10 points');
+          } else {
+              showNotification('❌ Check-in failed. Possible duplicate detected.');
+          }
+      });
+  }
+
+  // Simulate IP/device verification
+  function verifyDailyCheckin(userId) {
+      // In real implementation, check IP address, device fingerprint, etc.
+      // For now, use localStorage to simulate basic prevention
+      const today = new Date().toDateString();
+      const checkinKey = `dailyCheckin_${today}`;
+      const existingCheckin = localStorage.getItem(checkinKey);
+      
+      if (existingCheckin && existingCheckin !== userId) {
+          return false; // Possible duplicate
+      }
+      
+      localStorage.setItem(checkinKey, userId);
+      return true;
+  }
+
+  // ===== VERIFIED CHALLENGE SYSTEM =====
+
+  const verifiedChallenges = {
+      'daily-checkin': {
+          verify: (user) => {
+              const today = new Date().toDateString();
+              return user.lastCheckin === today;
+          }
+      },
+      'share-twitter': {
+          verify: (user) => {
+              return (user.verifiedTweets || []).length > 0;
+          }
+      },
+      'create-meme': {
+          verify: (user) => {
+              return (user.memeSubmissions || []).length > 0;
+          }
+      },
+      'join-telegram': {
+          verify: (user) => {
+              // This would require Telegram bot integration
+              return user.telegramJoined || false;
+          }
+      }
+  };
+
+  function completeChallenge(challengeId) {
+      const user = engagementData.users[userId];
+      const challenge = dailyChallenges.find(c => c.id === challengeId);
+      
+      if (!challenge) return;
+      
+      // Check if already completed
+      if (user.completedChallenges.includes(challengeId)) {
+          showNotification('❌ Challenge already completed today!');
+          return;
+      }
+      
+      // Verify challenge completion
+      const verifier = verifiedChallenges[challengeId];
+      if (verifier && !verifier.verify(user)) {
+          showNotification(`❌ Please complete the required action first: ${challenge.title}`);
+          return;
+      }
+      
+      // Award points only after verification
+      user.completedChallenges.push(challengeId);
+      awardPoints(challenge.reward, 'challengeCompleted');
+      addActivity('challengeCompleted', `Completed challenge: ${challenge.title}`);
+      showNotification(`🎯 Challenge verified and completed! +${challenge.reward} points`);
+      
+      updateDailyChallenges();
+      saveEngagementData();
+  }
+
+  // ===== ENHANCED TWITTER VERIFICATION =====
+
+  async function verifyTwitterEngagement() {
+      const user = engagementData.users[userId];
+      
+      if (!user.username) {
+          showNotification('❌ Please set your username first');
+          return;
+      }
+      
+      showNotification('🔍 Scanning for Twitter activity...');
+      
+      try {
+          // Simulate scanning user's recent tweets for SENPEPE mentions
+          const engagement = await scanTwitterForSENPEPE(user.username);
+          
+          if (engagement.found) {
+              user.twitterStats.tweets += engagement.tweets;
+              user.twitterStats.retweets += engagement.retweets;
+              user.twitterStats.likes += engagement.likes;
+              user.twitterStats.points += engagement.points;
+              
+              const totalPoints = engagement.tweets * activityPoints.tweetAbout + 
+                                engagement.retweets * activityPoints.retweet + 
+                                engagement.likes * activityPoints.likeTweet;
+              
+              awardPoints(totalPoints, 'twitterScan');
+              showNotification(`✅ Found ${engagement.tweets} tweets! +${totalPoints} points`);
+              addActivity('twitterScan', `Twitter engagement scan: ${engagement.tweets} tweets found`);
+          } else {
+              showNotification('❌ No SENPEPE tweets found. Try posting with #SENPEPE hashtag!');
+          }
+      } catch (error) {
+          showNotification('❌ Twitter scan failed. Please try again.');
+      }
+      
+      updateTwitterLeaderboard();
+      updateTwitterStats();
+  }
+
+  // Simulate Twitter API scan
+  async function scanTwitterForSENPEPE(username) {
+      // In real implementation, use Twitter API
+      await new Promise(resolve => setTimeout(resolve, 3000));
+      
+      return {
+          found: Math.random() > 0.4, // 60% chance of finding tweets
+          tweets: Math.floor(Math.random() * 3),
+          retweets: Math.floor(Math.random() * 5),
+          likes: Math.floor(Math.random() * 15),
+          points: Math.floor(Math.random() * 50)
+      };
+  }
+
+  // ===== AUTO-ENGAGEMENT SYSTEM =====
+  
+  // User identification (in a real app, this would be from authentication)
+  const generateUserId = () => {
+      if (!localStorage.getItem('senpepeUserId')) {
+          localStorage.setItem('senpepeUserId', 'user_' + Math.random().toString(36).substr(2, 9));
+      }
+      return localStorage.getItem('senpepeUserId');
+  };
+  
+  const userId = generateUserId();
+  
+  // Engagement Data Structure
+  let engagementData = {
+      users: {},
+      community: {
+          totalMembers: 1250,
+          totalPoints: 58420,
+          milestones: [
+              { goal: 100, reached: true, reward: "Exclusive Role" },
+              { goal: 500, reached: true, reward: "Community Shout-out" },
+              { goal: 1000, reached: false, reward: "Special Badge" },
+              { goal: 5000, reached: false, reward: "Governance Rights" }
+          ]
+      },
+      activities: [],
+      dailyChallenges: [],
+      memeContest: {
+          active: false,
+          submissions: [],
+          endDate: null
+      },
+      twitterShilling: {
+          leaderboard: [],
+          tweetTemplates: [
+              "🚀 $SENPEPE is launching soon on Solana! Get ready for the next big meme coin revolution! #SENPEPE #Solana #MemeCoin",
+              "💎 Don't miss out on $SENPEPE - the community-driven meme coin with real utility! Launching Oct 17! #SENPEPE #Crypto",
+              "🐸 SENPEPE is coming to Solana! Join the movement and be part of something special. #SENPEPE #MemeCoin #Solana"
+          ]
+      }
+  };
+  
+  // Initialize user data if not exists
+  if (!localStorage.getItem('senpepeEngagementData')) {
+      const initialUserData = {
+          points: 0,
+          level: 1,
+          badges: [],
+          dailyCheckins: 0,
+          invites: 0,
+          memesCreated: 0,
+          lastCheckin: null,
+          joinDate: new Date().toISOString(),
+          username: null,
+          twitterStats: {
+              tweets: 0,
+              retweets: 0,
+              likes: 0,
+              points: 0,
+              lastTweet: null
+          },
+          completedChallenges: [],
+          memeSubmissions: [],
+          verifiedTweets: [],
+          lastTwitterAction: 0,
+          lastMemeAction: 0,
+          lastInviteAction: 0
+      };
+      
+      engagementData.users[userId] = initialUserData;
+      saveEngagementData();
+  } else {
+      engagementData = JSON.parse(localStorage.getItem('senpepeEngagementData'));
+      
+      // Initialize user if doesn't exist (new session)
+      if (!engagementData.users[userId]) {
+          engagementData.users[userId] = {
+              points: 0,
+              level: 1,
+              badges: [],
+              dailyCheckins: 0,
+              invites: 0,
+              memesCreated: 0,
+              lastCheckin: null,
+              joinDate: new Date().toISOString(),
+              username: null,
+              twitterStats: {
+                  tweets: 0,
+                  retweets: 0,
+                  likes: 0,
+                  points: 0,
+                  lastTweet: null
+              },
+              completedChallenges: [],
+              memeSubmissions: [],
+              verifiedTweets: [],
+              lastTwitterAction: 0,
+              lastMemeAction: 0,
+              lastInviteAction: 0
+          };
+      }
+  }
+  
+  // Badge Definitions
+  const badgeDefinitions = [
+      { id: 'first-checkin', name: 'First Timer', icon: '🚀', points: 10, condition: (user) => user.dailyCheckins >= 1 },
+      { id: 'consistent-5', name: '5-Day Streak', icon: '🔥', points: 25, condition: (user) => user.dailyCheckins >= 5 },
+      { id: 'consistent-30', name: 'Month Veteran', icon: '📅', points: 100, condition: (user) => user.dailyCheckins >= 30 },
+      { id: 'social-butterfly', name: 'Social Butterfly', icon: '📢', points: 50, condition: (user) => (user.verifiedTweets || []).length >= 5 },
+      { id: 'meme-master', name: 'Meme Master', icon: '🎨', points: 75, condition: (user) => user.memesCreated >= 5 },
+      { id: 'community-builder', name: 'Community Builder', icon: '👥', points: 100, condition: (user) => user.invites >= 3 },
+      { id: 'level-5', name: 'Level 5 Achiever', icon: '⭐', points: 0, condition: (user) => user.level >= 5 },
+      { id: 'level-10', name: 'Level 10 Legend', icon: '🏆', points: 0, condition: (user) => user.level >= 10 },
+      { id: 'twitter-warrior', name: 'Twitter Warrior', icon: '🐦', points: 50, condition: (user) => (user.verifiedTweets || []).length >= 10 },
+      { id: 'meme-contest-winner', name: 'Meme Contest Winner', icon: '🏆', points: 100, condition: (user) => user.memeSubmissions.some(s => s.rank <= 3) }
+  ];
+  
+  // Activity Types with Point Values
+  const activityPoints = {
+      dailyCheckin: 10,
+      shareSocial: 5,
+      createMeme: 15,
+      inviteFriend: 25,
+      badgeEarned: 0, // Special case - points awarded separately
+      challengeCompleted: 30,
+      tweetAbout: 25,
+      retweet: 10,
+      likeTweet: 5,
+      memeSubmitted: 20,
+      twitterVerified: 5
+  };
+  
+  // Daily Challenges Definitions
+  const dailyChallenges = [
+      {
+          id: 'daily-checkin',
+          title: 'Daily Check-in',
+          description: 'Visit the site and check in for the day',
+          reward: 10,
+          icon: '✅',
+          action: 'checkin'
+      },
+      {
+          id: 'share-twitter',
+          title: 'Share on Twitter',
+          description: 'Tweet about SENPEPE using our template',
+          reward: 25,
+          icon: '🐦',
+          action: 'shareTwitter'
+      },
+      {
+          id: 'invite-friend',
+          title: 'Invite a Friend',
+          description: 'Share your referral link with a friend',
+          reward: 30,
+          icon: '👥',
+          action: 'inviteFriend'
+      },
+      {
+          id: 'create-meme',
+          title: 'Create a Meme',
+          description: 'Design and submit a SENPEPE meme',
+          reward: 20,
+          icon: '🎨',
+          action: 'createMeme'
+      },
+      {
+          id: 'join-telegram',
+          title: 'Join Telegram',
+          description: 'Join our official Telegram community',
+          reward: 15,
+          icon: '✈️',
+          action: 'joinTelegram'
+      }
+  ];
+  
+  // ===== DAILY CHALLENGES SYSTEM =====
+  function initializeDailyChallenges() {
+      updateDailyChallenges();
+      
+      // Set up challenge actions
+      document.getElementById('challengesContainer').addEventListener('click', function(e) {
+          if (e.target.classList.contains('challenge-action')) {
+              const challengeId = e.target.dataset.challengeId;
+              completeChallenge(challengeId);
+          }
+      });
+  }
+  
+  function updateDailyChallenges() {
+      const challengesContainer = document.getElementById('challengesContainer');
+      const user = engagementData.users[userId];
+      const today = new Date().toDateString();
+      
+      // Reset challenges if it's a new day
+      if (user.lastChallengeReset !== today) {
+          user.completedChallenges = [];
+          user.lastChallengeReset = today;
+          saveEngagementData();
+      }
+      
+      challengesContainer.innerHTML = '';
+      
+      dailyChallenges.forEach(challenge => {
+          const isCompleted = user.completedChallenges.includes(challenge.id);
+          const challengeElement = document.createElement('div');
+          challengeElement.className = `challenge-card ${isCompleted ? 'completed' : ''}`;
+          
+          challengeElement.innerHTML = `
+              <div class="challenge-title">
+                  <span>${challenge.icon}</span>
+                  <span>${challenge.title}</span>
+                  <span class="challenge-reward">+${challenge.reward} pts</span>
+              </div>
+              <p>${challenge.description}</p>
+              <div class="challenge-progress">
+                  <div class="challenge-progress-fill" style="width: ${isCompleted ? '100%' : '0%'}"></div>
+              </div>
+              <button class="challenge-action ${isCompleted ? 'completed' : ''}" data-challenge-id="${challenge.id}">
+                  ${isCompleted ? 'Completed' : 'Start Challenge'}
+              </button>
+          `;
+          
+          challengesContainer.appendChild(challengeElement);
+      });
+  }
+  
+  // ===== MEME CONTEST SYSTEM =====
+  function initializeMemeContest() {
+      // Set up meme contest if not active
+      if (!engagementData.memeContest.active) {
+          // Start a new contest that ends in 7 days
+          const endDate = new Date();
+          endDate.setDate(endDate.getDate() + 7);
+          
+          engagementData.memeContest = {
+              active: true,
+              submissions: [],
+              endDate: endDate.toISOString()
+          };
+          saveEngagementData();
+      }
+      
+      updateMemeContestTimer();
+      updateMemeSubmissions();
+      
+      // Set up submission form
+      document.getElementById('submitMeme').addEventListener('click', submitMeme);
+  }
+  
+  function updateMemeContestTimer() {
+      const timerElement = document.getElementById('contestTimer');
+      const endDate = new Date(engagementData.memeContest.endDate);
+      const now = new Date();
+      const diff = endDate - now;
+      
+      if (diff <= 0) {
+          timerElement.textContent = 'Contest ended! Winners announced soon.';
+          engagementData.memeContest.active = false;
+          saveEngagementData();
+          return;
+      }
+      
+      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      
+      timerElement.textContent = `Contest ends in: ${days} days, ${hours} hours`;
+  }
+  
+  function updateMemeSubmissions() {
+      const gallery = document.getElementById('submissionGallery');
+      const submissions = engagementData.memeContest.submissions;
+      
+      gallery.innerHTML = '';
+      
+      if (submissions.length === 0) {
+          gallery.innerHTML = '<div style="text-align: center; padding: 20px; color: var(--muted);">No submissions yet. Be the first to submit a meme!</div>';
+          return;
+      }
+      
+      // Sort by votes (descending)
+      submissions.sort((a, b) => b.votes - a.votes);
+      
+      submissions.forEach((submission, index) => {
+          const submissionElement = document.createElement('div');
+          submissionElement.className = 'submission-item';
+          
+          submissionElement.innerHTML = `
+              <img src="${submission.imageUrl}" alt="Meme submission" class="submission-image" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTIwIiBoZWlnaHQ9IjEyMCIgdmlld0JveD0iMCAwIDEyMCAxMjAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHJlY3Qgd2lkdGg9IjEyMCIgaGVpZ2h0PSIxMjAiIGZpbGw9IiMzMzMiLz48dGV4dCB4PSI2MCIgeT0iNjAiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxNCIgZmlsbD0iI2ZmZiIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZG9taW5hbnQtYmFzZWxpbmU9Im1pZGRsZSI+TUVNRQ=='">
+              <div class="submission-info">
+                  <div class="submission-author">${submission.author}</div>
+                  <div class="submission-votes">
+                      <button class="vote-btn" data-submission-id="${submission.id}">👍</button>
+                      <span>${submission.votes} votes</span>
+                  </div>
+              </div>
+          `;
+          
+          gallery.appendChild(submissionElement);
+      });
+      
+      // Set up vote buttons
+      document.querySelectorAll('.vote-btn').forEach(btn => {
+          btn.addEventListener('click', function() {
+              const submissionId = this.dataset.submissionId;
+              voteForMeme(submissionId);
+          });
+      });
+  }
+  
+  function submitMeme() {
+      const titleInput = document.getElementById('memeTitle');
+      const urlInput = document.getElementById('memeUrl');
+      const title = titleInput.value.trim();
+      const url = urlInput.value.trim();
+      
+      if (!title || !url) {
+          showNotification('Please provide both a title and image URL');
+          return;
+      }
+      
+      const user = engagementData.users[userId];
+      const submission = {
+          id: 'meme_' + Date.now(),
+          title: title,
+          imageUrl: url,
+          author: user.username || 'Anonymous',
+          votes: 0,
+          timestamp: new Date().toISOString()
+      };
+      
+      engagementData.memeContest.submissions.push(submission);
+      user.memeSubmissions.push(submission.id);
+      
+      // Award points for submission
+      awardPoints(activityPoints.memeSubmitted, 'memeSubmitted');
+      addActivity('memeSubmitted', 'Submitted a meme to contest');
+      
+      // Clear form
+      titleInput.value = '';
+      urlInput.value = '';
+      
+      // Update UI
+      updateMemeSubmissions();
+      saveEngagementData();
+      
+      showNotification('🎨 Meme submitted! +20 points');
+  }
+  
+  function voteForMeme(submissionId) {
+      const submission = engagementData.memeContest.submissions.find(s => s.id === submissionId);
+      
+      if (!submission) {
+          return;
+      }
+      
+      submission.votes += 1;
+      updateMemeSubmissions();
+      saveEngagementData();
+      
+      showNotification('👍 Vote counted!');
+  }
+  
+  // ===== TWITTER SHILLING LEADERBOARD SYSTEM =====
+  function initializeTwitterShilling() {
+      updateTwitterLeaderboard();
+      updateTwitterStats();
+      
+      // Set up Twitter actions
+      document.getElementById('tweetNow').addEventListener('click', tweetAboutSENPEPE);
+      document.getElementById('copyTweet').addEventListener('click', copyTweetTemplate);
+      document.getElementById('verifyTweet').addEventListener('click', verifyTweet);
+  }
+  
+  function updateTwitterLeaderboard() {
+      const leaderboardContainer = document.getElementById('shillingLeaderboard');
+      const users = Object.values(engagementData.users);
+      
+      // Sort users by Twitter points (descending)
+      const sortedUsers = users
+          .filter(user => user.twitterStats && user.twitterStats.points > 0)
+          .sort((a, b) => b.twitterStats.points - a.twitterStats.points)
+          .slice(0, 10); // Top 10 only
+      
+      leaderboardContainer.innerHTML = '';
+      
+      if (sortedUsers.length === 0) {
+          leaderboardContainer.innerHTML = '<div style="text-align: center; padding: 20px; color: var(--muted);">No Twitter shilling activity yet. Be the first to tweet!</div>';
+          return;
+      }
+      
+      sortedUsers.forEach((user, index) => {
+          const leaderboardItem = document.createElement('div');
+          leaderboardItem.className = 'shilling-item';
+          
+          leaderboardItem.innerHTML = `
+              <div class="shilling-rank">#${index + 1}</div>
+              <div class="shilling-user">
+                  <div class="shilling-avatar">${user.username ? user.username.charAt(0).toUpperCase() : 'U'}</div>
+                  <div class="shilling-details">
+                      <div class="shilling-name">${user.username || 'Anonymous'}</div>
+                      <div class="shilling-stats">
+                          <span>Tweets: ${user.twitterStats.tweets}</span>
+                          <span>Likes: ${user.twitterStats.likes}</span>
+                          <span>Retweets: ${user.twitterStats.retweets}</span>
+                      </div>
+                  </div>
+              </div>
+              <div class="shilling-score">${user.twitterStats.points} pts</div>
+          `;
+          
+          leaderboardContainer.appendChild(leaderboardItem);
+      });
+  }
+  
+  function updateTwitterStats() {
+      const user = engagementData.users[userId];
+      const twitterStats = user.twitterStats || { tweets: 0, retweets: 0, likes: 0, points: 0 };
+      
+      document.getElementById('tweetsCount').textContent = twitterStats.tweets;
+      document.getElementById('retweetsCount').textContent = twitterStats.retweets;
+      document.getElementById('likesCount').textContent = twitterStats.likes;
+      document.getElementById('shillingPoints').textContent = twitterStats.points;
+  }
+  
+  function tweetAboutSENPEPE() {
+      const templates = engagementData.twitterShilling.tweetTemplates;
+      const randomTemplate = templates[Math.floor(Math.random() * templates.length)];
+      const tweetUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(randomTemplate)}&url=${encodeURIComponent(window.location.href)}&hashtags=SENPEPE,Solana,MemeCoin`;
+      
+      window.open(tweetUrl, '_blank', 'width=600,height=400');
+      
+      // Simulate tweet submission (in real app, this would be verified via API)
+      setTimeout(() => {
+          const user = engagementData.users[userId];
+          user.twitterStats.tweets += 1;
+          user.twitterStats.points += activityPoints.tweetAbout;
+          user.twitterStats.lastTweet = new Date().toISOString();
+          
+          saveEngagementData();
+          updateTwitterLeaderboard();
+          updateTwitterStats();
+          awardPoints(activityPoints.tweetAbout, 'tweetAbout');
+          showNotification('🐦 Tweet posted! +25 points');
+          addActivity('tweetPosted', 'Posted about SENPEPE on Twitter');
+      }, 2000);
+  }
+  
+  function copyTweetTemplate() {
+      const templates = engagementData.twitterShilling.tweetTemplates;
+      const randomTemplate = templates[Math.floor(Math.random() * templates.length)];
+      
+      navigator.clipboard.writeText(randomTemplate).then(() => {
+          showNotification('📋 Tweet template copied to clipboard!');
+      });
+  }
+  
+  function verifyTweet() {
+      // In a real app, this would verify via Twitter API
+      // For demo purposes, we'll simulate verification
+      const user = engagementData.users[userId];
+      
+      // Simulate finding a recent tweet
+      const foundTweet = Math.random() > 0.3; // 70% chance of "finding" a tweet
+      
+      if (foundTweet) {
+          user.twitterStats.retweets += Math.floor(Math.random() * 3) + 1;
+          user.twitterStats.likes += Math.floor(Math.random() * 10) + 5;
+          user.twitterStats.points += activityPoints.retweet + activityPoints.likeTweet;
+          
+          saveEngagementData();
+          updateTwitterLeaderboard();
+          updateTwitterStats();
+          awardPoints(activityPoints.retweet + activityPoints.likeTweet, 'verifyTweet');
+          showNotification('✅ Tweet verified! Found engagement on your tweet');
+      } else {
+          showNotification('❌ No recent SENPEPE tweets found. Try posting one!');
+      }
+  }
+
+  // ===== USERNAME SYSTEM =====
+  function setupUsernameSystem() {
+      const user = engagementData.users[userId];
+      
+      if (!user.username) {
+          // Show username modal after a short delay
+          setTimeout(() => {
+              document.getElementById('usernameModal').style.display = 'flex';
+              generateUsernameSuggestion();
+          }, 1500);
+      }
+  }
+  
+  function generateUsernameSuggestion() {
+      const suggestions = [
+          "SENPEPE_Warrior", "PepeLegend", "CryptoSenpai", "MemeMaster",
+          "SolanaStar", "MoonHunter", "DiamondHands", "AlphaTrader",
+          "DegenKing", "NFTCollector", "Web3Warrior", "BlockchainBuddy"
+      ];
+      const suggestion = suggestions[Math.floor(Math.random() * suggestions.length)];
+      document.getElementById('usernameSuggestion').textContent = suggestion;
+      return suggestion;
+  }
+  
+  function useSuggestion() {
+      const suggestion = document.getElementById('usernameSuggestion').textContent;
+      document.getElementById('usernameInput').value = suggestion;
+  }
+  
+  function saveUsername() {
+      const input = document.getElementById('usernameInput');
+      const error = document.getElementById('usernameError');
+      const username = input.value.trim();
+      
+      // Validation
+      if (username.length < 3) {
+          error.textContent = "Username too short (min 3 characters)";
+          error.style.display = 'block';
+          return;
+      }
+      
+      if (username.length > 15) {
+          error.textContent = "Username too long (max 15 characters)";
+          error.style.display = 'block';
+          return;
+      }
+      
+      if (!/^[a-zA-Z0-9_]+$/.test(username)) {
+          error.textContent = "Only letters, numbers, and underscores allowed";
+          error.style.display = 'block';
+          return;
+      }
+      
+      // Save username
+      engagementData.users[userId].username = username;
+      saveEngagementData();
+      
+      // Hide modal and show welcome
+      document.getElementById('usernameModal').style.display = 'none';
+      showNotification(`👋 Welcome to the community, ${username}!`);
+      
+      // Update display
+      updateUsernameDisplay();
+  }
+  
+  function updateUsernameDisplay() {
+      // This will be handled in the leaderboard update to show actual username
+  }
+  
+  // ===== CORE FUNCTIONS =====
+  
+  function saveEngagementData() {
+      localStorage.setItem('senpepeEngagementData', JSON.stringify(engagementData));
+  }
+  
+  function addActivity(type, details) {
+      const activity = {
+          type,
+          details,
+          timestamp: new Date().toISOString(),
+          userId: userId
+      };
+      
+      engagementData.activities.unshift(activity);
+      
+      // Keep only last 50 activities for performance
+      if (engagementData.activities.length > 50) {
+          engagementData.activities = engagementData.activities.slice(0, 50);
+      }
+      
+      saveEngagementData();
+      updateActivityFeed();
+  }
+  
+  function awardPoints(points, activityType) {
+      const user = engagementData.users[userId];
+      user.points += points;
+      
+      // Check for level up
+      const newLevel = calculateLevel(user.points);
+      if (newLevel > user.level) {
+          user.level = newLevel;
+          showNotification(`🎉 Level Up! You're now Level ${newLevel}`);
+          addActivity('levelUp', `Reached level ${newLevel}`);
+      }
+      
+      // Check for new badges
+      checkForNewBadges();
+      
+      saveEngagementData();
+      updateUI();
+  }
+  
+  function calculateLevel(points) {
+      return Math.floor(Math.sqrt(points / 10)) + 1;
+  }
+  
+  function pointsToNextLevel(points, level) {
+      const pointsForNextLevel = Math.pow(level, 2) * 10;
+      return pointsForNextLevel - points;
+  }
+  
+  function checkForNewBadges() {
+      const user = engagementData.users[userId];
+      const earnedBadges = user.badges || [];
+      
+      badgeDefinitions.forEach(badge => {
+          if (!earnedBadges.includes(badge.id) && badge.condition(user)) {
+              earnedBadges.push(badge.id);
+              if (badge.points > 0) {
+                  awardPoints(badge.points, 'badgeEarned');
+              }
+              showNotification(`🏆 Badge Unlocked: ${badge.name}`);
+              addActivity('badgeEarned', `Unlocked badge: ${badge.name}`);
+          }
+      });
+      
+      user.badges = earnedBadges;
+      saveEngagementData();
+      updateBadges();
+  }
+  
+  function showNotification(message) {
+      const notification = document.getElementById('notification');
+      const notificationText = document.getElementById('notificationText');
+      
+      notificationText.textContent = message;
+      notification.classList.add('show');
+      
+      setTimeout(() => {
+          notification.classList.remove('show');
+      }, 3000);
+  }
+  
+  // ===== AUTOMATED ENGAGEMENT TRIGGERS =====
+  
+  function automatedEngagementTriggers() {
+      const user = engagementData.users[userId];
+      
+      // Daily check-in bonus (automated if user visits the site)
+      const today = new Date().toDateString();
+      if (user.lastCheckin !== today) {
+          // This would be called on page load, simulating an automatic check-in
+          user.dailyCheckins = (user.dailyCheckins || 0) + 1;
+          user.lastCheckin = today;
+          
+          awardPoints(activityPoints.dailyCheckin, 'dailyCheckin');
+          addActivity('dailyCheckin', 'Automatic daily check-in');
+          
+          // Special bonus for consecutive days
+          if (user.dailyCheckins % 7 === 0) {
+              awardPoints(50, 'weeklyBonus');
+              showNotification('🎊 7-day streak bonus! +50 points');
+          }
+      }
+      
+      // Simulate community growth (in a real app, this would come from your backend)
+      engagementData.community.totalMembers += Math.floor(Math.random() * 5);
+      engagementData.community.totalPoints += Math.floor(Math.random() * 100);
+      
+      saveEngagementData();
+  }
+  
+  // ===== UI UPDATE FUNCTIONS =====
+  
+  function updateUI() {
+      const user = engagementData.users[userId];
+      
+      // Update stats
+      document.getElementById('userPoints').textContent = user.points;
+      document.getElementById('userLevel').textContent = user.level;
+      document.getElementById('userRank').textContent = `#${calculateUserRank()}`;
+      
+      // Calculate days active
+      const joinDate = new Date(user.joinDate);
+      const today = new Date();
+      const daysActive = Math.floor((today - joinDate) / (1000 * 60 * 60 * 24)) + 1;
+      document.getElementById('daysActive').textContent = daysActive;
+      
+      // Update level progress
+      const pointsToNext = pointsToNextLevel(user.points, user.level);
+      const pointsForCurrentLevel = Math.pow(user.level - 1, 2) * 10;
+      const pointsInLevel = user.points - pointsForCurrentLevel;
+      const levelPointsNeeded = Math.pow(user.level, 2) * 10 - pointsForCurrentLevel;
+      const progressPercent = (pointsInLevel / levelPointsNeeded) * 100;
+      
+      document.getElementById('levelProgress').style.width = `${progressPercent}%`;
+      document.getElementById('levelText').textContent = 
+          `Level ${user.level}: ${pointsInLevel}/${levelPointsNeeded} points to next level`;
+  }
+  
+  function calculateUserRank() {
+      // In a real app, this would calculate against all users
+      // For demo, we'll simulate a rank based on points
+      const user = engagementData.users[userId];
+      return Math.max(1, Math.floor(engagementData.community.totalMembers * (1 - user.points / engagementData.community.totalPoints)));
+  }
+  
+  function updateBadges() {
+      const badgeContainer = document.getElementById('badgeContainer');
+      const user = engagementData.users[userId];
+      const earnedBadges = user.badges || [];
+      
+      badgeContainer.innerHTML = '';
+      
+      badgeDefinitions.forEach(badge => {
+          const isUnlocked = earnedBadges.includes(badge.id);
+          const badgeElement = document.createElement('div');
+          badgeElement.className = `badge ${isUnlocked ? 'unlocked' : ''}`;
+          badgeElement.innerHTML = `
+              <div class="badge-icon">${badge.icon}</div>
+              <div>${badge.name}</div>
+              ${isUnlocked ? '<small>Unlocked!</small>' : '<small>Locked</small>'}
+          `;
+          badgeContainer.appendChild(badgeElement);
+      });
+  }
+  
+  function updateLeaderboard() {
+      const leaderboardContainer = document.getElementById('leaderboardContainer');
+      const user = engagementData.users[userId];
+      const currentUsername = user.username || "SENPEPE_Fan";
+      
+      // In a real app, this would fetch from a server
+      // For demo, we'll create simulated users
+      const simulatedUsers = [
+          { name: 'CryptoMaster', points: 1250 },
+          { name: 'MemeQueen', points: 980 },
+          { name: 'DegenTrader', points: 875 },
+          { name: 'SenpaiFan', points: 760 },
+          { name: 'BlockchainBuddy', points: 650 },
+          { name: currentUsername, points: user.points }, // Use actual username
+          { name: 'NFTCollector', points: 520 },
+          { name: 'MoonMission', points: 480 },
+          { name: 'DiamondHands', points: 420 },
+          { name: 'AlphaHunter', points: 390 }
+      ];
+      
+      // Sort by points (descending)
+      simulatedUsers.sort((a, b) => b.points - a.points);
+      
+      leaderboardContainer.innerHTML = '';
+      
+      simulatedUsers.forEach((user, index) => {
+          const isCurrentUser = user.name === currentUsername;
+          const rankElement = document.createElement('div');
+          rankElement.className = 'leaderboard-item';
+          rankElement.innerHTML = `
+              <div>
+                  <span class="leaderboard-rank">#${index + 1}</span>
+                  ${isCurrentUser ? '<strong>' + user.name + '</strong>' : user.name}
+              </div>
+              <div>${user.points} pts</div>
+          `;
+          
+          if (isCurrentUser) {
+              rankElement.style.background = 'rgba(255, 140, 0, 0.2)';
+          }
+          
+          leaderboardContainer.appendChild(rankElement);
+      });
+  }
+  
+  function updateMilestones() {
+      const milestoneContainer = document.getElementById('milestoneContainer');
+      const communityPoints = engagementData.community.totalPoints;
+      
+      milestoneContainer.innerHTML = '';
+      
+      engagementData.community.milestones.forEach(milestone => {
+          const isReached = communityPoints >= milestone.goal;
+          const milestoneElement = document.createElement('div');
+          milestoneElement.className = `milestone ${isReached ? 'reached' : ''}`;
+          milestoneElement.innerHTML = `
+              <div style="font-size: 1.5rem;">${isReached ? '✅' : '🎯'}</div>
+              <div><strong>${milestone.goal.toLocaleString()} Points</strong></div>
+              <div>${milestone.reward}</div>
+              <div><small>${isReached ? 'Reached!' : `${(communityPoints / milestone.goal * 100).toFixed(1)}% complete`}</small></div>
+          `;
+          milestoneContainer.appendChild(milestoneElement);
+      });
+  }
+  
+  function updateSpotlight() {
+      const spotlightContainer = document.getElementById('spotlightContainer');
+      
+      // In a real app, this would rotate between top contributors
+      // For demo, we'll feature a simulated user
+      const featuredUsers = [
+          { name: 'CryptoMaster', role: 'Top Contributor', achievement: '1,250 points earned' },
+          { name: 'MemeQueen', role: 'Content Creator', achievement: 'Created 45 memes' },
+          { name: 'CommunityBuilder', role: 'Community Helper', achievement: 'Helped 22 new members' }
+      ];
+      
+      // Rotate featured user daily
+      const dayOfYear = Math.floor((new Date() - new Date(new Date().getFullYear(), 0, 0)) / (1000 * 60 * 60 * 24));
+      const featuredUser = featuredUsers[dayOfYear % featuredUsers.length];
+      
+      spotlightContainer.innerHTML = `
+          <div class="spotlight-avatar">${featuredUser.name.charAt(0)}</div>
+          <h3>${featuredUser.name}</h3>
+          <p><strong>${featuredUser.role}</strong></p>
+          <p>${featuredUser.achievement}</p>
+          <p><small>Featured Community Member</small></p>
+      `;
+  }
+  
+  function updateActivityFeed() {
+      const activityFeed = document.getElementById('activityFeed');
+      const activities = engagementData.activities.slice(0, 10); // Show last 10 activities
+      
+      activityFeed.innerHTML = '';
+      
+      if (activities.length === 0) {
+          activityFeed.innerHTML = '<div class="activity-item">No recent activity</div>';
+          return;
+      }
+      
+      activities.forEach(activity => {
+          const activityElement = document.createElement('div');
+          activityElement.className = 'activity-item';
+          
+          let activityText = '';
+          switch(activity.type) {
+              case 'dailyCheckin':
+                  activityText = '✅ Completed daily check-in';
+                  break;
+              case 'shareSocial':
+                  activityText = '📢 Shared on social media';
+                  break;
+              case 'createMeme':
+                  activityText = '🎨 Created a new meme';
+                  break;
+              case 'inviteFriend':
+                  activityText = '👥 Invited a friend to join';
+                  break;
+              case 'badgeEarned':
+                  activityText = `🏆 Earned badge: ${activity.details}`;
+                  break;
+              case 'levelUp':
+                  activityText = `⭐ ${activity.details}`;
+                  break;
+              case 'challengeCompleted':
+                  activityText = `🎯 ${activity.details}`;
+                  break;
+              case 'memeSubmitted':
+                  activityText = '🎨 Submitted a meme to contest';
+                  break;
+              case 'tweetPosted':
+                  activityText = '🐦 Posted about SENPEPE on Twitter';
+                  break;
+              case 'twitterVerified':
+                  activityText = '✅ Verified Twitter post';
+                  break;
+              default:
+                  activityText = `Activity: ${activity.type}`;
+          }
+          
+          const timeAgo = getTimeAgo(activity.timestamp);
+          
+          activityElement.innerHTML = `
+              <div>${activityText}</div>
+              <div class="timestamp">${timeAgo}</div>
+          `;
+          
+          activityFeed.appendChild(activityElement);
+      });
+  }
+  
+  function getTimeAgo(timestamp) {
+      const now = new Date();
+      const activityTime = new Date(timestamp);
+      const diffMs = now - activityTime;
+      const diffMins = Math.floor(diffMs / (1000 * 60));
+      const diffHours = Math.floor(diffMs / (1000 * 60 * 60));
+      const diffDays = Math.floor(diffMs / (1000 * 60 * 60 * 24));
+      
+      if (diffMins < 1) return 'Just now';
+      if (diffMins < 60) return `${diffMins} min ago`;
+      if (diffHours < 24) return `${diffHours} hr ago`;
+      return `${diffDays} day${diffDays > 1 ? 's' : ''} ago`;
+  }
+  
+  // ===== EVENT LISTENERS =====
+  
+  document.getElementById('dailyCheckin').addEventListener('click', function() {
+      const user = engagementData.users[userId];
+      const today = new Date().toDateString();
+      
+      if (user.lastCheckin === today) {
+          showNotification('You already checked in today!');
+          return;
+      }
+      
+      user.dailyCheckins = (user.dailyCheckins || 0) + 1;
+      user.lastCheckin = today;
+      
+      awardPoints(activityPoints.dailyCheckin, 'dailyCheckin');
+      addActivity('dailyCheckin', 'Manual daily check-in');
+      
+      // Special bonus for consecutive days
+      if (user.dailyCheckins % 7 === 0) {
+          awardPoints(50, 'weeklyBonus');
+          showNotification('🎊 7-day streak bonus! +50 points');
+      }
+  });
+  
+  document.getElementById('shareSocial').addEventListener('click', function() {
+      showTwitterVerification();
+  });
+  
+  document.getElementById('createMeme').addEventListener('click', function() {
+      showMemeSubmission();
+  });
+  
+  // Set up invite friend with rate limiting
+  function setupInviteFriend() {
+      document.getElementById('inviteFriend').addEventListener('click', function() {
+          const user = engagementData.users[userId];
+          const now = Date.now();
+          const lastInviteAction = user.lastInviteAction || 0;
+          const cooldownTime = 2 * 60 * 1000; // 2 minutes
+          
+          if (now - lastInviteAction < cooldownTime) {
+              const remaining = Math.ceil((cooldownTime - (now - lastInviteAction)) / 1000);
+              showNotification(`⏳ Please wait ${remaining} seconds before inviting again`);
+              return;
+          }
+          
+          user.lastInviteAction = now;
+          user.invites = (user.invites || 0) + 1;
+          
+          // Generate referral link
+          const refLink = `${window.location.origin}?ref=${userId}`;
+          navigator.clipboard.writeText(refLink).then(() => {
+              awardPoints(activityPoints.inviteFriend, 'inviteFriend');
+              addActivity('inviteFriend', 'Invited a friend to join');
+              showNotification('👥 Referral link copied! +25 points');
+          });
+      });
+  }
+
+  // ===== INITIALIZATION =====
+  
+  function initializeEngagementSystem() {
+      // Setup username system first
+      setupUsernameSystem();
+      
+      // Run automated triggers
+      automatedEngagementTriggers();
+      
+      // Initialize new systems
+      initializeDailyChallenges();
+      initializeMemeContest();
+      initializeTwitterShilling();
+      
+      // Update all UI components
+      updateUI();
+      updateBadges();
+      updateLeaderboard();
+      updateMilestones();
+      updateSpotlight();
+      updateActivityFeed();
+      updateDailyChallenges();
+      updateTwitterStats();
+      
+      // Set up periodic updates
+      setInterval(automatedEngagementTriggers, 30000); // Update every 30 seconds
+      setInterval(updateSpotlight, 3600000); // Rotate spotlight hourly
+      setInterval(updateMemeContestTimer, 60000); // Update contest timer every minute
+      
+      console.log('SENPEPE Auto-Engagement System initialized');
+  }
+  
+  // Start the system when page loads
+  window.addEventListener('DOMContentLoaded', initializeEngagementSystem);
+
+  // Helper: check if local asset exists (tries png/jpg/jpeg/webp)
+  function imgExists(url){return new Promise(r=>{const i=new Image();i.onload=()=>r(true);i.onerror=()=>r(false);i.src=url;});}
+  async function resolveLocal(base){const exts=['.png','.jpg','.jpeg','.webp'];for(const ext of exts){const u=`assets/${base}${ext}`;if(await imgExists(u))return u;}return null;}
+
+  /* HERO stars + streaks */
+  (function(){
+    const warp = document.getElementById('warp');
+    for(let i=0;i<120;i++){
+      const s=document.createElement('div'); s.className='star';
+      s.style.top=(Math.random()*100)+'%'; s.style.left=(Math.random()*100)+'%';
+      s.style.animationDelay=(Math.random()*0.9)+'s'; warp.appendChild(s);
+    }
+    const N=48; for(let i=0;i<N;i++){ const d=document.createElement('div'); d.className='streak';
+      d.style.setProperty('--top',(Math.random()*100)+'%');
+      d.style.setProperty('--left',(Math.random()*120+20)+'vw');
+      d.style.setProperty('--len',(80+Math.random()*120)+'px');
+      d.style.setProperty('--angle',(-10-Math.random()*8)+'deg');
+      d.style.setProperty('--dur',(8+Math.random()*8).toFixed(2)+'s');
+      d.style.setProperty('--delay',(Math.random()*8).toFixed(2)+'s');
+      d.style.setProperty('--op',(0.4+Math.random()*0.5).toFixed(2));
+      warp.appendChild(d);
+    }
+  })();
+
+  /* ===== PLANET BELT ===== */
+  (async function(){
+    const field = document.getElementById('planetField'); if(!field) return;
+
+    const order = [
+      {key:'jupiter', w:240, pos:'bottom', y:'12%'},
+      {key:'mars',    w:170, pos:'top',    y:'22%'},
+      {key:'earth',   w:200, pos:'bottom', y:'18%'},
+      {key:'moon',    w:150, pos:'top',    y:'9%'},
+      {key:'pluto',   w:140, pos:'bottom', y:'26%'},
+      // Saturn removed from here
+      {key:'sun',     w:260, pos:'bottom', y:'6%',  sun:true}
+    ];
+
+    const urls={}; for(const p of order){ urls[p.key]=await resolveLocal(p.key); }
+    const xs=['3%','19%','31%','46%','68%','95%']; // Removed one position
+
+    const track=document.createElement('div'); track.className='belt-track'; track.style.setProperty('--beltDur','26s');
+    const g1=document.createElement('div'); g1.className='belt-group g1';
+    const g2=document.createElement('div'); g2.className='belt-group g2';
+
+    function fill(group){
+      order.forEach((p,idx)=>{
+        const u=urls[p.key]; if(!u) return;
+        const el=document.createElement('div');
+        el.className='planet-img'+(p.ringed?' ringed':'')+(p.sun?' sun':'');
+        el.style.setProperty('--w', p.w+'px');
+        el.style.left = xs[idx];
+        if(p.pos==='top'){ el.style.top=p.y; } else { el.style.bottom=p.y; }
+        el.style.backgroundImage=`url('${u}')`;
+        group.appendChild(el);
+      });
+    }
+    fill(g1); fill(g2);
+    track.appendChild(g1); track.appendChild(g2);
+    field.innerHTML=''; field.appendChild(track);
+  })();
+
+  /* HOW stars */
+  (function(){
+    const sky=document.getElementById('howSky');
+    for(let i=0;i<110;i++){
+      const s=document.createElement('div'); s.className='how-star';
+      s.style.top=(Math.random()*100)+'%'; s.style.left=(Math.random()*100)+'%';
+      s.style.animationDelay=(Math.random()*1)+'s'; sky.appendChild(s);
+    }
+  })();
+
+  /* CTA stars */
+  (function(){
+    const sky=document.getElementById('ctaSky');
+    for(let i=0;i<120;i++){
+      const s=document.createElement('div'); s.className='cta-star';
+      s.style.top=(Math.random()*100)+'%'; s.style.left=(Math.random()*100)+'%';
+      s.style.animationDelay=(Math.random()*1)+'s'; sky.appendChild(s);
+    }
+  })();
+
+  /* Rocket embers — always on */
+  (function(){
+    const wrap = document.getElementById('rocketWrap'); if(!wrap) return;
+    function addEmber(){
+      const e=document.createElement('span'); e.className='ember';
+      const sizes=[12,14,16,18,20,22,24]; const s=sizes[Math.floor(Math.random()*sizes.length)];
+      e.style.setProperty('--w',s+'px'); e.style.setProperty('--h',s+'px');
+      e.style.setProperty('--ey',(Math.floor(Math.random()*40)-20)+'px');
+      e.style.setProperty('--s',(0.7+Math.random()*0.6).toFixed(2));
+      e.style.setProperty('--t',(2.2+Math.random()*2.2).toFixed(2)+'s');
+      e.style.setProperty('--d',(Math.random()*1.8).toFixed(2)+'s');
+      wrap.appendChild(e); setTimeout(()=>{e.remove()},6000);
+    }
+    for(let i=0;i<16;i++) addEmber(); setInterval(addEmber,220);
+  })();
+
+  /* Money/bags rails in HOW — always on */
+  (async function(){
+    const bag  = await resolveLocal('moneybag1') || 'https://img.icons8.com/3d-fluency/188/money-bag.png';
+    const cash = await resolveLocal('cash1')      || 'https://img.icons8.com/3d-fluency/188/stack-of-money.png';
+
+    const how = document.getElementById('how');
+    const railL = document.getElementById('howRailL');
+    const railR = document.getElementById('howRailR');
+
+    const items=[];
+    function make(rail, src){
+      const d=document.createElement('div');
+      d.className='sideItem';
+      d.style.setProperty('--w', (110 + Math.floor(Math.random()*120)) + 'px');
+      d.dataset.offset = (Math.random()*120 - 60).toFixed(0);
+      d.dataset.speed  = (0.85 + Math.random()*0.5).toFixed(2);
+      const img=document.createElement('img'); img.src=src; img.alt='';
+      d.appendChild(img); rail.appendChild(d); items.push(d);
+    }
+    for(let i=0;i<5;i++){ make(railL, cash); make(railR, bag); }
+
+    function clamp(n,min,max){return Math.max(min, Math.min(max,n));}
+    function updatePositions(){
+      const rect = how.getBoundingClientRect();
+      const vh = window.innerHeight;
+      const inView = rect.top < vh*0.9 && rect.bottom > vh*0.1;
+      const span = rect.height + vh*0.8;
+      const t = clamp((vh*0.9 - rect.top) / span, 0, 1);
+      for(const el of items){
+        el.style.opacity = inView ? .95 : 0;
+        const off = parseFloat(el.dataset.offset);
+        const spd = parseFloat(el.dataset.speed);
+        const y   = -120 + t * (span*0.85) * spd + off;
+        el.style.transform = `translate(-50%, ${y}px)`;
+      }
+    }
+    const io = new IntersectionObserver(()=>updatePositions(), {threshold:[0,0.1,0.5,0.9,1]});
+    io.observe(how);
+    window.addEventListener('scroll', ()=>requestAnimationFrame(updatePositions), {passive:true});
+    window.addEventListener('resize', updatePositions);
+    updatePositions();
+  })();
+
+  /* Meme overlay click-cycler — auto-rotates */
+  (async function(){
+    const stage=document.getElementById('meme-stage');
+    const overlay=document.getElementById('overlaySwap');
+    const keys=['sen1','sen2','sen3','sen4','sen5','sen6','sen7','sen8','sen9','sen10'];
+    const urls=[]; for(const k of keys){ const u=await resolveLocal(k); if(u) urls.push(u); }
+    const bg=await resolveLocal('sen6'); if(bg) stage.style.backgroundImage=`url('${bg}')`;
+    let idx=0, timer=null;
+    function setImg(i){ if(!urls.length) return; idx=(i+urls.length)%urls.length; overlay.src=urls[idx]; }
+    function startAuto(){ stopAuto(); timer=setInterval(()=>setImg(idx+1), 4500); }
+    function stopAuto(){ if(timer){ clearInterval(timer); timer=null; } }
+    overlay.addEventListener('click',()=>{ setImg(idx+1); startAuto(); });
+    stage.addEventListener('mouseenter', stopAuto);
+    stage.addEventListener('mouseleave', startAuto);
+    setImg(0); startAuto();
+  })();
+
+  // Toast helper
+  function toast(msg){
+    const t=document.getElementById('toast');
+    t.textContent=msg; t.classList.add('show');
+    setTimeout(()=>t.classList.remove('show'), 2200);
+  }
+
+  // Share on X
+  document.getElementById('shareBtn')?.addEventListener('click', ()=>{
+    const text = encodeURIComponent("SENPEPE launches Oct 17 @ 7pm on Solana. Join the movement. #SENPEPE");
+    const url  = encodeURIComponent(location.href);
+    const u = `https://twitter.com/intent/tweet?text=${text}&url=${url}`;
+    window.open(u, '_blank', 'noopener,noreferrer');
+  });
+
+  // Referral link: add ?ref=<random-7>
+  document.getElementById('refBtn')?.addEventListener('click', ()=>{
+    const id = Math.random().toString(36).slice(2,9);
+    const base = location.origin + location.pathname;
+    const ref = `${base}?ref=${id}`;
+    navigator.clipboard.writeText(ref).then(()=>toast("Referral link copied"));
+  });
+
+  // Append ref to outbound links if present
+  (function(){
+    const params = new URLSearchParams(location.search);
+    const ref = params.get('ref');
+    if(!ref) return;
+    document.querySelectorAll('[data-append-ref]').forEach(a=>{
+      try{
+        const u=new URL(a.href);
+        u.searchParams.set('ref', ref);
+        a.href=u.toString();
+      }catch{}
+    });
+  })();
+
+  // Email validation (front-end only)
+  document.getElementById('mailForm')?.addEventListener('submit', (e)=>{
+    e.preventDefault();
+    const input = document.getElementById('mailInput');
+    const err = document.getElementById('errorMessage');
+    const val = input.value.trim();
+    const ok = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(val);
+    if(!ok){
+      input.classList.add('error'); err.classList.add('show'); return;
+    }
+    input.classList.remove('error'); err.classList.remove('show');
+    toast("You're on the list!");
+    // TODO: hook to your backend or service (e.g., Formspree, Brevo, Mailchimp)
+    input.value='';
+  });
+
+  // Copy Contract + Info
+  document.getElementById('copyCA')?.addEventListener('click', ()=>{
+    const ca = document.getElementById('ca')?.textContent?.trim() || '';
+    navigator.clipboard.writeText(ca).then(()=>toast("Contract copied"));
+  });
+  document.getElementById('copyInfo')?.addEventListener('click', ()=>{
+    const lines = [
+      "Ticker: SENPEPE",
+      "Network: Solana",
+      `Launch: ${document.getElementById('infoLaunch')?.textContent || 'TBA'}`,
+      `Contract: ${document.getElementById('ca')?.textContent || 'TBA'}`,
+      `Price (USD): ${document.getElementById('priceUsd')?.textContent || 'TBA'}`,
+      `Price (SOL): ${document.getElementById('priceSol')?.textContent || 'TBA'}`,
+      `Market Cap: ${document.getElementById('mcap')?.textContent || 'TBA'}`,
+      `Liquidity: ${document.getElementById('liq')?.textContent || 'TBA'}`,
+      `Total Supply: ${document.getElementById('supply')?.textContent || 'TBA'}`,
+      `Tax: ${document.getElementById('tax')?.textContent || 'TBA'}`
+    ];
+    navigator.clipboard.writeText(lines.join("\n")).then(()=>toast("Info summary copied"));
+  });
+
+  // Corner flip assets (optional if present)
+  (async function(){
+    const L = document.getElementById('solLeft');
+    const R = document.getElementById('solRight');
+    const u = await resolveLocal('sol1');
+    if(u){ L.src = u; R.src = u; } else { L.remove(); R.remove(); }
+  })();
+
+  // Diamond shower that forms SENPEPE on click of How to Buy
+  (async function(){
+    const buy = document.getElementById('buyBtn'); if(!buy) return;
+    const diamondURL = await resolveLocal('diamond') || 'https://img.icons8.com/emoji/96/gem-stone.png';
+
+    function makeLayer(){
+      let layer = document.querySelector('.diamond-layer');
+      if(!layer){ layer = document.createElement('div'); layer.className='diamond-layer'; document.body.appendChild(layer); }
+      layer.innerHTML=''; return layer;
+    }
+
+    function samplePoints(text){
+      const w = window.innerWidth, h = Math.max(180, Math.min(360, Math.floor(window.innerHeight*0.35)));
+      const cvs=document.createElement('canvas'); cvs.width=w; cvs.height=h; const ctx=cvs.getContext('2d');
+      const fontSize = Math.min(260, Math.max(110, Math.floor(w*0.18)));
+      ctx.clearRect(0,0,w,h); ctx.fillStyle='#fff'; ctx.textBaseline='middle'; ctx.textAlign='center';
+      ctx.font = `900 ${fontSize}px system-ui,Segoe UI,Arial`;
+      ctx.fillText(text, w/2, h/2);
+      const img=ctx.getImageData(0,0,w,h).data;
+      const step = Math.max(8, Math.floor(fontSize/18));
+      const pts=[];
+      for(let y=0;y<h;y+=step){ for(let x=0;x<w;x+=step){ const i=((y*w)+x)*4+3; if(img[i]>160) pts.push({x,y}); }}
+      return {pts,w,h};
+    }
+
+    function showerAndForm(text){
+      const layer = makeLayer();
+      const {pts,w,h} = samplePoints(text);
+      const needed = Math.min(pts.length, 260);
+      const pick = []; for(let i=0;i<needed;i++){ pick.push(pts[Math.floor(i*(pts.length/needed))]); }
+
+      const diamonds=[];
+      for(let i=0;i<needed;i++){
+        const d=document.createElement('img'); d.src=diamondURL; d.className='diamond';
+        const size = 22 + Math.random()*18; d.style.setProperty('--w', size+'px'); d.style.setProperty('--s', (0.85+Math.random()*0.4).toFixed(2));
+        const sx = Math.random()*window.innerWidth; const sy = -40 - Math.random()*120;
+        d.style.setProperty('--x', sx+'px'); d.style.setProperty('--y', sy+'px');
+        layer.appendChild(d); diamonds.push(d);
+      }
+
+      requestAnimationFrame(()=>{ diamonds.forEach((d)=>{ const fy = window.innerHeight*0.2 + Math.random()*window.innerHeight*0.6; d.style.opacity=1; d.style.setProperty('--y', fy+'px');}); });
+      setTimeout(()=>{
+        const topOffset = Math.round(window.innerHeight*0.25);
+        diamonds.forEach((d,idx)=>{
+          const p = pick[idx % pick.length];
+          const tx = p.x; const ty = topOffset + p.y - h/2;
+          d.style.setProperty('--x', tx+'px');
+          d.style.setProperty('--y', Math.max(40, ty)+'px');
+        });
+      }, 1200);
+      setTimeout(()=>{ diamonds.forEach(d=>d.style.opacity=0); }, 2800);
+      setTimeout(()=>{ const layer=document.querySelector('.diamond-layer'); if(layer && layer.parentNode) layer.remove(); }, 3600);
+    }
+
+    buy.addEventListener('click', (e)=>{
+      // let the link still work, but flex the effect
+      showerAndForm('SENPEPE');
+    });
+  })();
+
+  // When you're ready to launch, call this function with your contract address:
+  // populateLaunchData('YOUR_ACTUAL_CONTRACT_ADDRESS', {
+  //     priceUsd: '$0.0000123',
+  //     priceSol: '0.00000045 SOL',
+  //     mcap: '$1.23M',
+  //     liq: '$250K',
+  //     supply: '1B',
+  //     tax: '0%',
+  //     decimals: '9',
+  //     lpLock: '90 days',
+  //     audit: 'Pending'
+  // });
+</script>
+</body>
+</html>
